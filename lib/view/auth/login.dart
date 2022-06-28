@@ -3,6 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
+import 'package:nb_utils/nb_utils.dart';
+import 'package:property_trading_app/view/auth/widget/otpdialog.dart';
 import 'package:property_trading_app/view/root/root_screen.dart';
 
 import '../../utils/app-color.dart';
@@ -120,7 +122,7 @@ class _LoginScreenState extends State<LoginScreen> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: <Widget>[
                   // SvgPicture.asset('assets/images/loginicon.svg'),
-                  Image.asset("assets/images/g_marketing_logo.png", scale: 2,color: Colors.amber,),
+                  Align(alignment:Alignment.centerRight,child: Image.asset("assets/images/g_marketing_logo.png", scale: 3.5,color: Colors.amber,)),
                   const SizedBox(height: 5),
                   const Text('Welcome,', style: welcomeStyle),
                   const Text('Sign in to continue', style: welcomeSubStyle),
@@ -204,7 +206,33 @@ class _LoginScreenState extends State<LoginScreen> {
                     ),
                   ),
                   const SizedBox(height: 20),
-                  const Text('Forgot your password?', style: forgotPassword)
+                  const Text('Forgot your password?', style: forgotPassword),
+                  20.height,
+                  Container(
+                    padding: EdgeInsets.all(8),
+                    decoration: boxDecorationWithRoundedCorners(
+
+                      gradient:LinearGradient(
+                        begin: Alignment.centerLeft,
+                        end: Alignment.centerRight,
+                        colors: [yellowStart.withOpacity(0.8), yellowEnd.withOpacity(0.8)],
+                      ) ,
+                      boxShape: BoxShape.circle,
+                    ),
+                    child: Icon(Icons.call,color: white,).paddingAll(4).onTap(() async {
+                      hideKeyboard(context);
+
+
+                      showInDialog(
+                        context,
+                        contentPadding: EdgeInsets.zero,
+                        builder: (p0) => AppCommonDialog(title: "OTP LOGIN", child: OTPDialog()),
+                      );
+
+
+                      //voidCallback?.call();
+                    }, splashColor: Colors.transparent, highlightColor: Colors.transparent),
+                  ),
                 ],
               ),
             ),

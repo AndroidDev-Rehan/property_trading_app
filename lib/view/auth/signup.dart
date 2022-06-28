@@ -4,7 +4,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
 import 'package:property_trading_app/view/auth/login.dart';
-// import 'package:nb_utils/nb_utils.dart';
+import 'package:nb_utils/nb_utils.dart';
 import 'package:property_trading_app/view/auth/widget/otpdialog.dart';
 
 import '../../utils/app-color.dart';
@@ -121,9 +121,8 @@ class _SignupState extends State<Signup> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: <Widget>[
-                  Image.asset("assets/images/g_marketing_logo.png", scale: 4.8,color: Colors.amber,),
-                  // SvgPicture.asset('assets/images/loginicon.svg'),
-                  const SizedBox(height: 5),
+                  Align(alignment:Alignment.centerRight,child: Image.asset("assets/images/g_marketing_logo.png", scale: 3.5,color: Colors.amber,))                  // SvgPicture.asset('assets/images/loginicon.svg'),
+                 , const SizedBox(height: 5),
                   const Text('Create, Your Account', style: welcomeStyle),
 
                 ],
@@ -197,11 +196,7 @@ class _SignupState extends State<Signup> {
                   const SizedBox(height: 50),
                   RaisedButton(
                     onPressed: () {
-                      // showInDialog(
-                      //   context,
-                      //   contentPadding: EdgeInsets.zero,
-                      //   builder: (p0) => AppCommonDialog(title: "OTP LOGIN", child: OTPDialog()),
-                      // );
+
                     },
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(5),
