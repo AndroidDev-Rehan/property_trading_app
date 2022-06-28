@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:get/get.dart';
+import 'package:get/get_core/src/get_main.dart';
+import 'package:property_trading_app/view/auth/login.dart';
 // import 'package:nb_utils/nb_utils.dart';
 import 'package:property_trading_app/view/auth/widget/otpdialog.dart';
 
@@ -118,8 +121,9 @@ class _SignupState extends State<Signup> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: <Widget>[
-                  SvgPicture.asset('assets/images/loginicon.svg'),
-                  const SizedBox(height: 25),
+                  Image.asset("assets/images/g_marketing_logo.png", scale: 4.8,color: Colors.amber,),
+                  // SvgPicture.asset('assets/images/loginicon.svg'),
+                  const SizedBox(height: 5),
                   const Text('Create, Your Account', style: welcomeStyle),
 
                 ],
@@ -225,7 +229,11 @@ class _SignupState extends State<Signup> {
                     ),
                   ),
                   const SizedBox(height: 20),
-                  const Text('Already have a Account Signin?', style: forgotPassword)
+                  InkWell(
+                    onTap: (){
+                      Get.to(LoginScreen());
+                    },
+                      child: const Text('Already have a Account? Sign in', style: forgotPassword))
                 ],
               ),
             ),

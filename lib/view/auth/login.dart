@@ -1,21 +1,24 @@
 import 'package:flutter/material.dart';
 
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:get/get.dart';
+import 'package:get/get_core/src/get_main.dart';
+import 'package:property_trading_app/view/root/root_screen.dart';
 
 import '../../utils/app-color.dart';
 import '../../utils/text_style.dart';
 
 
 
-class Login extends StatefulWidget {
+class LoginScreen extends StatefulWidget {
 
 
-  const Login({Key? key}) : super(key: key);
+  const LoginScreen({Key? key}) : super(key: key);
   @override
-  _LoginState createState() => _LoginState();
+  _LoginScreenState createState() => _LoginScreenState();
 }
 
-class _LoginState extends State<Login> {
+class _LoginScreenState extends State<LoginScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -116,8 +119,9 @@ class _LoginState extends State<Login> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: <Widget>[
-                  SvgPicture.asset('assets/images/loginicon.svg'),
-                  const SizedBox(height: 25),
+                  // SvgPicture.asset('assets/images/loginicon.svg'),
+                  Image.asset("assets/images/g_marketing_logo.png", scale: 2,color: Colors.amber,),
+                  const SizedBox(height: 5),
                   const Text('Welcome,', style: welcomeStyle),
                   const Text('Sign in to continue', style: welcomeSubStyle),
                 ],
@@ -172,7 +176,7 @@ class _LoginState extends State<Login> {
                   const SizedBox(height: 50),
                   RaisedButton(
                     onPressed: () {
-                      Navigator.pushNamedAndRemoveUntil(context, 'bitcoin', (Route<dynamic> route) => false);
+                      Get.to(const RootScreen());
                     },
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(5),
