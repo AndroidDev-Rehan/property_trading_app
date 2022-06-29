@@ -122,7 +122,7 @@ class _LoginScreenState extends State<LoginScreen> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: <Widget>[
                   // SvgPicture.asset('assets/images/loginicon.svg'),
-                  Align(alignment:Alignment.centerRight,child: Image.asset("assets/images/g_marketing_logo.png", scale: 3.5,color: Colors.amber,)),
+                  Align(alignment:Alignment.centerRight,child: Image.asset("assets/images/g_marketing_logo.png", scale: 3.5,color:yellowmain,)),
                   const SizedBox(height: 5),
                   const Text('Welcome,', style: welcomeStyle),
                   const Text('Sign in to continue', style: welcomeSubStyle),
@@ -137,7 +137,7 @@ class _LoginScreenState extends State<LoginScreen> {
               height: MediaQuery.of(context).size.height / 2,
               padding: const EdgeInsets.symmetric(horizontal: 25),
               decoration: const BoxDecoration(
-                color: blueMain,
+                gradient: backgroundGradient,
                 borderRadius: BorderRadius.vertical(
                   top: Radius.circular(50),
                 ),
@@ -187,15 +187,11 @@ class _LoginScreenState extends State<LoginScreen> {
                     child: Container(
                       width: double.infinity,
                       height: 50,
-                      decoration: const BoxDecoration(
+                      decoration: BoxDecoration(
                         borderRadius: BorderRadius.all(
                           Radius.circular(5),
                         ),
-                        gradient: LinearGradient(
-                          begin: Alignment.centerLeft,
-                          end: Alignment.centerRight,
-                          colors: [yellowStart, yellowEnd],
-                        ),
+                        color:yellowmain,
                       ),
                       child: const Center(
                         child: Text(
@@ -211,14 +207,10 @@ class _LoginScreenState extends State<LoginScreen> {
                   Container(
                     padding: EdgeInsets.all(8),
                     decoration: boxDecorationWithRoundedCorners(
-
-                      gradient:LinearGradient(
-                        begin: Alignment.centerLeft,
-                        end: Alignment.centerRight,
-                        colors: [yellowStart.withOpacity(0.8), yellowEnd.withOpacity(0.8)],
-                      ) ,
+backgroundColor: yellowmain,
                       boxShape: BoxShape.circle,
                     ),
+
                     child: Icon(Icons.call,color: white,).paddingAll(4).onTap(() async {
                       hideKeyboard(context);
 

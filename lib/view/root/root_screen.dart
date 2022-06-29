@@ -1,5 +1,6 @@
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:flutter/material.dart';
+import 'package:nb_utils/nb_utils.dart';
 import 'package:property_trading_app/utils/app-color.dart';
 import 'package:property_trading_app/view/home/home_screen.dart';
 
@@ -18,22 +19,27 @@ class _RootScreenState extends State<RootScreen> {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        bottomNavigationBar: CurvedNavigationBar(
-          height: 50,
-          color: blueMain,
-          backgroundColor: yellowEnd.withOpacity(0.8),
-          buttonBackgroundColor: blueMain,
-          items: const <Widget>[
-            Icon(Icons.add, size: 30, color: Colors.white,),
-            Icon(Icons.list, size: 30,color: Colors.white),
-            Icon(Icons.compare_arrows, size: 30, color: Colors.white),
-          ],
-          onTap: (index) {
-            // setState((){
-            //   selectedIndex = index;
-            // });
-            //Handle button tap
-          },
+
+        bottomNavigationBar: Container(
+          decoration: BoxDecoration(color: outline),
+          child: CurvedNavigationBar(
+            height: 50,
+            color: yellowmain,
+
+            backgroundColor: transparentColor,
+            buttonBackgroundColor: yellowmain,
+            items: const <Widget>[
+              Icon(Icons.add, size: 30, color: Colors.white,),
+              Icon(Icons.list, size: 30,color: Colors.white),
+              Icon(Icons.compare_arrows, size: 30, color: Colors.white),
+            ],
+            onTap: (index) {
+              // setState((){
+              //   selectedIndex = index;
+              // });
+              //Handle button tap
+            },
+          ),
         ),
         body: (selectedIndex==0) ? const HomeScreen() : Container(color: Colors.blueAccent),
       ),

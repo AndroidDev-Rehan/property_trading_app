@@ -207,8 +207,10 @@ class OTPDialogState extends State<OTPDialog> {
                     // sendOTP();
                   },
                   text: 'Send Otp',
-                  color: yellowEnd,
+
+                  color: yellowmain,
                   width: Get.width,
+                  textStyle: boldTextStyle(color: white),
                 )
               ],
             ),
@@ -250,9 +252,9 @@ class OTPDialogState extends State<OTPDialog> {
                     // submit();
                     Get.off(()=>RootScreen());
                   },
-                  color: yellowEnd,
+                  color: yellowmain,
                   text: 'Confirm',
-                  textStyle: boldTextStyle(color: black),
+                  textStyle: boldTextStyle(color: white),
                   width: Get.width,
                 ),
               ],
@@ -283,12 +285,13 @@ class AppCommonDialog extends StatelessWidget {
         mainAxisSize: MainAxisSize.min,
         children: [
           Container(
-            padding: EdgeInsets.fromLTRB(16, 4, 4, 8),
+            padding: EdgeInsets.fromLTRB(16, 0, 4, 8),
             width: Get.width,
             decoration: boxDecorationDefault(
-              color: blueMain,
+
+              gradient: backgroundHomeGradient,
               borderRadius:
-                  radiusOnly(topRight: defaultRadius, topLeft: defaultRadius),
+                  BorderRadius.only(topRight: Radius.circular(4), topLeft: Radius.circular(4)),
             ),
             child: Row(
               children: [

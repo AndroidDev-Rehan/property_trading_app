@@ -31,6 +31,8 @@ const Color yellowEndBitcoin = Color.fromRGBO(245, 188, 54, 1);
 
 const Color yellowStartWallet = Color.fromRGBO(250, 173, 61, 1);
 const Color yellowEndWallet = Color.fromRGBO(242, 198, 19, 1);
-
-const Color purpleStartEthereum = Color.fromRGBO(78, 5, 120, 1);
-const Color purpleEndEthereum = Color.fromRGBO(156, 10, 239, 1);
+const Color yellowmain=Color.fromRGBO(215, 188, 107, 1.0);
+const Color center = Color.fromRGBO(22, 110, 130, 1.0);
+const Color outline= Color.fromRGBO(17, 43, 56, 1.0);
+const RadialGradient backgroundGradient=RadialGradient(colors: [center,outline,],radius: 0.6);
+const RadialGradient backgroundHomeGradient=RadialGradient(colors: [center,outline,],radius: 1);

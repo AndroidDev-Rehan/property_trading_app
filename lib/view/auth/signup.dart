@@ -121,7 +121,7 @@ class _SignupState extends State<Signup> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: <Widget>[
-                  Align(alignment:Alignment.centerRight,child: Image.asset("assets/images/g_marketing_logo.png", scale: 3.5,color: Colors.amber,))                  // SvgPicture.asset('assets/images/loginicon.svg'),
+                  Align(alignment:Alignment.centerRight,child: Image.asset("assets/images/g_marketing_logo.png", scale: 3.5,color:yellowmain,))                  // SvgPicture.asset('assets/images/loginicon.svg'),
                  , const SizedBox(height: 5),
                   const Text('Create, Your Account', style: welcomeStyle),
 
@@ -133,10 +133,10 @@ class _SignupState extends State<Signup> {
             alignment: Alignment.bottomCenter,
             child: Container(
               width: double.infinity,
-              height: MediaQuery.of(context).size.height / 1.5,
+              height: MediaQuery.of(context).size.height / 1.7,
               padding: const EdgeInsets.symmetric(horizontal: 25),
               decoration: const BoxDecoration(
-                color: blueMain,
+                gradient: backgroundGradient,
                 borderRadius: BorderRadius.vertical(
                   top: Radius.circular(50),
                 ),
@@ -205,15 +205,11 @@ class _SignupState extends State<Signup> {
                     child: Container(
                       width: double.infinity,
                       height: 50,
-                      decoration: const BoxDecoration(
+                      decoration: BoxDecoration(
                         borderRadius: BorderRadius.all(
                           Radius.circular(5),
                         ),
-                        gradient: LinearGradient(
-                          begin: Alignment.centerLeft,
-                          end: Alignment.centerRight,
-                          colors: [yellowStart, yellowEnd],
-                        ),
+                       color: yellowmain
                       ),
                       child: const Center(
                         child: Text(
