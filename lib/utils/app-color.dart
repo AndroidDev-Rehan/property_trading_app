@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
 
+Color scaffoldBackground = blueMain;
+Color scaffoldSecondary = yellowEnd.withOpacity(1);
+Color scaffoldSecondaryContainers = yellowEnd.withOpacity(0.9);
+
 const Color blueMain = Color.fromRGBO(10, 11, 60, 1);
 const Color greyText = Color.fromRGBO(161, 161, 161, 1);
 const Color greyTextLighter = Color.fromRGBO(157, 163, 180, 1);

@@ -121,7 +121,7 @@ class _SignupState extends State<Signup> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: <Widget>[
-                  Align(alignment:Alignment.centerRight,child: Image.asset("assets/images/g_marketing_logo.png", scale: 3.5,color:yellowmain,))                  // SvgPicture.asset('assets/images/loginicon.svg'),
+                  Align(alignment:Alignment.centerRight,child: Image.asset("assets/images/g_marketing_logo.png", scale: 3.5,))                  // SvgPicture.asset('assets/images/loginicon.svg'),
                  , const SizedBox(height: 5),
                   const Text('Create, Your Account', style: welcomeStyle),
 

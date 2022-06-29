@@ -4,6 +4,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
 import 'package:nb_utils/nb_utils.dart';
+import 'package:property_trading_app/view/auth/signup.dart';
 import 'package:property_trading_app/view/auth/widget/otpdialog.dart';
 import 'package:property_trading_app/view/root/root_screen.dart';
 
@@ -122,7 +123,7 @@ class _LoginScreenState extends State<LoginScreen> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: <Widget>[
                   // SvgPicture.asset('assets/images/loginicon.svg'),
-                  Align(alignment:Alignment.centerRight,child: Image.asset("assets/images/g_marketing_logo.png", scale: 3.5,color:yellowmain,)),
+                  Align(alignment:Alignment.centerRight,child: Image.asset("assets/images/g_marketing_logo.png", scale: 3.5,)),
                   const SizedBox(height: 5),
                   const Text('Welcome,', style: welcomeStyle),
                   const Text('Sign in to continue', style: welcomeSubStyle),
@@ -202,7 +203,11 @@ class _LoginScreenState extends State<LoginScreen> {
                     ),
                   ),
                   const SizedBox(height: 20),
-                  const Text('Forgot your password?', style: forgotPassword),
+                  InkWell(
+                      onTap: (){
+                        Get.to(Signup());
+                      },
+                      child: const Text('Don\'t have an account? Sign Up', style: forgotPassword)),
                   20.height,
                   Container(
                     padding: EdgeInsets.all(8),

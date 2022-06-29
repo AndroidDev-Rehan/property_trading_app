@@ -21,12 +21,12 @@ class _RootScreenState extends State<RootScreen> {
       child: Scaffold(
 
         bottomNavigationBar: Container(
-          decoration: BoxDecoration(color: outline),
+          decoration: const BoxDecoration(color: outline),
           child: CurvedNavigationBar(
             height: 50,
             color: yellowmain,
 
-            backgroundColor: transparentColor,
+            backgroundColor: const Color.fromRGBO(17, 43, 56, 1.0),
             buttonBackgroundColor: yellowmain,
             items: const <Widget>[
               Icon(Icons.add, size: 30, color: Colors.white,),

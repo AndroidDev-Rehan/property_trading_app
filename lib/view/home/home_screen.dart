@@ -21,13 +21,14 @@ class HomeScreen extends StatelessWidget {
     return SafeArea(
       child: Scaffold(
         body: Container(
+          height: Get.height,
           decoration: BoxDecoration(gradient: backgroundHomeGradient),
           child: SingleChildScrollView(
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 const SizedBox(height: 0,),
-                Image.asset("assets/images/g_marketing_logo.png", scale: 3.5,color: yellowmain,),
+                Image.asset("assets/images/g_marketing_logo.png", scale: 3.5,),
                 const SizedBox(height: 0,),
                 const Padding(
                   padding: EdgeInsets.only(left: 16.0),
@@ -106,6 +107,7 @@ class HomeScreen extends StatelessWidget {
                   }).toList(),
                 ),
                 const SizedBox(height: 30,),
+
 
 
               ],
