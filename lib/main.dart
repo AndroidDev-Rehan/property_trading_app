@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:get/get_navigation/src/root/get_material_app.dart';
+import 'package:property_trading_app/view/auth/docverfication.dart';
 // import 'package:nb_utils/nb_utils.dart';
 import 'package:property_trading_app/view/auth/login.dart';
+import 'package:property_trading_app/view/auth/selectionscreen.dart';
 import 'package:property_trading_app/view/auth/signup.dart';
+import 'package:property_trading_app/view/home/tradinghome.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -17,14 +20,9 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return GetMaterialApp(
-      theme: ThemeData(
-          primaryColor: Colors.amberAccent,
-          colorScheme: ColorScheme.fromSwatch().copyWith(secondary: Color.fromRGBO(10, 11, 60, 1), primary:Colors.amberAccent )
+    return const GetMaterialApp(
 
-      ),
-      // navigatorKey: navigatorKey,
-      home: const LoginScreen(),
+      home: TradingHome(),
     );
   }
 }
