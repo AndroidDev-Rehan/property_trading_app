@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:property_trading_app/utils/app-color.dart';
+import 'package:property_trading_app/view/auth/new_signUp.dart';
+import 'package:property_trading_app/view/auth/signin_options.dart';
 
 import '../global_widgets/custom_button.dart';
 
@@ -37,11 +40,15 @@ class WelcomeScreen extends StatelessWidget {
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceAround,
                     children: [
-                      CustomElevatedButton(text: 'Login',onPressed: (){}, roundness: 10, horizontalPadding: 25, verticalPadding: 15,
+                      CustomElevatedButton(text: 'Login',onPressed: (){
+                        Get.to(SignInOptionsScreen());
+                      }, roundness: 10, horizontalPadding: 25, verticalPadding: 15,
                         color: Color(0xFF133c4c),
 
                       ),
-                      CustomElevatedButton(text: 'Sign Up',onPressed: (){}, roundness: 10, horizontalPadding: 25, verticalPadding: 15, color: Colors.white,border: true,textColor: Main),
+                      CustomElevatedButton(text: 'Sign Up',onPressed: (){
+                        Get.to(SignUpScreen());
+                      }, roundness: 10, horizontalPadding: 25, verticalPadding: 15, color: Colors.white,border: true,textColor: Main),
                     ],
                   ),
                 ),

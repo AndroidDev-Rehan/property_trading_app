@@ -1,6 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:get/get_core/src/get_main.dart';
 import 'package:nb_utils/nb_utils.dart';
+import 'package:property_trading_app/utils/app-color.dart';
 import 'package:property_trading_app/view/global_widgets/custom_button.dart';
+import 'package:property_trading_app/view/home/tradinghome.dart';
 
 class SignUpScreen extends StatelessWidget {
   const SignUpScreen({Key? key}) : super(key: key);
@@ -10,7 +14,7 @@ class SignUpScreen extends StatelessWidget {
     return SafeArea(
       child: Scaffold(
         appBar: AppBar(
-          backgroundColor: Theme.of(context).primaryColor,
+          backgroundColor: darkMain,
           title: Text("Account"),
           centerTitle: true,
         ),
@@ -25,8 +29,8 @@ class SignUpScreen extends StatelessWidget {
 
                   decoration: BoxDecoration(
                       shape: BoxShape.circle,
-                      border: Border.all(color: Theme.of(context).primaryColor, width: 3),
-                    color: Theme.of(context).primaryColor
+                      border: Border.all(color: darkMain, width: 3),
+                    color: darkMain
 
                   ),
                   padding: EdgeInsets.all(16),
@@ -45,7 +49,9 @@ class SignUpScreen extends StatelessWidget {
               textFieldWithLabel("Phone Number", context),
               textFieldWithLabel("Your Address", context),
               SizedBox(height: 30,),
-              CustomElevatedButton(text: "Save Changes", onPressed: (){}, roundness: 10,)
+              CustomElevatedButton(text: "Save Changes", onPressed: (){
+                Get.to(TradingHome());
+              }, roundness: 10,verticalPadding: 10,)
               
 
             ],

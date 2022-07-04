@@ -12,8 +12,10 @@ class CustomElevatedButton extends StatelessWidget {
   final Color? textColor;
   final bool border;
   final Size? fixedSize;
+  final Image? imageIcon;
 
-  const CustomElevatedButton({Key? key, required this.text, required this.onPressed, this.color, this.roundness, this.horizontalPadding, this.verticalPadding, this.border = false, this.textColor, this.fixedSize}) : super(key: key);
+
+  const CustomElevatedButton({Key? key, required this.text, required this.onPressed, this.color, this.roundness, this.horizontalPadding, this.verticalPadding, this.border = false, this.textColor, this.fixedSize, this.imageIcon}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -25,7 +27,14 @@ class CustomElevatedButton extends StatelessWidget {
           },
           child: Padding(
             padding:  EdgeInsets.symmetric(horizontal: horizontalPadding ?? 0, vertical: verticalPadding ?? 0),
-            child: Text(text, style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18,color: textColor),),
+            child: Row(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                (imageIcon != null) ? imageIcon! : SizedBox(),
+                SizedBox(width: 10,),
+                Text(text, style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18,color: textColor),),
+              ],
+            ),
           ),
           style: ElevatedButton.styleFrom(
               primary: color ?? darkMain,
