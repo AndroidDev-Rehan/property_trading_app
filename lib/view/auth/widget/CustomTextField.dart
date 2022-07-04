@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 
 class CustomTextField extends StatelessWidget {
-  const CustomTextField({Key? key}) : super(key: key);
+  const CustomTextField({Key? key, required this.label}) : super(key: key);
 
+  final String label;
 
   @override
   Widget build(BuildContext context) {
@@ -12,7 +13,7 @@ class CustomTextField extends StatelessWidget {
         mainAxisSize: MainAxisSize.min,
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Text("label", style: TextStyle(color: Theme.of(context).primaryColor),),
+          Text(label, style: TextStyle(color: Theme.of(context).primaryColor),),
           SizedBox(
             height: 5,
           ),

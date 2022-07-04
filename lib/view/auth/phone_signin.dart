@@ -10,13 +10,16 @@ class PhoneSignInScreen extends StatelessWidget {
     return Scaffold(
       body: Padding(
         padding: const EdgeInsets.symmetric(vertical: 40.0, horizontal: 16),
-        child: Column(
-          children: [
-            CustomTextField(),
-            SizedBox(height: 20,),
-            CustomTextField(),
-            CustomElevatedButton(text: "Sign In", onPressed: (){})
-          ],
+        child: Center(
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              CustomTextField(label: "Phone",),
+              SizedBox(height: 0,),
+              CustomTextField(label: "Password"),
+              CustomElevatedButton(text: "Sign In", onPressed: (){})
+            ],
+          ),
         ),
       ),
     );
