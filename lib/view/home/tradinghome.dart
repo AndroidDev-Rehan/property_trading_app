@@ -22,7 +22,7 @@ class _TradingHomeState extends State<TradingHome> {
             Container(
               height: Get.height * 0.25,
               decoration: BoxDecoration(
-                  color: Main,
+                  color: darkMain,
                   borderRadius:
                       BorderRadius.only(bottomRight: Radius.circular(Get.width*0.3))),
               child: Align(
@@ -31,7 +31,7 @@ class _TradingHomeState extends State<TradingHome> {
                     padding: const EdgeInsets.all(15.0),
                     child: Text(
                       'English',
-                      style: whiteheadingStyle,
+                      style: goldenHeadingStyle,
                     ),
                   )),
             ),
@@ -46,7 +46,7 @@ class _TradingHomeState extends State<TradingHome> {
                       margin: EdgeInsets.symmetric(vertical: 10),
                       padding: EdgeInsets.all(15),
                       decoration: BoxDecoration(
-                          color: Main,
+                          color: darkMain,
                           borderRadius: BorderRadius.all(Radius.circular(20))),
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
@@ -54,11 +54,11 @@ class _TradingHomeState extends State<TradingHome> {
                         children: [
                           Text(
                             'Unit 1',
-                            style: whitesimpleText,
+                            style: goldenSimpleText,
                           ),
                           Text(
                             'INTRODUCTION',
-                            style: whitesimpleText,
+                            style: goldenSimpleText,
                           )
 
                         ],

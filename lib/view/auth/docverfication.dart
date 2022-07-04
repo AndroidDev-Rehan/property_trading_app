@@ -115,7 +115,7 @@ class _DocVerState extends State<DocVer> {
             ),
             spacing,
             spacing,
-            Container(decoration: BoxDecoration(color: Main,borderRadius: BorderRadius.all(Radius.circular(30))),height: 70,width: Get.width,child: Center(child: Text('Next Step',style: ButtonLabel,),),)
+            Container(decoration: BoxDecoration(color: darkMain,borderRadius: BorderRadius.all(Radius.circular(30))),height: 70,width: Get.width,child: Center(child: Text('Next Step',style: ButtonLabel,),),)
           ],
         ),
       ),

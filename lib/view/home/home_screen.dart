@@ -22,7 +22,7 @@ class HomeScreen extends StatelessWidget {
       child: Scaffold(
         body: Container(
           height: Get.height,
-          decoration: BoxDecoration(gradient: backgroundHomeGradient),
+          decoration: const BoxDecoration(gradient: backgroundHomeGradient),
           child: SingleChildScrollView(
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
