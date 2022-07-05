@@ -68,12 +68,12 @@ class SignUpScreen extends StatelessWidget {
         mainAxisSize: MainAxisSize.min,
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Text(label, style: TextStyle(color: Theme.of(context).primaryColor),),
-          SizedBox(
+          Text(label, style: const TextStyle(color: Colors.black),),
+          const SizedBox(
             height: 5,
           ),
           TextFormField(
-            decoration: InputDecoration(
+            decoration: const InputDecoration(
               // label: Text(label),
               border: OutlineInputBorder(),
               isDense: true,
