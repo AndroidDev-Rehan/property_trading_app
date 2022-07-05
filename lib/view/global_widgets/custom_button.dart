@@ -31,7 +31,7 @@ class CustomElevatedButton extends StatelessWidget {
               mainAxisSize: MainAxisSize.min,
               children: [
                 (imageIcon != null) ? imageIcon! : SizedBox(),
-                SizedBox(width: 10,),
+                (imageIcon != null) ? SizedBox(width: 10,) : SizedBox(width: 0,),
                 Text(text, style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18,color: textColor),),
               ],
             ),

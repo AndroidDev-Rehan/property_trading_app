@@ -48,7 +48,7 @@ class WelcomeScreen extends StatelessWidget {
                       ),
                       CustomElevatedButton(text: 'Sign Up',onPressed: (){
                         Get.to(SignUpScreen());
-                      }, roundness: 10, horizontalPadding: 25, verticalPadding: 15, color: Colors.white,border: true,textColor: Main),
+                      }, roundness: 10, horizontalPadding: 25, verticalPadding: 15, color: Colors.white,border: true,textColor: mainGolden),
                     ],
                   ),
                 ),

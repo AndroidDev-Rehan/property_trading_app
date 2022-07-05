@@ -7,13 +7,13 @@ const welcomeStyle = TextStyle(fontSize: 30, fontWeight: FontWeight.w600, color:
 
 const headingStyle = TextStyle(fontSize: 30, fontWeight: FontWeight.bold, color: black);
 const whiteheadingStyle = TextStyle(fontSize: 30, fontWeight: FontWeight.bold, color: white);
-const goldenHeadingStyle = TextStyle(fontSize: 30, fontWeight: FontWeight.bold, color: Main);
+const goldenHeadingStyle = TextStyle(fontSize: 30, fontWeight: FontWeight.bold, color: mainGolden);
 
 const subtitleText = TextStyle(fontSize: 20, fontWeight: FontWeight.normal, color: black,);
 
 const simpleText = TextStyle(fontSize: 22, fontWeight: FontWeight.normal, color: black);
 const whitesimpleText = TextStyle(fontSize: 22, fontWeight: FontWeight.normal, color: white);
-const goldenSimpleText = TextStyle(fontSize: 22, fontWeight: FontWeight.normal, color: Main);
+const goldenSimpleText = TextStyle(fontSize: 22, fontWeight: FontWeight.normal, color: mainGolden);
 
 const typeText = TextStyle(fontSize: 20, fontWeight: FontWeight.normal, color: grey);
 
