@@ -57,7 +57,7 @@ class _TradingHomeState extends State<TradingHome> {
                           ),
                           Text(
                             'INTRODUCTION',
-                            style: goldenSimpleText,
+                            style: whitesimpleText,
                           )
 
                         ],
