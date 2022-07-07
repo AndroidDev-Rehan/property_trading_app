@@ -23,8 +23,7 @@ class _TradingHomeState extends State<TradingHome> {
               height: Get.height * 0.25,
               decoration: BoxDecoration(
                   color: darkMain,
-                  borderRadius:
-                      BorderRadius.only(bottomRight: Radius.circular(Get.width*0.3))),
+                 ),
               child: Align(
                   alignment: Alignment.centerLeft,
                   child: Padding(

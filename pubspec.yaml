@@ -42,6 +42,10 @@ dependencies:
   carousel_slider: ^4.1.1
   nb_utils:
   linkedin_login: ^2.2.1
+  fl_chart: ^0.45.1
+  google_fonts: ^2.3.1
+  unicons: ^2.1.0
+  sizer: ^2.0.15
 dev_dependencies:
   flutter_test:
     sdk: flutter
