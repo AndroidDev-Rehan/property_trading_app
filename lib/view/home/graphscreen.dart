@@ -74,7 +74,7 @@ class _DetailsPageState extends State<DetailsPage> {
               Text(
                 'Current Value',
                 style: TextStyle(
-                    fontSize: 25, fontWeight: FontWeight.w500, color: Main),
+                    fontSize: 25, fontWeight: FontWeight.w500, color:  mainGolden),
               ),
               SizedBox(
                 height: 10,
@@ -91,7 +91,7 @@ class _DetailsPageState extends State<DetailsPage> {
                 children: [
                   Container(
                       decoration: BoxDecoration(
-                          border: Border.all(color: Main, width: 2)),
+                          border: Border.all(color:  mainGolden, width: 2)),
                       height: 40,
                       width: Get.width * 0.4,
                       child: Center(
@@ -100,11 +100,11 @@ class _DetailsPageState extends State<DetailsPage> {
                         style: TextStyle(
                             fontSize: 25,
                             fontWeight: FontWeight.w500,
-                            color: Main),
+                            color:  mainGolden),
                       ))),
                   Container(
                       decoration: BoxDecoration(
-                          border: Border.all(color: Main, width: 2)),
+                          border: Border.all(color:  mainGolden, width: 2)),
                       height: 40,
                       width: Get.width * 0.4,
                       child: Center(
@@ -113,7 +113,7 @@ class _DetailsPageState extends State<DetailsPage> {
                         style: TextStyle(
                             fontSize: 25,
                             fontWeight: FontWeight.w500,
-                            color: Main),
+                            color:  mainGolden),
                       )))
                 ],
               ),
@@ -123,15 +123,15 @@ class _DetailsPageState extends State<DetailsPage> {
                     label: Text(
                       'Input File',
                       style: TextStyle(
-                          color: Main,
+                          color: mainGolden,
                           fontSize: 15,
                           fontWeight: FontWeight.bold),
                     ),
                     enabledBorder: UnderlineInputBorder(
-                        borderSide: BorderSide(color: Main, width: 2))),
+                        borderSide: BorderSide(color:  mainGolden, width: 2))),
               ),
               SizedBox(height: 30,),
-              Container(color:white.withOpacity(0.8),height:60,width:Get.width,child:Center(child: Text('Confirmation',style: TextStyle(color: Main,fontSize: 25,fontWeight: FontWeight.bold),),) ,)
+              Container(color:white.withOpacity(0.8),height:60,width:Get.width,child:Center(child: Text('Confirmation',style: TextStyle(color:  mainGolden,fontSize: 25,fontWeight: FontWeight.bold),),) ,)
             ],
           ),
         ),
