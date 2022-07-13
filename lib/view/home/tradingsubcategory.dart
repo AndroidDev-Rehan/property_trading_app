@@ -24,17 +24,18 @@ class _TradingSubCategoryPageState extends State<TradingSubCategoryPage> {
         backgroundColor: darkMain,
       ),
       body: Padding(
-        padding: const EdgeInsets.only(left: 15.0,right: 15,top: 15),
+        padding: const EdgeInsets.only(left: 30.0,right: 30,top: 15),
         child: GridView.builder(
             gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                crossAxisCount: 3, crossAxisSpacing: 20.0, mainAxisSpacing: 15.0),
+                crossAxisCount: 2, crossAxisSpacing: 50.0, mainAxisSpacing: 40.0),
             itemCount: 20,
             itemBuilder: (context, index) {
-              return Container(
+              return Material(
+                elevation: 10,
 
-                  decoration: BoxDecoration(
+
                       borderRadius: BorderRadius.circular(10),
-                      color: darkMain.withOpacity(0.3)),
+                      color: darkMain,
                   child: Center(
                       child: Text(
                     '${index} Marla',

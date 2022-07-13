@@ -70,11 +70,15 @@ class _DetailsPageState extends State<DetailsPage> {
                   ),
                 ),
               ),
-              SizedBox(height: 30,),
+              SizedBox(
+                height: 30,
+              ),
               Text(
                 'Current Value',
                 style: TextStyle(
-                    fontSize: 25, fontWeight: FontWeight.w500, color:  mainGolden),
+                    fontSize: 25,
+                    fontWeight: FontWeight.w500,
+                    color: mainGolden),
               ),
               SizedBox(
                 height: 10,
@@ -91,7 +95,7 @@ class _DetailsPageState extends State<DetailsPage> {
                 children: [
                   Container(
                       decoration: BoxDecoration(
-                          border: Border.all(color:  mainGolden, width: 2)),
+                          border: Border.all(color: mainGolden, width: 2)),
                       height: 40,
                       width: Get.width * 0.4,
                       child: Center(
@@ -100,11 +104,11 @@ class _DetailsPageState extends State<DetailsPage> {
                         style: TextStyle(
                             fontSize: 25,
                             fontWeight: FontWeight.w500,
-                            color:  mainGolden),
+                            color: mainGolden),
                       ))),
                   Container(
                       decoration: BoxDecoration(
-                          border: Border.all(color:  mainGolden, width: 2)),
+                          border: Border.all(color: mainGolden, width: 2)),
                       height: 40,
                       width: Get.width * 0.4,
                       child: Center(
@@ -113,11 +117,13 @@ class _DetailsPageState extends State<DetailsPage> {
                         style: TextStyle(
                             fontSize: 25,
                             fontWeight: FontWeight.w500,
-                            color:  mainGolden),
+                            color: mainGolden),
                       )))
                 ],
               ),
-              SizedBox(height: 10,),
+              SizedBox(
+                height: 10,
+              ),
               TextField(
                 decoration: InputDecoration(
                     label: Text(
@@ -128,10 +134,29 @@ class _DetailsPageState extends State<DetailsPage> {
                           fontWeight: FontWeight.bold),
                     ),
                     enabledBorder: UnderlineInputBorder(
-                        borderSide: BorderSide(color:  mainGolden, width: 2))),
+                        borderSide: BorderSide(color: mainGolden, width: 2))),
               ),
-              SizedBox(height: 30,),
-              Container(color:white.withOpacity(0.8),height:60,width:Get.width,child:Center(child: Text('Confirmation',style: TextStyle(color:  mainGolden,fontSize: 25,fontWeight: FontWeight.bold),),) ,)
+              SizedBox(
+                height: 30,
+              ),
+              Material(
+                  color: Color.fromRGBO(36, 142, 187, 1.0),
+                  elevation: 30,
+                  child: Container(
+                    decoration: BoxDecoration(
+                        border: Border.all(width: 2, color: mainGolden)),
+                    height: 60,
+                    width: Get.width,
+                    child: Center(
+                      child: Text(
+                        'Confirmation',
+                        style: TextStyle(
+                            color: white,
+                            fontSize: 25,
+                            fontWeight: FontWeight.bold),
+                      ),
+                    ),
+                  ))
             ],
           ),
         ),
@@ -150,7 +175,8 @@ LineChartData chart(
   List<Color> redColors = [white];
 
   return LineChartData(
-    backgroundColor: Colors.transparent,borderData: FlBorderData(border: Border.all(color: white)),
+    backgroundColor: Colors.transparent,
+    borderData: FlBorderData(border: Border.all(color: white)),
     gridData: FlGridData(
       show: !isHomePage,
       drawVerticalLine: !isHomePage,
