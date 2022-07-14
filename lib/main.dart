@@ -10,7 +10,7 @@ import 'package:property_trading_app/view/home/graphscreen.dart';
 import 'package:property_trading_app/view/home/home_screen.dart';
 import 'package:property_trading_app/view/home/tradinghome.dart';
 import 'package:property_trading_app/view/home/tradingsubcategory.dart';
-import 'package:property_trading_app/view/p2p/p2ptrade.dart';
+import 'package:property_trading_app/view/profile_screen.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -34,7 +34,7 @@ class MyApp extends StatelessWidget {
 
       ),
       // navigatorKey: navigatorKey,
-      home:P2pTrade(),
+      home: ProfileScreen(),
     );
   }
 }
