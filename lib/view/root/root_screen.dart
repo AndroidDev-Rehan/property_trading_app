@@ -33,9 +33,9 @@ class _RootScreenState extends State<RootScreen> {
             backgroundColor: Colors.white,
             buttonBackgroundColor: darkMain,
             items: const <Widget>[
-              Icon(Icons.add, size: 30, color: Colors.white,),
-              Icon(Icons.list, size: 30,color: Colors.white),
-              Icon(Icons.compare_arrows, size: 30, color: Colors.white),
+              Icon(Icons.home, size: 30, color: Colors.white,),
+              Icon(Icons.wallet, size: 30,color: Colors.white),
+              Icon(Icons.person, size: 30, color: Colors.white),
             ],
             onTap: (index) {
               // setState((){
