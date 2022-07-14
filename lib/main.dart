@@ -7,10 +7,12 @@ import 'package:property_trading_app/view/auth/phone_signin.dart';
 import 'package:property_trading_app/view/auth/signin_options.dart';
 import 'package:property_trading_app/view/auth/welcome_screen.dart';
 import 'package:property_trading_app/view/home/graphscreen.dart';
-import 'package:property_trading_app/view/home/home_screen.dart';
+import 'package:property_trading_app/view/home/old_home_screen.dart';
 import 'package:property_trading_app/view/home/tradinghome.dart';
 import 'package:property_trading_app/view/home/tradingsubcategory.dart';
+import 'package:property_trading_app/view/payment/payment_options.dart';
 import 'package:property_trading_app/view/profile_screen.dart';
+import 'package:property_trading_app/view/root/root_screen.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -34,7 +36,7 @@ class MyApp extends StatelessWidget {
 
       ),
       // navigatorKey: navigatorKey,
-      home: ProfileScreen(),
+      home: RootScreen(),
     );
   }
 }

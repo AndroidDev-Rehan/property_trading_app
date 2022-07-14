@@ -6,8 +6,8 @@ import 'package:property_trading_app/utils/app-color.dart';
 
 import '../../utils/text_style.dart';
 
-class HomeScreen extends StatelessWidget {
-  const HomeScreen({Key? key}) : super(key: key);
+class OldHomeScreen extends StatelessWidget {
+  const OldHomeScreen({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

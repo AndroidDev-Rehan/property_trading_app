@@ -2,7 +2,10 @@ import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:nb_utils/nb_utils.dart';
 import 'package:property_trading_app/utils/app-color.dart';
-import 'package:property_trading_app/view/home/home_screen.dart';
+
+import '../home/new_home_screen.dart';
+import '../home/old_home_screen.dart';
+
 
 class RootScreen extends StatefulWidget {
   const RootScreen({Key? key}) : super(key: key);
@@ -19,15 +22,16 @@ class _RootScreenState extends State<RootScreen> {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-
+        backgroundColor: Colors.white,
         bottomNavigationBar: Container(
           decoration: const BoxDecoration(color: outline),
           child: CurvedNavigationBar(
             height: 50,
-            color: yellowmain,
+            color: darkMain,
 
-            backgroundColor: const Color.fromRGBO(17, 43, 56, 1.0),
-            buttonBackgroundColor: yellowmain,
+
+            backgroundColor: Colors.white,
+            buttonBackgroundColor: darkMain,
             items: const <Widget>[
               Icon(Icons.add, size: 30, color: Colors.white,),
               Icon(Icons.list, size: 30,color: Colors.white),
@@ -41,7 +45,7 @@ class _RootScreenState extends State<RootScreen> {
             },
           ),
         ),
-        body: (selectedIndex==0) ? const HomeScreen() : Container(color: Colors.blueAccent),
+        body: (selectedIndex==0) ? const NewHomeScreen() : Container(color: Colors.blueAccent),
       ),
     );
   }
