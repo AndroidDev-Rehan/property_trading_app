@@ -45,124 +45,127 @@ class _DetailsPageState extends State<DetailsPage> {
   Rx<double> totalSpotsValue = 0.0.obs;
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: darkMain,
-      body: SafeArea(
-        child: Padding(
-          padding: const EdgeInsets.all(20.0),
-          child: Column(
-            children: [
-              SizedBox(
-                height: 30,
-              ),
-              Center(
-                child: SizedBox(
-                  width: 500,
-                  height: 300,
-                  child: LineChart(
-                    chart(
-                      false,
-                      spots,
-                      minY,
-                      maxY,
-                      profitPercent >= 0,
+    return SafeArea(
+      child: Scaffold(
+        backgroundColor: darkMain,
+        body: SingleChildScrollView(
+          child: Padding(
+            padding: const EdgeInsets.all(20.0),
+            child: Column(
+              children: [
+                SizedBox(
+                  height: 30,
+                ),
+                Center(
+                  child: SizedBox(
+                    width: 500,
+                    height: 300,
+                    child: LineChart(
+                      chart(
+                        false,
+                        spots,
+                        minY,
+                        maxY,
+                        profitPercent >= 0,
+                      ),
                     ),
                   ),
                 ),
-              ),
-              SizedBox(
-                height: 30,
-              ),
-              Text(
-                'Current Value',
-                style: TextStyle(
-                    fontSize: 25,
-                    fontWeight: FontWeight.w500,
-                    color: mainGolden),
-              ),
-              SizedBox(
-                height: 10,
-              ),
-              Text(
-                '100,000 Rs',
-                style: TextStyle(fontSize: 20, color: white),
-              ),
-              SizedBox(
-                height: 40,
-              ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  InkWell(
-                    onTap: (){
-                      Get.to(PaymentOptions());
-                    },
-                    child: Container(
+                SizedBox(
+                  height: 30,
+                ),
+                Text(
+                  'Current Value',
+                  style: TextStyle(
+                      fontSize: 25,
+                      fontWeight: FontWeight.w500,
+                      color: mainGolden),
+                ),
+                SizedBox(
+                  height: 10,
+                ),
+                Text(
+                  '100,000 Rs',
+                  style: TextStyle(fontSize: 20, color: white),
+                ),
+                SizedBox(
+                  height: 40,
+                ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    InkWell(
+                      onTap: (){
+                        Get.to(PaymentOptions());
+                      },
+                      child: Container(
+                          decoration: BoxDecoration(
+                              border: Border.all(color: mainGolden, width: 2)),
+                          height: 40,
+                          width: Get.width * 0.4,
+                          child: Center(
+                              child: Text(
+                            'Buy',
+                            style: TextStyle(
+                                fontSize: 25,
+                                fontWeight: FontWeight.w500,
+                                color: mainGolden),
+                          ))),
+                    ),
+                    Container(
                         decoration: BoxDecoration(
                             border: Border.all(color: mainGolden, width: 2)),
                         height: 40,
                         width: Get.width * 0.4,
                         child: Center(
                             child: Text(
-                          'Buy',
+                          'Sell',
                           style: TextStyle(
                               fontSize: 25,
                               fontWeight: FontWeight.w500,
                               color: mainGolden),
-                        ))),
-                  ),
-                  Container(
-                      decoration: BoxDecoration(
-                          border: Border.all(color: mainGolden, width: 2)),
-                      height: 40,
-                      width: Get.width * 0.4,
-                      child: Center(
-                          child: Text(
-                        'Sell',
+                        )))
+                  ],
+                ),
+                SizedBox(
+                  height: 10,
+                ),
+                TextFormField(
+                  style: TextStyle(color: Colors.white),
+                  decoration: InputDecoration(
+                      label: Text(
+                        'Input File',
                         style: TextStyle(
-                            fontSize: 25,
-                            fontWeight: FontWeight.w500,
-                            color: mainGolden),
-                      )))
-                ],
-              ),
-              SizedBox(
-                height: 10,
-              ),
-              TextField(
-                decoration: InputDecoration(
-                    label: Text(
-                      'Input File',
-                      style: TextStyle(
-                          color: mainGolden,
-                          fontSize: 15,
-                          fontWeight: FontWeight.bold),
-                    ),
-                    enabledBorder: UnderlineInputBorder(
-                        borderSide: BorderSide(color: mainGolden, width: 2))),
-              ),
-              SizedBox(
-                height: 30,
-              ),
-              Material(
-                  color: Color.fromRGBO(36, 142, 187, 1.0),
-                  elevation: 30,
-                  child: Container(
-                    decoration: BoxDecoration(
-                        border: Border.all(width: 2, color: mainGolden)),
-                    height: 60,
-                    width: Get.width,
-                    child: Center(
-                      child: Text(
-                        'Confirmation',
-                        style: TextStyle(
-                            color: white,
-                            fontSize: 25,
+                            color: mainGolden,
+                            fontSize: 15,
                             fontWeight: FontWeight.bold),
                       ),
-                    ),
-                  ))
-            ],
+                      enabledBorder: UnderlineInputBorder(
+                          borderSide: BorderSide(color: mainGolden, width: 2))),
+                ),
+                SizedBox(
+                  height: 30,
+                ),
+                Material(
+                    color: mainGolden,
+                    elevation: 30,
+                    child: Container(
+                      decoration: BoxDecoration(
+                          border: Border.all(width: 2, color: mainGolden)),
+                      height: 60,
+                      width: Get.width,
+                      child: Center(
+                        child: Text(
+                          'Confirmation',
+                          style: TextStyle(
+                              color: white,
+                              fontSize: 25,
+                              fontWeight: FontWeight.bold),
+                        ),
+                      ),
+                    ))
+              ],
+            ),
           ),
         ),
       ),

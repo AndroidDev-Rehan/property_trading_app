@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/get_core.dart';
 import 'package:nb_utils/nb_utils.dart';
+import 'package:property_trading_app/view/delete_me.dart';
 import 'package:property_trading_app/view/home/tradingsubcategory.dart';
 import 'package:property_trading_app/view/p2p/addp2p.dart';
 
@@ -64,7 +65,7 @@ index==0?SizedBox(height: 20,):SizedBox(),
                       ),
                       InkWell(
                         onTap: (){
-                          Get.to(TradingSubCategoryPage());
+                          Get.to(const ChatPage());
                         },
                         child: Container(
                           padding: const EdgeInsets.symmetric(horizontal: 20,vertical: 15),

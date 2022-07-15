@@ -50,7 +50,7 @@ class NewHomeScreen extends StatelessWidget {
                   child: const Padding(
                     padding: EdgeInsets.only(left: 16.0),
                     child: Text(
-                      "Projects",
+                      "Trending",
                       style: goldenHeadingStyle,
                     ),
                   ),

@@ -28,14 +28,13 @@ class SignInOptionsScreen extends StatelessWidget {
                 child: Column(
                   mainAxisSize: MainAxisSize.min,
                   children: [
-                    // SizedBox(height: Get.height/4,),
-                    CustomElevatedButton(text: "Sign In With Google", onPressed: (){}, color: darkMain, fixedSize: Size(265,65),imageIcon: Image.asset("assets/images/google.png",height: 50, width: 50,)),
-                    const SizedBox(height: 20,),
-                    CustomElevatedButton(text: "Sign In With Apple ", onPressed: (){}, color: darkMain, fixedSize: Size(265,65),imageIcon: Image.asset("assets/images/apple-logo.png", height: 40, width: 50),),
-                    const SizedBox(height: 20,),
                     CustomElevatedButton(text: "Sign In With Phone", onPressed: (){
                       Get.to(PhoneSignInScreen());
                     }, color: darkMain, fixedSize: Size(265,65), imageIcon: Image.asset("assets/images/phone1.png", height: 50, width: 40),),
+                    const SizedBox(height: 20,),
+                    CustomElevatedButton(text: "Sign In With Google", onPressed: (){}, color: darkMain, fixedSize: Size(265,65),imageIcon: Image.asset("assets/images/google.png",height: 50, width: 50,)),
+                    const SizedBox(height: 20,),
+                    CustomElevatedButton(text: "Sign In With Apple ", onPressed: (){}, color: darkMain, fixedSize: Size(265,65),imageIcon: Image.asset("assets/images/apple-logo.png", height: 40, width: 50),),
                     const SizedBox(height: 20,),
 
                   ],

@@ -97,11 +97,11 @@ class ProfileScreen extends StatelessWidget {
                     children: [
                       const SizedBox(height: 30,),
                       customTextField("Username", usernameController),
-                      customTextField("Email", emailController),
-                      customTextField("Password", passController),
-                      customTextField("Phone", phoneController),
+                      customTextField("Email", emailController,readOnly: true),
+                      customTextField("Password", passController,),
+                      customTextField("Phone", phoneController, readOnly: true),
                       customTextField("Gender", genderController),
-                      customTextField("Date", dateController),
+                      customTextField("Date of Birth", dateController),
 
 
 
@@ -116,10 +116,12 @@ class ProfileScreen extends StatelessWidget {
     );
   }
 
-  Widget customTextField(String label, TextEditingController controller){
+  Widget customTextField(String label, TextEditingController controller,
+      {bool readOnly = false}){
     return Padding(
       padding: const EdgeInsets.only(bottom: 16.0),
       child: TextFormField(
+        readOnly: readOnly,
         controller: controller,
         decoration: InputDecoration(
           label: Text(label, style: TextStyle(color: Colors.grey.withOpacity(0.7)),),

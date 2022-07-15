@@ -12,7 +12,7 @@ class MapScreen extends StatefulWidget {
 
 class _MapScreenState extends State<MapScreen> {
   late GoogleMapController _controller;
-  static CameraPosition _kGooglePlex = CameraPosition(
+  static const CameraPosition _kGooglePlex = CameraPosition(
     target: LatLng(33.7295, 73.0372),
     zoom: 14.4746,
   );
@@ -33,7 +33,7 @@ class _MapScreenState extends State<MapScreen> {
             ),
           ),
         ),
-        Positioned(top:10,left: 10,child: IconButton(onPressed: (){Get.back();}, icon: Icon(Icons.arrow_back,size: 30,color: black,)))
+        Positioned(top:10,left: 10,child: IconButton(onPressed: (){Get.back();}, icon: const Icon(Icons.arrow_back,size: 30,color: black,)))
       ],
     )
 

@@ -3,6 +3,7 @@ import 'package:get/get.dart';
 import 'package:nb_utils/nb_utils.dart';
 import 'package:property_trading_app/utils/text_style.dart';
 import 'package:property_trading_app/view/history/history%20screen.dart';
+import 'package:property_trading_app/view/home/tradingsubcategory.dart';
 
 import '../../utils/app-color.dart';
 
@@ -44,26 +45,31 @@ class _TradingHomeState extends State<TradingHome> {
                   itemCount: 10,
                   shrinkWrap: true,
                   itemBuilder: (context, index) {
-                    return Container(
-                      margin: EdgeInsets.symmetric(vertical: 10),
-                      padding: EdgeInsets.all(15),
-                      decoration: BoxDecoration(
-                          color: darkMain,
-                          borderRadius: BorderRadius.all(Radius.circular(20))),
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          Text(
-                            'Unit 1',
-                            style: goldenSimpleText,
-                          ),
-                          Text(
-                            'INTRODUCTION',
-                            style: whitesimpleText,
-                          )
+                    return InkWell(
+                      onTap: (){
+                        Get.to(TradingSubCategoryPage());
+                      },
+                      child: Container(
+                        margin: EdgeInsets.symmetric(vertical: 10),
+                        padding: EdgeInsets.all(15),
+                        decoration: BoxDecoration(
+                            color: darkMain,
+                            borderRadius: BorderRadius.all(Radius.circular(20))),
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Text(
+                              'Unit 1',
+                              style: goldenSimpleText,
+                            ),
+                            Text(
+                              'INTRODUCTION',
+                              style: whitesimpleText,
+                            )
 
-                        ],
+                          ],
+                        ),
                       ),
                     );
                   }),

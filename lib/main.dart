@@ -45,7 +45,7 @@ class MyApp extends StatelessWidget {
 
       ),
       // navigatorKey: navigatorKey,
-      home: false ? TradingSubCategoryPage() : DetailScreen(),
+      home: false ? TradingSubCategoryPage() : CustomSplashScreen(),
     );
   }
 }

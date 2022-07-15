@@ -1,11 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:get/get_core/src/get_main.dart';
 import 'package:nb_utils/nb_utils.dart';
 import 'package:property_trading_app/utils/app-color.dart';
 import 'package:property_trading_app/view/auth/docverfication.dart';
 import 'package:property_trading_app/view/global_widgets/custom_button.dart';
-import 'package:property_trading_app/view/home/tradinghome.dart';
 
 class SignUpScreen extends StatelessWidget {
   const SignUpScreen({Key? key}) : super(key: key);
@@ -16,7 +14,7 @@ class SignUpScreen extends StatelessWidget {
       child: Scaffold(
         appBar: AppBar(
           backgroundColor: darkMain,
-          title: Text("Account"),
+          title: const Text("Account"),
           centerTitle: true,
         ),
         body: SingleChildScrollView(
@@ -34,13 +32,13 @@ class SignUpScreen extends StatelessWidget {
                     color: darkMain
 
                   ),
-                  padding: EdgeInsets.all(16),
-                  child: Icon(
+                  padding: const EdgeInsets.all(16),
+                  child: const Icon(
                     Icons.person,
                     size: 50,
                     color: white,
                   )),
-              SizedBox(
+              const SizedBox(
                 height: 20,
               ),
               textFieldWithLabel("Your Name", context),
@@ -50,9 +48,9 @@ class SignUpScreen extends StatelessWidget {
               textFieldWithLabel("Confirm Password", context),
               textFieldWithLabel("Phone Number", context),
               textFieldWithLabel("Your Address", context),
-              SizedBox(height: 30,),
+              const SizedBox(height: 30,),
               CustomElevatedButton(text: "Save Changes", onPressed: (){
-                Get.to(DocVer());
+                Get.to(const DocVer());
               }, roundness: 10,verticalPadding: 10,)
               
 
@@ -79,7 +77,7 @@ class SignUpScreen extends StatelessWidget {
               // label: Text(label),
               border: OutlineInputBorder(),
               isDense: true,
-              contentPadding: EdgeInsets.symmetric(vertical: 7)
+              contentPadding: EdgeInsets.symmetric(vertical: 7, horizontal: 10)
             ),
           ),
         ],
