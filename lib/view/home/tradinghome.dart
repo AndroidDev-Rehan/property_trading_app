@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:nb_utils/nb_utils.dart';
 import 'package:property_trading_app/utils/text_style.dart';
+import 'package:property_trading_app/view/history/history%20screen.dart';
 
 import '../../utils/app-color.dart';
 
@@ -16,6 +18,7 @@ class _TradingHomeState extends State<TradingHome> {
   Widget build(BuildContext context) {
     return SafeArea(
         child: Scaffold(
+          floatingActionButton: FloatingActionButton(backgroundColor: darkMain,onPressed: (){Get.to(()=>History());},child: Icon(Icons.history,color: white,size: 30,)),
       body: SingleChildScrollView(
         child: Column(
           children: [

@@ -43,6 +43,7 @@ dependencies:
   nb_utils:
   linkedin_login: ^2.2.1
   fl_chart: ^0.45.1
+  google_maps_flutter: ^2.1.2
   google_fonts: ^2.3.1
   unicons: ^2.1.0
   sizer: ^2.0.15

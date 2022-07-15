@@ -3,6 +3,7 @@ import 'package:get/get.dart';
 import 'package:get/get_core/get_core.dart';
 import 'package:nb_utils/nb_utils.dart';
 import 'package:property_trading_app/view/home/tradingsubcategory.dart';
+import 'package:property_trading_app/view/p2p/addp2p.dart';
 
 import '../../utils/app-color.dart';
 
@@ -17,6 +18,7 @@ class _P2pTradeState extends State<P2pTrade> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      floatingActionButton: FloatingActionButton(backgroundColor: darkMain,onPressed: (){Get.to(()=>AddP2p());},child: Icon(Icons.add,color: white,size: 30,)),
       appBar: AppBar(
         centerTitle: true,
         title: const Text(

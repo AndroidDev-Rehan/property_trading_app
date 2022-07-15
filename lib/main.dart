@@ -7,11 +7,15 @@ import 'package:property_trading_app/view/auth/phone_signin.dart';
 import 'package:property_trading_app/view/auth/signin_options.dart';
 import 'package:property_trading_app/view/auth/splash_screen.dart';
 import 'package:property_trading_app/view/auth/welcome_screen.dart';
-import 'package:property_trading_app/view/delete_me.dart';
+import 'package:property_trading_app/view/history/history%20screen.dart';
+
 import 'package:property_trading_app/view/home/graphscreen.dart';
 import 'package:property_trading_app/view/home/old_home_screen.dart';
 import 'package:property_trading_app/view/home/tradinghome.dart';
 import 'package:property_trading_app/view/home/tradingsubcategory.dart';
+import 'package:property_trading_app/view/map/detailscreen.dart';
+import 'package:property_trading_app/view/map/mapscreen.dart';
+import 'package:property_trading_app/view/p2p/addp2p.dart';
 import 'package:property_trading_app/view/payment/payment_options.dart';
 import 'package:property_trading_app/view/profile_screen.dart';
 import 'package:property_trading_app/view/root/root_screen.dart';
@@ -41,7 +45,7 @@ class MyApp extends StatelessWidget {
 
       ),
       // navigatorKey: navigatorKey,
-      home: false ? TradingSubCategoryPage() : CustomSplashScreen(),
+      home: false ? TradingSubCategoryPage() : DetailScreen(),
     );
   }
 }
