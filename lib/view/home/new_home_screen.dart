@@ -4,6 +4,8 @@ import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
 import 'package:property_trading_app/utils/app-color.dart';
 import 'package:property_trading_app/view/global_widgets/custom_button.dart';
+import 'package:property_trading_app/view/home/tradinghome.dart';
+import 'package:property_trading_app/view/p2p/p2ptrade.dart';
 
 import '../../utils/text_style.dart';
 
@@ -12,8 +14,7 @@ class NewHomeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-
-    List <String> images = [
+    List<String> images = [
       "assets/images/h1.jpg",
       "assets/images/h2.jpg",
       "assets/images/h3.jpg"
@@ -21,25 +22,42 @@ class NewHomeScreen extends StatelessWidget {
 
     return SafeArea(
       child: Scaffold(
+        appBar: AppBar(
+          title: Text("GMARKETING"),
+          backgroundColor: darkMain,
+          centerTitle: true,
+        ),
         body: Container(
           height: Get.height,
           child: SingleChildScrollView(
             child: Column(
               // crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                const SizedBox(height: 0,),
+                const SizedBox(
+                  height: 20,
+                ),
                 Align(
                     alignment: Alignment.centerLeft,
-                    child: Image.asset("assets/images/logo.png",height: 200,)),
-                const SizedBox(height: 0,),
+                    child: Image.asset(
+                      "assets/images/logo.png",
+                      height: 200,
+                    )),
+                const SizedBox(
+                  height: 0,
+                ),
                 Align(
                   alignment: Alignment.centerLeft,
                   child: const Padding(
                     padding: EdgeInsets.only(left: 16.0),
-                    child: Text("Projects", style: goldenHeadingStyle,),
+                    child: Text(
+                      "Projects",
+                      style: goldenHeadingStyle,
+                    ),
                   ),
                 ),
-                const SizedBox(height: 10,),
+                const SizedBox(
+                  height: 10,
+                ),
                 CarouselSlider(
                   options: CarouselOptions(
                     autoPlay: true,
@@ -64,26 +82,49 @@ class NewHomeScreen extends StatelessWidget {
                             elevation: 10,
                             child: ClipRRect(
                                 borderRadius: BorderRadius.circular(5),
-                                child: Image.asset(i,height: 300, width: 300,fit: BoxFit.cover,)),
+                                child: Image.asset(
+                                  i,
+                                  height: 300,
+                                  width: 300,
+                                  fit: BoxFit.cover,
+                                )),
                           ),
                         );
                       },
                     );
                   }).toList(),
                 ),
-                const SizedBox(height: 100,),
+                const SizedBox(
+                  height: 100,
+                ),
                 Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 16.0),
                   child: Row(
                     children: [
-                      Expanded(child: CustomElevatedButton(text: "TRADING", onPressed: (){}, roundness: 10, verticalPadding: 16,)),
-                      SizedBox(width: 20,),
-                      Expanded(child: CustomElevatedButton(text: "P2P TRADING", onPressed: (){}, roundness: 10, verticalPadding: 16,)),
-
+                      Expanded(
+                          child: CustomElevatedButton(
+                        text: "TRADING",
+                        onPressed: () {
+                          Get.to(TradingHome());
+                        },
+                        roundness: 10,
+                        verticalPadding: 16,
+                      )),
+                      SizedBox(
+                        width: 20,
+                      ),
+                      Expanded(
+                          child: CustomElevatedButton(
+                        text: "P2P TRADING",
+                        onPressed: () {
+                          Get.to(P2pTrade());
+                        },
+                        roundness: 10,
+                        verticalPadding: 16,
+                      )),
                     ],
                   ),
                 ),
-
 
                 // Padding(
                 //   padding: EdgeInsets.only(left: 16.0),
@@ -124,10 +165,9 @@ class NewHomeScreen extends StatelessWidget {
                 //     );
                 //   }).toList(),
                 // ),
-                const SizedBox(height: 30,),
-
-
-
+                const SizedBox(
+                  height: 30,
+                ),
               ],
             ),
           ),
@@ -135,5 +175,4 @@ class NewHomeScreen extends StatelessWidget {
       ),
     );
   }
-
 }

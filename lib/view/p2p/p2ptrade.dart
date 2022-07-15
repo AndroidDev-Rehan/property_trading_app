@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:get/get_core/get_core.dart';
 import 'package:nb_utils/nb_utils.dart';
+import 'package:property_trading_app/view/home/tradingsubcategory.dart';
 
 import '../../utils/app-color.dart';
 
@@ -57,12 +60,17 @@ index==0?SizedBox(height: 20,):SizedBox(),
                         'Price: 100K',
                         style: TextStyle(fontSize: 18, color: mainGolden),
                       ),
-                      Container(
-                        padding: const EdgeInsets.symmetric(horizontal: 20,vertical: 15),
-                        decoration: const BoxDecoration(
-                            color: darkMain,
-                            borderRadius: BorderRadius.all(Radius.circular(10))),
-                        child: const Text('BUY',style: TextStyle(color: white,fontSize: 18,fontWeight: FontWeight.bold),),
+                      InkWell(
+                        onTap: (){
+                          Get.to(TradingSubCategoryPage());
+                        },
+                        child: Container(
+                          padding: const EdgeInsets.symmetric(horizontal: 20,vertical: 15),
+                          decoration: const BoxDecoration(
+                              color: darkMain,
+                              borderRadius: BorderRadius.all(Radius.circular(10))),
+                          child: const Text('BUY',style: TextStyle(color: white,fontSize: 18,fontWeight: FontWeight.bold),),
+                        ),
                       )
                     ],
                   ),

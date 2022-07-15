@@ -5,7 +5,9 @@ import 'package:property_trading_app/view/auth/docverfication.dart';
 import 'package:property_trading_app/view/auth/new_signUp.dart';
 import 'package:property_trading_app/view/auth/phone_signin.dart';
 import 'package:property_trading_app/view/auth/signin_options.dart';
+import 'package:property_trading_app/view/auth/splash_screen.dart';
 import 'package:property_trading_app/view/auth/welcome_screen.dart';
+import 'package:property_trading_app/view/delete_me.dart';
 import 'package:property_trading_app/view/home/graphscreen.dart';
 import 'package:property_trading_app/view/home/old_home_screen.dart';
 import 'package:property_trading_app/view/home/tradinghome.dart';
@@ -13,12 +15,15 @@ import 'package:property_trading_app/view/home/tradingsubcategory.dart';
 import 'package:property_trading_app/view/payment/payment_options.dart';
 import 'package:property_trading_app/view/profile_screen.dart';
 import 'package:property_trading_app/view/root/root_screen.dart';
+import 'package:intl/date_symbol_data_local.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
 
+  initializeDateFormatting().then((_) => runApp(const MyApp()));
+
   // await initialize();
-  runApp(const MyApp());
+  // runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {
@@ -36,7 +41,7 @@ class MyApp extends StatelessWidget {
 
       ),
       // navigatorKey: navigatorKey,
-      home: RootScreen(),
+      home: false ? TradingSubCategoryPage() : CustomSplashScreen(),
     );
   }
 }

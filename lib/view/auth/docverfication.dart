@@ -4,6 +4,7 @@ import 'package:property_trading_app/utils/constants.dart';
 import 'package:property_trading_app/utils/text_style.dart';
 
 import '../../utils/app-color.dart';
+import '../root/root_screen.dart';
 
 class DocVer extends StatefulWidget {
   const DocVer({Key? key}) : super(key: key);
@@ -115,7 +116,13 @@ class _DocVerState extends State<DocVer> {
             ),
             spacing,
             spacing,
-            Container(decoration: BoxDecoration(color: darkMain,borderRadius: BorderRadius.all(Radius.circular(30))),height: 70,width: Get.width,child: Center(child: Text('Next Step',style: ButtonLabel,),),)
+            spacing,
+
+            InkWell(
+                onTap: (){
+                  Get.to(RootScreen());
+                },
+                child: Container(decoration: BoxDecoration(color: darkMain,borderRadius: BorderRadius.all(Radius.circular(30))),height: 70,width: Get.width*0.75,child: Center(child: Text('Next Step',style: ButtonLabel,),),))
           ],
         ),
       ),

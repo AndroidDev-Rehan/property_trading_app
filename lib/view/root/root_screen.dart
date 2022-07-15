@@ -2,9 +2,12 @@ import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:nb_utils/nb_utils.dart';
 import 'package:property_trading_app/utils/app-color.dart';
+import 'package:property_trading_app/view/profile_screen.dart';
 
+import '../home/graphscreen.dart';
 import '../home/new_home_screen.dart';
 import '../home/old_home_screen.dart';
+import '../p2p/p2ptrade.dart';
 
 
 class RootScreen extends StatefulWidget {
@@ -34,18 +37,18 @@ class _RootScreenState extends State<RootScreen> {
             buttonBackgroundColor: darkMain,
             items: const <Widget>[
               Icon(Icons.home, size: 30, color: Colors.white,),
-              Icon(Icons.wallet, size: 30,color: Colors.white),
+              Icon(Icons.add_chart, size: 30,color: Colors.white),
               Icon(Icons.person, size: 30, color: Colors.white),
             ],
             onTap: (index) {
-              // setState((){
-              //   selectedIndex = index;
-              // });
+              setState((){
+                selectedIndex = index;
+              });
               //Handle button tap
             },
           ),
         ),
-        body: (selectedIndex==0) ? const NewHomeScreen() : Container(color: Colors.blueAccent),
+        body: (selectedIndex==0) ? const NewHomeScreen() : selectedIndex==1 ? P2pTrade() : ProfileScreen(),
       ),
     );
   }

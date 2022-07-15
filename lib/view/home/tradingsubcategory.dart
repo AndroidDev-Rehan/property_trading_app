@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:get/get_core/get_core.dart';
+import 'package:get/get_navigation/get_navigation.dart';
 import 'package:nb_utils/nb_utils.dart';
+import 'package:property_trading_app/view/home/graphscreen.dart';
 
 import '../../utils/app-color.dart';
 
@@ -30,18 +33,23 @@ class _TradingSubCategoryPageState extends State<TradingSubCategoryPage> {
                 crossAxisCount: 2, crossAxisSpacing: 50.0, mainAxisSpacing: 40.0),
             itemCount: 20,
             itemBuilder: (context, index) {
-              return Material(
-                elevation: 10,
+              return InkWell(
+                onTap: (){
+                  Get.to(DetailsPage());
+                },
+                child: Material(
+                  elevation: 10,
 
 
-                      borderRadius: BorderRadius.circular(10),
-                      color: darkMain,
-                  child: Center(
-                      child: Text(
-                    '${index} Marla',
-                    style: const TextStyle(
-                        color: white, fontWeight: FontWeight.bold,fontSize: 20),
-                  )));
+                        borderRadius: BorderRadius.circular(10),
+                        color: darkMain,
+                    child: Center(
+                        child: Text(
+                      '${index} Marla',
+                      style: const TextStyle(
+                          color: white, fontWeight: FontWeight.bold,fontSize: 20),
+                    ))),
+              );
             }),
       ),
     );

@@ -4,6 +4,7 @@ import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:nb_utils/nb_utils.dart';
 import 'package:property_trading_app/utils/app-color.dart';
+import 'package:property_trading_app/view/payment/payment_options.dart';
 import 'package:sizer/sizer.dart';
 import 'package:unicons/unicons.dart';
 
@@ -92,19 +93,24 @@ class _DetailsPageState extends State<DetailsPage> {
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  Container(
-                      decoration: BoxDecoration(
-                          border: Border.all(color: mainGolden, width: 2)),
-                      height: 40,
-                      width: Get.width * 0.4,
-                      child: Center(
-                          child: Text(
-                        'Buy',
-                        style: TextStyle(
-                            fontSize: 25,
-                            fontWeight: FontWeight.w500,
-                            color: mainGolden),
-                      ))),
+                  InkWell(
+                    onTap: (){
+                      Get.to(PaymentOptions());
+                    },
+                    child: Container(
+                        decoration: BoxDecoration(
+                            border: Border.all(color: mainGolden, width: 2)),
+                        height: 40,
+                        width: Get.width * 0.4,
+                        child: Center(
+                            child: Text(
+                          'Buy',
+                          style: TextStyle(
+                              fontSize: 25,
+                              fontWeight: FontWeight.w500,
+                              color: mainGolden),
+                        ))),
+                  ),
                   Container(
                       decoration: BoxDecoration(
                           border: Border.all(color: mainGolden, width: 2)),
