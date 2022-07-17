@@ -1,7 +1,6 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:get/get_core/src/get_main.dart';
 import 'package:property_trading_app/utils/app-color.dart';
 import 'package:property_trading_app/view/global_widgets/custom_button.dart';
 import 'package:property_trading_app/view/home/tradinghome.dart';

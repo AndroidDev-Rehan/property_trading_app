@@ -19,7 +19,7 @@ class _P2pTradeState extends State<P2pTrade> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      floatingActionButton: FloatingActionButton(backgroundColor: darkMain,onPressed: (){Get.to(()=>AddP2p());},child: Icon(Icons.add,color: white,size: 30,)),
+      floatingActionButton: FloatingActionButton(backgroundColor: mainGolden,onPressed: (){Get.to(()=>AddP2p());},child: Icon(Icons.add,color: white,size: 30,)),
       appBar: AppBar(
         centerTitle: true,
         title: const Text(
@@ -36,7 +36,7 @@ class _P2pTradeState extends State<P2pTrade> {
               padding: const EdgeInsets.symmetric(horizontal: 15.0),
               child: Column(
                 children: [
-index==0?SizedBox(height: 20,):SizedBox(),
+                  index==0?SizedBox(height: 20,):SizedBox(),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
@@ -44,10 +44,10 @@ index==0?SizedBox(height: 20,):SizedBox(),
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: const [
                           Text(
-                            'DHA Lahore',
+                            'Ali Raza',
                             style: TextStyle(
                                 fontSize: 25,
-                                color: mainGolden,
+                                // color: mainGolden,
                                 fontWeight: FontWeight.bold),
                           ),
                           SizedBox(
@@ -55,13 +55,18 @@ index==0?SizedBox(height: 20,):SizedBox(),
                           ),
                           Text(
                             '1 Marla',
-                            style: TextStyle(fontSize: 20, color: mainGolden),
+                            style: TextStyle(fontSize: 20,
+                                // color: mainGolden
+                            ),
                           ),
                         ],
                       ),
                       const Text(
                         'Price: 100K',
-                        style: TextStyle(fontSize: 18, color: mainGolden),
+                        style: TextStyle(
+                            fontSize: 18,
+                            // color: mainGolden
+                        ),
                       ),
                       InkWell(
                         onTap: (){

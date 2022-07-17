@@ -6,6 +6,7 @@ import 'package:property_trading_app/view/history/history%20screen.dart';
 import 'package:property_trading_app/view/home/tradingsubcategory.dart';
 
 import '../../utils/app-color.dart';
+import '../global_widgets/custom_button.dart';
 
 class TradingHome extends StatefulWidget {
   const TradingHome({Key? key}) : super(key: key);
@@ -19,9 +20,10 @@ class _TradingHomeState extends State<TradingHome> {
   Widget build(BuildContext context) {
     return SafeArea(
         child: Scaffold(
-          floatingActionButton: FloatingActionButton(backgroundColor: darkMain,onPressed: (){Get.to(()=>History());},child: Icon(Icons.history,color: white,size: 30,)),
-      body: SingleChildScrollView(
+          // floatingActionButton: FloatingActionButton(backgroundColor: darkMain,onPressed: (){Get.to(()=>History());},child: Icon(Icons.history,color: white,size: 30,)),
+          body: SingleChildScrollView(
         child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Container(
               height: Get.height * 0.25,
@@ -38,6 +40,19 @@ class _TradingHomeState extends State<TradingHome> {
                     ),
                   )),
             ),
+            SizedBox(height: 10,),
+            Padding(
+              padding: const EdgeInsets.only(left: 16.0),
+              child: CustomElevatedButton(text: "History", onPressed: (){
+                Get.to(History(),);
+              },
+              roundness: 5,
+              verticalPadding: 10,
+                iconData: Icons.history,
+                color: mainGolden,
+              ),
+            ),
+            SizedBox(height: 5,),
             Padding(
               padding: const EdgeInsets.only(top: 8.0, left: 15, right: 15),
               child: ListView.builder(
