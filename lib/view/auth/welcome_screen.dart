@@ -26,7 +26,10 @@ class WelcomeScreen extends StatelessWidget {
                     Expanded(child: Center(child: Image.asset("assets/images/logo.png"))),
                     Padding(
                       padding: const EdgeInsets.only(left: 20.0, bottom: 20, right: 30),
-                      child: Text("Help Millions of People, everywhere, everytime. ", style: TextStyle(color: Colors.white, fontSize: 30, fontWeight: FontWeight.bold),),
+                      child: Text("Help Millions of People, everywhere, everytime. ", style: TextStyle(
+                          color: mainGolden,
+                          fontSize: 30,
+                          fontWeight: FontWeight.bold),),
                     )
                   ],
 

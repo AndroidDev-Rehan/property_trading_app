@@ -21,11 +21,53 @@ class NewHomeScreen extends StatelessWidget {
 
     return SafeArea(
       child: Scaffold(
+
         appBar: AppBar(
-          title: Text("GMARKETING"),
           backgroundColor: darkMain,
-          centerTitle: true,
+          leading: Icon(Icons.person),
+          title:           Padding(
+            padding: const EdgeInsets.only(top: 12.0, bottom: 12,right: 16,),
+            child: TextFormField(
+              decoration: InputDecoration(
+                // label: Text(label),
+                  border: OutlineInputBorder(
+                      borderSide: BorderSide(color: Colors.white)
+                  ),
+                  focusedBorder: OutlineInputBorder(
+                      borderSide: BorderSide(color: Colors.white)
+                  ),
+                  disabledBorder: OutlineInputBorder(
+                      borderSide: BorderSide(color: Colors.white)
+                  ),
+                  enabledBorder: OutlineInputBorder(
+                      borderSide: BorderSide(color: Colors.white)
+                  ),
+                  prefixIcon: Icon(Icons.search, color: Colors.white,),
+                  isDense: true,
+                  contentPadding: EdgeInsets.symmetric(vertical: 7)
+              ),
+              style: TextStyle(
+                color: Colors.white,
+
+              ),
+              cursorColor: Colors.white,
+            ),
+          ),
+          actions: [
+            Icon(Icons.notifications_active),
+            SizedBox(width: 10,),
+
+            Icon(Icons.location_on_sharp),
+            // Icon(Icons.qr_code_scanner),
+            SizedBox(width: 20,),
+          ],
         ),
+
+        // appBar: AppBar(
+        //   title: Text("GMARKETING"),
+        //   backgroundColor: darkMain,
+        //   centerTitle: true,
+        // ),
         body: Container(
           height: Get.height,
           child: SingleChildScrollView(
@@ -50,7 +92,7 @@ class NewHomeScreen extends StatelessWidget {
                     padding: EdgeInsets.only(left: 16.0),
                     child: Text(
                       "Trending",
-                      style: goldenHeadingStyle,
+                      style: bluekHeadingStyle,
                     ),
                   ),
                 ),

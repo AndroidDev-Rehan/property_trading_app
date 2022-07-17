@@ -4,6 +4,7 @@ import 'package:nb_utils/nb_utils.dart';
 import 'package:property_trading_app/utils/app-color.dart';
 import 'package:property_trading_app/view/profile_screen.dart';
 
+import '../auth/widget/CustomTextField.dart';
 import '../home/graphscreen.dart';
 import '../home/new_home_screen.dart';
 import '../home/old_home_screen.dart';

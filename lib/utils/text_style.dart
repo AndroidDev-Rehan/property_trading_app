@@ -8,6 +8,9 @@ const welcomeStyle = TextStyle(fontSize: 30, fontWeight: FontWeight.w600, color:
 const headingStyle = TextStyle(fontSize: 30, fontWeight: FontWeight.bold, color: black);
 const whiteheadingStyle = TextStyle(fontSize: 30, fontWeight: FontWeight.bold, color: white);
 const goldenHeadingStyle = TextStyle(fontSize: 30, fontWeight: FontWeight.bold, color: mainGolden);
+const blackHeadingStyle = TextStyle(fontSize: 30, fontWeight: FontWeight.bold, color: Colors.black);
+const bluekHeadingStyle = TextStyle(fontSize: 30, fontWeight: FontWeight.bold, color: darkMain);
+
 
 const subtitleText = TextStyle(fontSize: 20, fontWeight: FontWeight.normal, color: black,);
 

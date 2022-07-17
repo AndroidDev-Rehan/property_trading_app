@@ -33,9 +33,14 @@ class PhoneSignInScreen extends StatelessWidget {
                 child: Column(
                   mainAxisSize: MainAxisSize.min,
                   children: [
-                    const CustomTextField(label: "PHNONE", labelStyle: TextStyle(color: mainGolden, fontWeight: FontWeight.bold),),
+                    const CustomTextField(label: "PHNONE", labelStyle: TextStyle(
+                        // color: mainGolden,
+                        fontWeight: FontWeight.bold),),
                     const SizedBox(height: 0,),
-                    const CustomTextField(label: "PASSWORD", labelStyle: TextStyle(color: mainGolden, fontWeight: FontWeight.bold)),
+                    const CustomTextField(
+                        label: "PASSWORD", labelStyle: TextStyle(
+                        // color: mainGolden,
+                        fontWeight: FontWeight.bold)),
                     const SizedBox(height: 10,),
                     CustomElevatedButton(text: "LOGIN", onPressed: (){
                       Get.to(DocVer());
