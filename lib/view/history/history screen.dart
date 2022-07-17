@@ -48,8 +48,7 @@ class _HistoryState extends State<History> {
                         'Price: ${index+1}0K',
                         style: TextStyle(fontSize: 18, color: darkMain),
                       ),
-                      index%2==0?Icon(Icons.arrow_downward_outlined,size: 30,color: redColor,):
-                      Icon(Icons.arrow_upward_rounded,size:30,color: greenColor,)
+
                     ],
                   ),
                   const Divider(

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:nb_utils/nb_utils.dart';
+import 'package:persistent_bottom_nav_bar/persistent-tab-view.dart';
 import 'package:property_trading_app/utils/text_style.dart';
 import 'package:property_trading_app/view/history/history%20screen.dart';
 import 'package:property_trading_app/view/home/tradingsubcategory.dart';
@@ -44,7 +45,12 @@ class _TradingHomeState extends State<TradingHome> {
             Padding(
               padding: const EdgeInsets.only(left: 16.0),
               child: CustomElevatedButton(text: "History", onPressed: (){
-                Get.to(History(),);
+                pushNewScreen(
+                  context,
+                  screen: History(),
+                  withNavBar: true, // OPTIONAL VALUE. True by default.
+                  pageTransitionAnimation: PageTransitionAnimation.cupertino,
+                );
               },
               roundness: 5,
               verticalPadding: 10,
@@ -62,7 +68,12 @@ class _TradingHomeState extends State<TradingHome> {
                   itemBuilder: (context, index) {
                     return InkWell(
                       onTap: (){
-                        Get.to(TradingSubCategoryPage());
+                        pushNewScreen(
+                          context,
+                          screen: TradingSubCategoryPage(),
+                          withNavBar: true, // OPTIONAL VALUE. True by default.
+                          pageTransitionAnimation: PageTransitionAnimation.cupertino,
+                        );
                       },
                       child: Container(
                         margin: EdgeInsets.symmetric(vertical: 10),

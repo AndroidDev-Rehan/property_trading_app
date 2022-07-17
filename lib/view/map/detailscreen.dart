@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:nb_utils/nb_utils.dart';
+import 'package:persistent_bottom_nav_bar/persistent-tab-view.dart';
 import 'package:property_trading_app/view/map/mapscreen.dart';
 
 import '../../utils/app-color.dart';
@@ -65,7 +66,12 @@ class _DetailScreenState extends State<DetailScreen> {
                 tag: 'map',
                 child: GoogleMap(
                   onTap: (pos) {
-                    Get.to(() => const MapScreen());
+                    pushNewScreen(
+                      context,
+                      screen: MapScreen(),
+                      withNavBar: true, // OPTIONAL VALUE. True by default.
+                      pageTransitionAnimation: PageTransitionAnimation.cupertino,
+                    );
                   },
                   mapType: MapType.normal,
                   initialCameraPosition: _kGooglePlex,

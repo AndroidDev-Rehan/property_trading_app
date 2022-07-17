@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
+import 'package:persistent_bottom_nav_bar/persistent-tab-view.dart';
 import 'package:property_trading_app/view/map/detailscreen.dart';
 
 import '../../utils/app-color.dart';
@@ -38,7 +39,12 @@ class PaymentOptions extends StatelessWidget {
                     CustomElevatedButton(text: "Pay Using Debit Card", onPressed: (){}, color: darkMain, fixedSize: const Size(265,65),iconData: CupertinoIcons.creditcard,),
                     const SizedBox(height: 20,),
                     CustomElevatedButton(text: "Pay Using Cash           ", onPressed: (){
-                      Get.to(const DetailScreen());
+                      pushNewScreen(
+                        context,
+                        screen: DetailScreen(),
+                        withNavBar: true, // OPTIONAL VALUE. True by default.
+                        pageTransitionAnimation: PageTransitionAnimation.cupertino,
+                      );
                     }, color: darkMain, fixedSize: Size(265,65), iconData: Icons.money,),
                     const SizedBox(height: 20,),
 

@@ -2,7 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/get_core.dart';
 import 'package:nb_utils/nb_utils.dart';
-import 'package:property_trading_app/view/delete_me.dart';
+import 'package:persistent_bottom_nav_bar/persistent-tab-view.dart';
+
 import 'package:property_trading_app/view/home/tradingsubcategory.dart';
 import 'package:property_trading_app/view/p2p/addp2p.dart';
 
@@ -19,7 +20,12 @@ class _P2pTradeState extends State<P2pTrade> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      floatingActionButton: FloatingActionButton(backgroundColor: mainGolden,onPressed: (){Get.to(()=>AddP2p());},child: Icon(Icons.add,color: white,size: 30,)),
+      floatingActionButton: FloatingActionButton(backgroundColor: mainGolden,onPressed: (){ pushNewScreen(
+        context,
+        screen: AddP2p(),
+        withNavBar: true, // OPTIONAL VALUE. True by default.
+        pageTransitionAnimation: PageTransitionAnimation.cupertino,
+      );},child: Icon(Icons.add,color: white,size: 30,)),
       appBar: AppBar(
         centerTitle: true,
         title: const Text(
@@ -70,7 +76,7 @@ class _P2pTradeState extends State<P2pTrade> {
                       ),
                       InkWell(
                         onTap: (){
-                          Get.to(const ChatPage());
+                          // Get.to(const ChatPage());
                         },
                         child: Container(
                           padding: const EdgeInsets.symmetric(horizontal: 20,vertical: 15),

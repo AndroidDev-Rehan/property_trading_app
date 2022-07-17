@@ -1,6 +1,7 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:persistent_bottom_nav_bar/persistent-tab-view.dart';
 import 'package:property_trading_app/utils/app-color.dart';
 import 'package:property_trading_app/view/global_widgets/custom_button.dart';
 import 'package:property_trading_app/view/home/tradinghome.dart';
@@ -146,7 +147,14 @@ class NewHomeScreen extends StatelessWidget {
                           child: CustomElevatedButton(
                         text: "TRADING",
                         onPressed: () {
-                          Get.to(TradingHome());
+
+                          pushNewScreen(
+                            context,
+                            screen: TradingHome(),
+                            withNavBar: true, // OPTIONAL VALUE. True by default.
+                            pageTransitionAnimation: PageTransitionAnimation.cupertino,
+                          );
+
                         },
                         roundness: 10,
                         verticalPadding: 16,
@@ -158,7 +166,12 @@ class NewHomeScreen extends StatelessWidget {
                           child: CustomElevatedButton(
                         text: "P2P TRADING",
                         onPressed: () {
-                          Get.to(P2pTrade());
+                          pushNewScreen(
+                            context,
+                            screen: P2pTrade(),
+                            withNavBar: true, // OPTIONAL VALUE. True by default.
+                            pageTransitionAnimation: PageTransitionAnimation.cupertino,
+                          );
                         },
                         roundness: 10,
                         verticalPadding: 16,

@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:nb_utils/nb_utils.dart';
+import 'package:persistent_bottom_nav_bar/persistent-tab-view.dart';
 import 'package:property_trading_app/utils/app-color.dart';
 import 'package:property_trading_app/view/payment/payment_options.dart';
 import 'package:sizer/sizer.dart';
@@ -96,7 +97,12 @@ class _DetailsPageState extends State<DetailsPage> {
                   children: [
                     InkWell(
                       onTap: (){
-                        Get.to(PaymentOptions());
+                        pushNewScreen(
+                          context,
+                          screen: PaymentOptions(),
+                          withNavBar: true, // OPTIONAL VALUE. True by default.
+                          pageTransitionAnimation: PageTransitionAnimation.cupertino,
+                        );
                       },
                       child: Container(
                           decoration: BoxDecoration(
