@@ -37,18 +37,18 @@ class _RootScreenState extends State<RootScreen> {
         PersistentBottomNavBarItem(
           icon: const Icon(Icons.home),
           title: ("Home"),
-          activeColorPrimary: mainGolden,
+          activeColorPrimary: darkMain,
           inactiveColorPrimary: CupertinoColors.systemGrey,
         ),
         PersistentBottomNavBarItem(
           icon: const Icon(Icons.add_chart),
           title: ("P2P"),
-          activeColorPrimary: mainGolden,
+          activeColorPrimary: darkMain,
           inactiveColorPrimary: CupertinoColors.systemGrey,
         ),PersistentBottomNavBarItem(
           icon: const Icon(Icons.person),
           title: ("Profile"),
-          activeColorPrimary: mainGolden,
+          activeColorPrimary:darkMain,
           inactiveColorPrimary: CupertinoColors.systemGrey,
         ),
       ],
