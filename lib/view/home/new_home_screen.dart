@@ -79,7 +79,7 @@ class NewHomeScreen extends StatelessWidget {
                   height: 20,
                 ),
                 Align(
-                    alignment: Alignment.centerLeft,
+                    alignment: Alignment.center,
                     child: Image.asset(
                       "assets/images/logo.png",
                       height: 200,

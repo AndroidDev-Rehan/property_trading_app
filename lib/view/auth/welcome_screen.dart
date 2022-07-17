@@ -9,10 +9,14 @@ import '../global_widgets/custom_button.dart';
 class WelcomeScreen extends StatelessWidget {
   const WelcomeScreen({Key? key}) : super(key: key);
 
+
   @override
   Widget build(BuildContext context) {
+    final double screenSize = Get.width;
+    print(screenSize);
     return Scaffold(
       body: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Expanded(
               flex: 6,
@@ -22,14 +26,21 @@ class WelcomeScreen extends StatelessWidget {
                   // color: Theme.of(context).primaryColor,
                 ),
                 child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Expanded(child: Center(child: Image.asset("assets/images/logo.png"))),
-                    Padding(
-                      padding: const EdgeInsets.only(left: 20.0, bottom: 20, right: 30),
-                      child: Text("Help Millions of People, everywhere, everytime. ", style: TextStyle(
-                          color: mainGolden,
-                          fontSize: 30,
-                          fontWeight: FontWeight.bold),),
+                    Container(
+                      width: screenSize,
+                      child:  Padding(
+                        padding: EdgeInsets.only(left: 20.0, bottom: 20, right: screenSize*0.05102),
+                        child: Text(
+                          "Help Millions of People, everywhere, everytime. ",
+                          maxLines: 2,
+                          style: TextStyle(
+                            color: Colors.white,
+                            fontSize: screenSize*0.077,
+                            fontWeight: FontWeight.bold),),
+                      ),
                     )
                   ],
 

@@ -21,20 +21,25 @@ class _DocVerState extends State<DocVer> {
         padding: const EdgeInsets.all(15.0),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             Text(
               submitDoc,
               style: headingStyle,
             ),
             spacing,
-            Text(
-              verifyinfo,
-              style: subtitleText,
+            Align(
+              alignment: Alignment.centerLeft,
+              child: Text(
+                verifyinfo,
+                style: subtitleText,
+                textAlign: TextAlign.start,
+              ),
             ),
-            Text(
-              pleasesubmit,
-              style: subtitleText,textAlign: TextAlign.center,
-            ),
+            // Text(
+            //   pleasesubmit,
+            //   style: subtitleText,textAlign: TextAlign.center,
+            // ),
             spacing,
             spacing,
             SizedBox(

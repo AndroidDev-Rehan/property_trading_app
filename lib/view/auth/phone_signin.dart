@@ -24,7 +24,7 @@ class PhoneSignInScreen extends StatelessWidget {
                   width: Get.width,
                   color: darkMain,
                   child: Align(
-                      alignment: Alignment.centerLeft,
+                      alignment: Alignment.center,
                       child: Image.asset("assets/images/logo.png", height: 150, width: 150,)),
                 )),
             Expanded(
