@@ -31,7 +31,7 @@ class CustomElevatedButton extends StatelessWidget {
             onPressed();
           },
           child: Padding(
-            padding:  EdgeInsets.symmetric(horizontal: horizontalPadding ?? 0, vertical: verticalPadding ?? 0),
+            padding:  EdgeInsets.symmetric(horizontal: horizontalPadding ?? 0, vertical: verticalPadding ?? 8),
             child: Row(
               mainAxisSize: MainAxisSize.min,
               children: [
@@ -44,7 +44,7 @@ class CustomElevatedButton extends StatelessWidget {
           ),
           style: ElevatedButton.styleFrom(
               primary: color ?? darkMain,
-              shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(roundness ?? 20), ),
+              shape: StadiumBorder(),
             side: border ? BorderSide(color: Theme.of(context).primaryColor) : null,
             fixedSize: fixedSize
             // fixedSize: const Size(double.infinity, 50),
