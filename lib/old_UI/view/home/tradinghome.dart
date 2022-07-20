@@ -56,7 +56,7 @@ class _TradingHomeState extends State<TradingHome> {
               },
               roundness: 5,
               verticalPadding: 10,
-                iconData: Icons.history,
+                // iconData: Icons.history,
                 color: mainGolden,
               ),
             ),
