@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:nb_utils/nb_utils.dart';
 import 'package:property_trading_app/old_UI/utils/app-color.dart';
 import 'package:property_trading_app/old_UI/view/auth/docverfication.dart';
 import 'package:property_trading_app/old_UI/view/global_widgets/custom_button.dart';
@@ -40,7 +39,7 @@ class SignUpScreen extends StatelessWidget {
                   child: const Icon(
                     Icons.person,
                     size: 50,
-                    color: white,
+                    color: Colors.white,
                   )),
               const SizedBox(
                 height: 20,

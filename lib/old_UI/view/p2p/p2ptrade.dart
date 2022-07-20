@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:nb_utils/nb_utils.dart';
 import 'package:persistent_bottom_nav_bar/persistent-tab-view.dart';
 import 'package:property_trading_app/old_UI/view/p2p/addp2p.dart';
 import '../../../utils/app-color.dart';
@@ -24,13 +23,13 @@ class _P2pTradeState extends State<P2pTrade> {
         screen: AddP2p(),
         withNavBar: true, // OPTIONAL VALUE. True by default.
         pageTransitionAnimation: PageTransitionAnimation.cupertino,
-      );},child: const Icon(Icons.add,color: white,size: 30,)),
+      );},child: const Icon(Icons.add,color: Colors.white,size: 30,)),
       appBar: AppBar(
         centerTitle: true,
         title: const Text(
           'P2P Trade',
           style: TextStyle(
-              fontSize: 20, fontWeight: FontWeight.bold, color: white),
+              fontSize: 20, fontWeight: FontWeight.bold, color: Colors.white),
         ),
         backgroundColor: darkMain,
       ),
@@ -82,14 +81,14 @@ class _P2pTradeState extends State<P2pTrade> {
                           decoration: const BoxDecoration(
                               color: darkMain,
                               borderRadius: BorderRadius.all(Radius.circular(10))),
-                          child: const Text('BUY',style: TextStyle(color: white,fontSize: 18,fontWeight: FontWeight.bold),),
+                          child: const Text('BUY',style: TextStyle(color: Colors.white,fontSize: 18,fontWeight: FontWeight.bold),),
                         ),
                       )
                     ],
                   ),
                   const Divider(
                     height: 40,
-                    color: grey,
+                    color: Colors.grey,
                   )
                 ],
               ),

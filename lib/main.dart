@@ -4,6 +4,7 @@ import 'package:property_trading_app/old_UI/view/auth/docverfication.dart';
 // import 'package:nb_utils/nb_utils.dart';
 import 'package:intl/date_symbol_data_local.dart';
 
+import 'new_UI_screens/payment_method/payment_method.dart';
 import 'old_UI/view/auth/splash_screen.dart';
 import 'old_UI/view/home/tradingsubcategory.dart';
 
@@ -31,7 +32,7 @@ class MyApp extends StatelessWidget {
 
       ),
       // navigatorKey: navigatorKey,
-      home: false ? const TradingSubCategoryPage() : const CustomSplashScreen(),
+      home: PaymentOptions(),
     );
   }
 }

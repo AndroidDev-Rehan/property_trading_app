@@ -2,12 +2,12 @@ import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:nb_utils/nb_utils.dart';
 import 'package:persistent_bottom_nav_bar/persistent-tab-view.dart';
 import 'package:property_trading_app/old_UI/utils/app-color.dart';
 import 'package:property_trading_app/old_UI/view/payment/payment_options.dart';
 import 'package:sizer/sizer.dart';
 import 'package:unicons/unicons.dart';
+import '../../../new_UI_screens/payment_method/payment_method.dart';
 import '../../../utils/app-color.dart';
 
 import '../../../utils/text_style.dart';
@@ -38,7 +38,7 @@ class _DetailsPageState extends State<DetailsPage> {
     minY = sortedSpots.first.y;
     maxY = sortedSpots.last.y;
     profitPercent = ((spots.last.y - spots[spots.length - 2].y) /
-            spots[spots.length - 2].y) *
+        spots[spots.length - 2].y) *
         100;
     for (var i = 0; i < spots.length; i++) {
       totalSpotsValue.value += spots[i].y;
@@ -90,7 +90,7 @@ class _DetailsPageState extends State<DetailsPage> {
                 ),
                 Text(
                   '100,000 Rs',
-                  style: TextStyle(fontSize: 20, color: white),
+                  style: TextStyle(fontSize: 20, color: Colors.white),
                 ),
                 SizedBox(
                   height: 40,
@@ -114,12 +114,12 @@ class _DetailsPageState extends State<DetailsPage> {
                           width: Get.width * 0.4,
                           child: Center(
                               child: Text(
-                            'Buy',
-                            style: TextStyle(
-                                fontSize: 25,
-                                fontWeight: FontWeight.w500,
-                                color: mainGolden),
-                          ))),
+                                'Buy',
+                                style: TextStyle(
+                                    fontSize: 25,
+                                    fontWeight: FontWeight.w500,
+                                    color: mainGolden),
+                              ))),
                     ),
                     Container(
                         decoration: BoxDecoration(
@@ -128,12 +128,12 @@ class _DetailsPageState extends State<DetailsPage> {
                         width: Get.width * 0.4,
                         child: Center(
                             child: Text(
-                          'Sell',
-                          style: TextStyle(
-                              fontSize: 25,
-                              fontWeight: FontWeight.w500,
-                              color: mainGolden),
-                        )))
+                              'Sell',
+                              style: TextStyle(
+                                  fontSize: 25,
+                                  fontWeight: FontWeight.w500,
+                                  color: mainGolden),
+                            )))
                   ],
                 ),
                 SizedBox(
@@ -167,7 +167,7 @@ class _DetailsPageState extends State<DetailsPage> {
                         child: Text(
                           'Confirmation',
                           style: TextStyle(
-                              color: white,
+                              color: Colors.white,
                               fontSize: 25,
                               fontWeight: FontWeight.bold),
                         ),
@@ -183,17 +183,17 @@ class _DetailsPageState extends State<DetailsPage> {
 }
 
 LineChartData chart(
-  bool isHomePage,
-  List<FlSpot> spots,
-  double minY,
-  double maxY,
-  bool profit,
-) {
-  List<Color> redColors = [white];
+    bool isHomePage,
+    List<FlSpot> spots,
+    double minY,
+    double maxY,
+    bool profit,
+    ) {
+  List<Color> redColors = [Colors.white];
 
   return LineChartData(
     backgroundColor: Colors.transparent,
-    borderData: FlBorderData(border: Border.all(color: white)),
+    borderData: FlBorderData(border: Border.all(color: Colors.white)),
     gridData: FlGridData(
       show: !isHomePage,
       drawVerticalLine: !isHomePage,
@@ -201,13 +201,13 @@ LineChartData chart(
       verticalInterval: 1,
       getDrawingHorizontalLine: (value) {
         return FlLine(
-          color: white,
+          color: Colors.white,
           strokeWidth: 1,
         );
       },
       getDrawingVerticalLine: (value) {
         return FlLine(
-          color: white,
+          color: Colors.white,
           strokeWidth: 1,
         );
       },
@@ -215,52 +215,52 @@ LineChartData chart(
     titlesData: isHomePage
         ? FlTitlesData(show: false)
         : FlTitlesData(
-            show: true,
-            rightTitles: SideTitles(showTitles: false),
-            topTitles: SideTitles(showTitles: false),
-            bottomTitles: SideTitles(
-              showTitles: true,
-              reservedSize: 28,
-              interval: 1,
-              textAlign: TextAlign.start,
-              getTextStyles: (context, value) => TextStyle(
-                color: white,
-                fontWeight: FontWeight.bold,
-                fontSize: 12,
-              ),
-              getTitles: (value) {
-                switch (value.toInt()) {
-                  case 0:
-                    return '1';
-                  case 1:
-                    return '2';
-                  case 2:
-                    return '3';
-                  case 3:
-                    return '4';
-                  case 4:
-                    return '5';
-                  case 5:
-                    return '6';
-                  case 6:
-                    return '7';
-                  default:
-                    return '';
-                }
-              },
-              margin: 8,
-            ),
-            leftTitles: SideTitles(
-              showTitles: true,
-              reservedSize: 35,
-              margin: 10,
-              getTextStyles: (context, value) => TextStyle(
-                color: white,
-                fontWeight: FontWeight.bold,
-                fontSize: 12,
-              ),
-            ),
-          ),
+      show: true,
+      rightTitles: SideTitles(showTitles: false),
+      topTitles: SideTitles(showTitles: false),
+      bottomTitles: SideTitles(
+        showTitles: true,
+        reservedSize: 28,
+        interval: 1,
+        textAlign: TextAlign.start,
+        getTextStyles: (context, value) => TextStyle(
+          color: Colors.white,
+          fontWeight: FontWeight.bold,
+          fontSize: 12,
+        ),
+        getTitles: (value) {
+          switch (value.toInt()) {
+            case 0:
+              return '1';
+            case 1:
+              return '2';
+            case 2:
+              return '3';
+            case 3:
+              return '4';
+            case 4:
+              return '5';
+            case 5:
+              return '6';
+            case 6:
+              return '7';
+            default:
+              return '';
+          }
+        },
+        margin: 8,
+      ),
+      leftTitles: SideTitles(
+        showTitles: true,
+        reservedSize: 35,
+        margin: 10,
+        getTextStyles: (context, value) => TextStyle(
+          color: Colors.white,
+          fontWeight: FontWeight.bold,
+          fontSize: 12,
+        ),
+      ),
+    ),
     lineTouchData: LineTouchData(
       touchTooltipData: LineTouchTooltipData(
           tooltipBgColor: Colors.black,

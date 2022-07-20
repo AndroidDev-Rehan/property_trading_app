@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get_core/get_core.dart';
 import 'package:get/get_navigation/get_navigation.dart';
-import 'package:nb_utils/nb_utils.dart';
 import 'package:persistent_bottom_nav_bar/persistent-tab-view.dart';
 import 'package:property_trading_app/old_UI/view/home/graphscreen.dart';
 import '../../../utils/app-color.dart';
@@ -24,7 +23,7 @@ class _TradingSubCategoryPageState extends State<TradingSubCategoryPage> {
         title: Text(
           'Sub Category',
           style: TextStyle(
-              fontSize: 20, fontWeight: FontWeight.bold, color: white),
+              fontSize: 20, fontWeight: FontWeight.bold, ),
         ),
         backgroundColor: darkMain,
       ),
@@ -54,7 +53,7 @@ class _TradingSubCategoryPageState extends State<TradingSubCategoryPage> {
                         child: Text(
                       '${index} Marla',
                       style: const TextStyle(
-                          color: white, fontWeight: FontWeight.bold,fontSize: 20),
+                       fontWeight: FontWeight.bold,fontSize: 20),
                     ))),
               );
             }),

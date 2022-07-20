@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
-import 'package:nb_utils/nb_utils.dart';
 
 class MapScreen extends StatefulWidget {
   const MapScreen({Key? key}) : super(key: key);
@@ -33,7 +32,7 @@ class _MapScreenState extends State<MapScreen> {
             ),
           ),
         ),
-        Positioned(top:10,left: 10,child: IconButton(onPressed: (){Get.back();}, icon: const Icon(Icons.arrow_back,size: 30,color: black,)))
+        Positioned(top:10,left: 10,child: IconButton(onPressed: (){Get.back();}, icon: const Icon(Icons.arrow_back,size: 30,color: Colors.black,)))
       ],
     )
 

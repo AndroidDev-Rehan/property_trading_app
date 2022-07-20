@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
-import 'package:nb_utils/nb_utils.dart';
 import 'package:persistent_bottom_nav_bar/persistent-tab-view.dart';
 import 'package:property_trading_app/old_UI/view/map/mapscreen.dart';
 import '../../../utils/app-color.dart';
@@ -29,7 +28,7 @@ class _DetailScreenState extends State<DetailScreen> {
         title: const Text(
           'Buy Now',
           style: TextStyle(
-              fontSize: 20, fontWeight: FontWeight.bold, color: white),
+              fontSize: 20, fontWeight: FontWeight.bold, color: Colors.white),
         ),
         backgroundColor: darkMain,
       ),

@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:nb_utils/nb_utils.dart';
 
 import '../../utils/app-color.dart';
 import '../../../utils/app-color.dart';
@@ -20,14 +19,14 @@ class _AddP2pState extends State<AddP2p> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      floatingActionButton: FloatingActionButton(backgroundColor: darkMain,onPressed: (){Get.back();},child: Icon(Icons.save,color: white,size: 30,)),
+      floatingActionButton: FloatingActionButton(backgroundColor: darkMain,onPressed: (){Get.back();},child: Icon(Icons.save,color: Colors.white,size: 30,)),
       appBar: AppBar(
         centerTitle: true,
-        leading: IconButton(onPressed: (){Get.back();},icon: Icon(Icons.arrow_back,color: white,size: 30,),),
+        leading: IconButton(onPressed: (){Get.back();},icon: Icon(Icons.arrow_back,color: Colors.white,size: 30,),),
         title: const Text(
           'Add P2P Trade',
           style: TextStyle(
-              fontSize: 20, fontWeight: FontWeight.bold, color: white),
+              fontSize: 20, fontWeight: FontWeight.bold, color: Colors.white),
         ),
         backgroundColor: darkMain,
       ),

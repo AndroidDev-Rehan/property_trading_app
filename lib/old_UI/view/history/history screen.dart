@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/get_core.dart';
-import 'package:nb_utils/nb_utils.dart';
 import 'package:property_trading_app/old_UI/view/home/tradingsubcategory.dart';
 import '../../../utils/app-color.dart';
 
@@ -25,7 +24,7 @@ class _HistoryState extends State<History> {
         title: const Text(
           'History',
           style: TextStyle(
-              fontSize: 20, fontWeight: FontWeight.bold, color: white),
+              fontSize: 20, fontWeight: FontWeight.bold, color: Colors.white),
         ),
         backgroundColor: darkMain,
       ),
@@ -56,7 +55,7 @@ class _HistoryState extends State<History> {
                   ),
                   const Divider(
                     height: 40,
-                    color: grey,
+                    color: Colors.grey,
                   )
                 ],
               ),
