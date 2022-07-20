@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
+import '../../../global_widgets/custom_button.dart';
 import '../global_widgets/custom_button.dart';
 
 class ChangedPassSuccess extends StatelessWidget {

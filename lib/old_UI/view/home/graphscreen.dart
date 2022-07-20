@@ -8,6 +8,9 @@ import 'package:property_trading_app/old_UI/utils/app-color.dart';
 import 'package:property_trading_app/old_UI/view/payment/payment_options.dart';
 import 'package:sizer/sizer.dart';
 import 'package:unicons/unicons.dart';
+import '../../../utils/app-color.dart';
+
+import '../../../utils/text_style.dart';
 
 class DetailsPage extends StatefulWidget {
   @override

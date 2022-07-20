@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:property_trading_app/old_UI/utils/app-color.dart';
 
+import '../../utils/app-color.dart';
+
 class ProfileScreen extends StatelessWidget {
   ProfileScreen({Key? key}) : super(key: key);
 

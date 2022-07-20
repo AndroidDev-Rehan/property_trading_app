@@ -3,6 +3,9 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
 import 'package:property_trading_app/old_UI/utils/app-color.dart';
+import '../../../utils/app-color.dart';
+
+import '../../../utils/text_style.dart';
 
 import '../../utils/text_style.dart';
 

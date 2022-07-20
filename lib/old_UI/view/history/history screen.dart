@@ -3,6 +3,9 @@ import 'package:get/get.dart';
 import 'package:get/get_core/get_core.dart';
 import 'package:nb_utils/nb_utils.dart';
 import 'package:property_trading_app/old_UI/view/home/tradingsubcategory.dart';
+import '../../../utils/app-color.dart';
+
+import '../../../utils/text_style.dart';
 
 import '../../utils/app-color.dart';
 

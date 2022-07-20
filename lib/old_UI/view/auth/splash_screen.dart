@@ -3,6 +3,9 @@ import 'package:flutter/material.dart';
 import 'package:property_trading_app/old_UI/utils/app-color.dart';
 import 'package:property_trading_app/old_UI/view/auth/new_signUp.dart';
 import 'package:property_trading_app/old_UI/view/auth/welcome_screen.dart';
+import '../../../utils/app-color.dart';
+
+import '../../../utils/text_style.dart';
 
 class CustomSplashScreen extends StatelessWidget {
   const CustomSplashScreen({Key? key}) : super(key: key);

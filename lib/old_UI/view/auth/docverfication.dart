@@ -2,6 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:property_trading_app/old_UI/utils/constants.dart';
 import 'package:property_trading_app/old_UI/utils/text_style.dart';
+import '../../../utils/app-color.dart';
+
+import '../../../utils/text_style.dart';
 
 import '../../utils/app-color.dart';
 import '../root/root_screen.dart';

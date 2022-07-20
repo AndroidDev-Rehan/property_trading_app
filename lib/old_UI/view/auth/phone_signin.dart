@@ -4,6 +4,10 @@ import 'package:property_trading_app/old_UI/view/global_widgets/custom_button.da
 import 'package:get/get.dart';
 import 'package:property_trading_app/old_UI/view/home/new_home_screen.dart';
 import 'package:property_trading_app/old_UI/view/root/root_screen.dart';
+import '../../../global_widgets/custom_button.dart';
+import '../../../utils/app-color.dart';
+
+import '../../../utils/text_style.dart';
 
 import '../../utils/app-color.dart';
 import 'docverfication.dart';

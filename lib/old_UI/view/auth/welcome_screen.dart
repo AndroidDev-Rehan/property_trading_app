@@ -3,6 +3,10 @@ import 'package:get/get.dart';
 import 'package:property_trading_app/old_UI/utils/app-color.dart';
 import 'package:property_trading_app/old_UI/view/auth/new_signUp.dart';
 import 'package:property_trading_app/old_UI/view/auth/signin_options.dart';
+import '../../../global_widgets/custom_button.dart';
+import '../../../utils/app-color.dart';
+
+import '../../../utils/text_style.dart';
 
 import '../global_widgets/custom_button.dart';
 
