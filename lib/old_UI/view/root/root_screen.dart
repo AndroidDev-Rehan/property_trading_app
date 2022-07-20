@@ -3,8 +3,8 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:nb_utils/nb_utils.dart';
 import 'package:persistent_bottom_nav_bar/persistent-tab-view.dart';
-import 'package:property_trading_app/utils/app-color.dart';
-import 'package:property_trading_app/view/profile_screen.dart';
+import 'package:property_trading_app/old_UI/utils/app-color.dart';
+import 'package:property_trading_app/old_UI/view/profile_screen.dart';
 
 import '../auth/widget/CustomTextField.dart';
 import '../home/graphscreen.dart';

@@ -1,8 +1,8 @@
 import 'package:animated_splash_screen/animated_splash_screen.dart';
 import 'package:flutter/material.dart';
-import 'package:property_trading_app/utils/app-color.dart';
-import 'package:property_trading_app/view/auth/new_signUp.dart';
-import 'package:property_trading_app/view/auth/welcome_screen.dart';
+import 'package:property_trading_app/old_UI/utils/app-color.dart';
+import 'package:property_trading_app/old_UI/view/auth/new_signUp.dart';
+import 'package:property_trading_app/old_UI/view/auth/welcome_screen.dart';
 
 class CustomSplashScreen extends StatelessWidget {
   const CustomSplashScreen({Key? key}) : super(key: key);

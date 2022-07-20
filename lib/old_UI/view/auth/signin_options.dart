@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:property_trading_app/utils/app-color.dart';
-import 'package:property_trading_app/view/auth/phone_signin.dart';
-import 'package:property_trading_app/view/global_widgets/custom_button.dart';
+import 'package:property_trading_app/old_UI/utils/app-color.dart';
+import 'package:property_trading_app/old_UI/view/auth/phone_signin.dart';
+import 'package:property_trading_app/old_UI/view/global_widgets/custom_button.dart';
 
 class SignInOptionsScreen extends StatelessWidget {
   const SignInOptionsScreen({Key? key}) : super(key: key);

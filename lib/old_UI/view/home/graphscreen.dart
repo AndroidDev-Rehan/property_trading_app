@@ -4,8 +4,8 @@ import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:nb_utils/nb_utils.dart';
 import 'package:persistent_bottom_nav_bar/persistent-tab-view.dart';
-import 'package:property_trading_app/utils/app-color.dart';
-import 'package:property_trading_app/view/payment/payment_options.dart';
+import 'package:property_trading_app/old_UI/utils/app-color.dart';
+import 'package:property_trading_app/old_UI/view/payment/payment_options.dart';
 import 'package:sizer/sizer.dart';
 import 'package:unicons/unicons.dart';
 

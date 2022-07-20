@@ -1,25 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:get/get_navigation/src/root/get_material_app.dart';
-import 'package:property_trading_app/view/auth/docverfication.dart';
+import 'package:property_trading_app/old_UI/view/auth/docverfication.dart';
 // import 'package:nb_utils/nb_utils.dart';
-import 'package:property_trading_app/view/auth/new_signUp.dart';
-import 'package:property_trading_app/view/auth/phone_signin.dart';
-import 'package:property_trading_app/view/auth/signin_options.dart';
-import 'package:property_trading_app/view/auth/splash_screen.dart';
-import 'package:property_trading_app/view/auth/welcome_screen.dart';
-import 'package:property_trading_app/view/history/history%20screen.dart';
-
-import 'package:property_trading_app/view/home/graphscreen.dart';
-import 'package:property_trading_app/view/home/old_home_screen.dart';
-import 'package:property_trading_app/view/home/tradinghome.dart';
-import 'package:property_trading_app/view/home/tradingsubcategory.dart';
-import 'package:property_trading_app/view/map/detailscreen.dart';
-import 'package:property_trading_app/view/map/mapscreen.dart';
-import 'package:property_trading_app/view/p2p/addp2p.dart';
-import 'package:property_trading_app/view/payment/payment_options.dart';
-import 'package:property_trading_app/view/profile_screen.dart';
-import 'package:property_trading_app/view/root/root_screen.dart';
 import 'package:intl/date_symbol_data_local.dart';
+
+import 'old_UI/view/auth/splash_screen.dart';
+import 'old_UI/view/home/tradingsubcategory.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();

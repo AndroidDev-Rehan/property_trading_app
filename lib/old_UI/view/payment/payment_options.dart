@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
 import 'package:persistent_bottom_nav_bar/persistent-tab-view.dart';
-import 'package:property_trading_app/view/map/detailscreen.dart';
+import 'package:property_trading_app/old_UI/view/map/detailscreen.dart';
 
 import '../../utils/app-color.dart';
 import '../auth/phone_signin.dart';
