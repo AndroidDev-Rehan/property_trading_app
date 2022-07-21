@@ -7,7 +7,7 @@ import 'package:property_trading_app/old_UI/utils/app-color.dart';
 import 'package:property_trading_app/old_UI/view/payment/payment_options.dart';
 import 'package:sizer/sizer.dart';
 import 'package:unicons/unicons.dart';
-import '../../../new_UI_screens/payment_method/payment_method.dart';
+import '../../../new_UI_screens/payment/payment_method.dart';
 import '../../../utils/app-color.dart';
 
 import '../../../utils/text_style.dart';

@@ -74,7 +74,7 @@ class _P2pTradeState extends State<P2pTrade> {
                       ),
                       InkWell(
                         onTap: (){
-                          Get.to(const ChatPage());
+                          // Get.to(const ChatPage());
                         },
                         child: Container(
                           padding: const EdgeInsets.symmetric(horizontal: 20,vertical: 15),

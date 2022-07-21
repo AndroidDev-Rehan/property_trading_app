@@ -5,6 +5,7 @@ import 'package:persistent_bottom_nav_bar/persistent-tab-view.dart';
 import 'package:property_trading_app/old_UI/utils/app-color.dart';
 import 'package:property_trading_app/old_UI/view/profile_screen.dart';
 
+import '../../../new_UI_screens/profile/profile_screen.dart';
 import '../../../utils/app-color.dart';
 import '../auth/widget/CustomTextField.dart';
 import '../home/graphscreen.dart';
@@ -31,7 +32,9 @@ class _RootScreenState extends State<RootScreen> {
     return PersistentTabView(
       context,
       controller: _controller,
-      screens: [ const NewHomeScreen() , const P2pTrade() ,ProfileScreen(),],
+      screens: [ const NewHomeScreen() , const P2pTrade() ,
+        ProfileScreen(),
+      ],
       items:
       [
         PersistentBottomNavBarItem(
