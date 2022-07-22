@@ -47,7 +47,7 @@ class PhoneSignInScreen extends StatelessWidget {
                         fontWeight: FontWeight.bold)),
                     const SizedBox(height: 10,),
                     CustomElevatedButton(text: "LOGIN", onPressed: (){
-                      Get.to(DocVer());
+                      // Get.to(DocVer());
                     }, verticalPadding: 10, horizontalPadding: 10,roundness: 10),
                     const SizedBox(height: 100,)
                   ],

@@ -10,6 +10,7 @@ class VerificationScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    print(Get.width);
     return Scaffold(
       backgroundColor: darkMain,
       appBar: buildCustomAppBar(),
@@ -19,12 +20,12 @@ class VerificationScreen extends StatelessWidget {
           child: Column(
             mainAxisSize: MainAxisSize.min,
             children: [
-              Image.asset("assets/images/verify_img-removebg-preview.png"),
-              SizedBox(height: 20,),
-              Text("Congrats !!", style: TextStyle(color: mainGolden, fontSize: 25, fontWeight: FontWeight.bold),),
-              SizedBox(height: 20,),
-              Text("You have successfully changed password.\n Please use new password while login!", style: TextStyle(color: mainGolden, fontSize: 14, fontWeight: FontWeight.w500), textAlign: TextAlign.center,),
-              SizedBox(height: 40,),
+              Image.asset("assets/images/verify_latest.png"),
+              const SizedBox(height: 0,),
+              Text("Congrats !!", style: TextStyle(color: mainGolden, fontSize: Get.width * 0.0636574, fontWeight: FontWeight.bold),),
+              const SizedBox(height: 20,),
+              Text("Your application has been successfully submitted. You will be notified your shortly", style: TextStyle(color: mainGolden, fontSize: Get.width*0.0356, fontWeight: FontWeight.w500), textAlign: TextAlign.center,),
+              const SizedBox(height: 40,),
               CustomElevatedButton(
                 text: "Login Now",
                 onPressed: (){},
@@ -32,7 +33,7 @@ class VerificationScreen extends StatelessWidget {
                 color: mainGolden,
                 textColor: darkMain,
 
-              )
+              ),
 
 
 

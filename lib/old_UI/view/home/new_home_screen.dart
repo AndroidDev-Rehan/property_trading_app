@@ -7,6 +7,7 @@ import 'package:property_trading_app/old_UI/view/global_widgets/custom_button.da
 import 'package:property_trading_app/old_UI/view/home/tradinghome.dart';
 import 'package:property_trading_app/old_UI/view/p2p/p2ptrade.dart';
 import '../../../global_widgets/custom_button.dart';
+import '../../../new_UI_screens/p2p/p2p_screen.dart';
 import '../../../utils/app-color.dart';
 
 import '../../../utils/text_style.dart';
@@ -172,7 +173,7 @@ class NewHomeScreen extends StatelessWidget {
                         onPressed: () {
                           pushNewScreen(
                             context,
-                            screen: P2pTrade(),
+                            screen: P2PScreen(),
                             withNavBar: true, // OPTIONAL VALUE. True by default.
                             pageTransitionAnimation: PageTransitionAnimation.cupertino,
                           );

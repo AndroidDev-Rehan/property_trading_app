@@ -53,7 +53,7 @@ class SignUpScreen extends StatelessWidget {
               textFieldWithLabel("Your Address", context),
               const SizedBox(height: 30,),
               CustomElevatedButton(text: "Save Changes", onPressed: (){
-                Get.to(const DocVer());
+                // Get.to(const DocVer());
               }, roundness: 10,verticalPadding: 10,)
               
 
