@@ -2,12 +2,7 @@ import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:persistent_bottom_nav_bar/persistent-tab-view.dart';
-import 'package:property_trading_app/old_UI/utils/app-color.dart';
-import 'package:property_trading_app/old_UI/view/payment/payment_options.dart';
-import 'package:sizer/sizer.dart';
-import 'package:unicons/unicons.dart';
-import '../../../new_UI_screens/payment_method/payment_method.dart';
+
 import '../../../utils/app-color.dart';
 
 import '../../../utils/text_style.dart';
