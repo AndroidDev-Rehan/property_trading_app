@@ -100,7 +100,7 @@ class PaymentOptions extends StatelessWidget {
                     textColor: darkMain,
                     horizontalPadding: 20,
                     iconSpacing: 30,
-                    textStyle: TextStyle(fontWeight: FontWeight.normal, color: darkMain, fontSize: 18),
+                    textStyle: const TextStyle(fontWeight: FontWeight.normal, color: darkMain, fontSize: 18),
 
                   ),
 
@@ -132,9 +132,12 @@ class PaymentOptions extends StatelessWidget {
         const SizedBox(height: 30,),
         _buildYellowContainer(),
         const SizedBox(height: 40,),
-        const Align(
-            alignment: Alignment.center,
-            child: Text("Select Payment Method", style: TextStyle(color: mainGolden, fontSize: 22),)),
+         SizedBox(
+           width: Get.width*0.86682242,
+           child: Align(
+              alignment: Alignment.centerLeft,
+              child: Text("Select Payment Method", style: TextStyle(color: mainGolden, fontSize: Get.width*0.0798*1),)),
+         ),
         const SizedBox(height: 40,),
 
       ],
@@ -161,7 +164,7 @@ class PaymentOptions extends StatelessWidget {
               children: [
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
+                  children: const [
                     Icon(Icons.circle, size: 7.5,color: Colors.white),
                     Icon(Icons.circle, size: 7.5,color: Colors.white),
                     Icon(Icons.circle, size: 15,color: Colors.white),
@@ -169,11 +172,11 @@ class PaymentOptions extends StatelessWidget {
 
                   ],
                 ),
-                Divider(color: Colors.white, height: 15,)
+                const Divider(color: Colors.white, height: 15,)
               ],
             ),
           ),
-          SizedBox(height: 30,)
+          const SizedBox(height: 30,)
         ],
       ),
     );

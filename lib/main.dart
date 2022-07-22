@@ -1,23 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:get/get_navigation/src/root/get_material_app.dart';
-import 'package:property_trading_app/new_UI_screens/detailscreen/detailscreen.dart';
-import 'package:property_trading_app/new_UI_screens/otp/otpscreen.dart';
-import 'package:property_trading_app/new_UI_screens/signup/signup.dart';
-import 'package:property_trading_app/new_UI_screens/splash/splash_screen.dart';
-import 'package:property_trading_app/old_UI/view/auth/docverfication.dart';
-// import 'package:nb_utils/nb_utils.dart';
 import 'package:intl/date_symbol_data_local.dart';
+import 'package:property_trading_app/new_UI_screens/p2p/p2p_screen.dart';
+import 'package:property_trading_app/new_UI_screens/payment/credit_card_details.dart';
 
-import 'new_UI_screens/dashboard/dashboard.dart';
-import 'new_UI_screens/home/home.dart';
-import 'new_UI_screens/payment_method/payment_method.dart';
-import 'new_UI_screens/subproject/subproject.dart';
-import 'old_UI/view/auth/splash_screen.dart';
-import 'old_UI/view/home/tradingsubcategory.dart';
+import 'new_UI_screens/chat/chat.dart';
+import 'new_UI_screens/doc_verification/document_verification.dart';
+import 'new_UI_screens/payment/payment_method.dart';
+import 'new_UI_screens/profile/other_user_profile.dart';
+import 'new_UI_screens/profile/profile_screen.dart';
+import 'new_UI_screens/verification/verification.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-
   initializeDateFormatting().then((_) => runApp(const MyApp()));
 
   // await initialize();
@@ -39,7 +34,7 @@ class MyApp extends StatelessWidget {
 
       ),
       // navigatorKey: navigatorKey,
-      home:RootScreen(),
+      home: const P2PScreen(),
     );
   }
 }
