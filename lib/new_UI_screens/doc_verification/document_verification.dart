@@ -4,6 +4,7 @@ import 'package:property_trading_app/global_widgets/custom_button.dart';
 
 import '../../global_widgets/custom_app_bar.dart';
 import '../../utils/app-color.dart';
+import '../dashboard/dashboard.dart';
 
 class DocumentVerificationScreen extends StatelessWidget {
   const DocumentVerificationScreen({Key? key}) : super(key: key);
@@ -68,7 +69,9 @@ class DocumentVerificationScreen extends StatelessWidget {
               const SizedBox(height: 40,),
               CustomElevatedButton(
                 text: "Next Step",
-                onPressed: (){},
+                onPressed: (){
+                  Get.to(RootScreen());
+                },
                 fixedSize: Size(Get.width*0.55,Get.height*0.0561,),
                 color: mainGolden,
                 textColor: darkMain,

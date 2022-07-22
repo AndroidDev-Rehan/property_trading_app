@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:property_trading_app/new_UI_screens/doc_verification/document_verification.dart';
 import 'package:property_trading_app/old_UI/view/auth/widget/CustomTextField.dart';
 import 'package:property_trading_app/old_UI/view/global_widgets/custom_button.dart';
 import 'package:get/get.dart';
@@ -46,9 +47,17 @@ class PhoneSignInScreen extends StatelessWidget {
                         // color: mainGolden,
                         fontWeight: FontWeight.bold)),
                     const SizedBox(height: 10,),
-                    CustomElevatedButton(text: "LOGIN", onPressed: (){
-                      // Get.to(DocVer());
-                    }, verticalPadding: 10, horizontalPadding: 10,roundness: 10),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        CustomElevatedButton(
+                            text: "LOGIN",
+
+                            onPressed: (){
+                          Get.to(DocumentVerificationScreen());
+                        }, verticalPadding: 10, horizontalPadding: 10,roundness: 10),
+                      ],
+                    ),
                     const SizedBox(height: 100,)
                   ],
                 ),

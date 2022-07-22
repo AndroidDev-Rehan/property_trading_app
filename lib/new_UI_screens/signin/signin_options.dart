@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:property_trading_app/new_UI_screens/verification/verification.dart';
 
 
 import '../../../utils/app-color.dart';
+import '../../old_UI/view/auth/phone_signin.dart';
 
 
 class SignInOptionsScreen extends StatelessWidget {
@@ -22,7 +24,7 @@ class SignInOptionsScreen extends StatelessWidget {
             mainAxisSize: MainAxisSize.min,
             children: [
               CustomElevatedButton(text: "Sign In With Phone", onPressed: (){
-
+                Get.to(VerificationScreen());
               }, color: Colors.white, fixedSize: buttonsize,textColor: darkMain, imageIcon: Image.asset("assets/images/phone1.png", height: 50, width: 40),),
               const SizedBox(height: 20,),
               CustomElevatedButton(text: "Sign In With Google", onPressed: (){}, fixedSize: buttonsize,textColor: darkMain, color:  Colors.white,imageIcon: Image.asset("assets/images/google.png",height: 50, width: 50,)),

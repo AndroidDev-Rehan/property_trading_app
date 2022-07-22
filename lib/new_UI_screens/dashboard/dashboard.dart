@@ -1,7 +1,11 @@
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:persistent_bottom_nav_bar/persistent-tab-view.dart';
+import 'package:property_trading_app/new_UI_screens/p2p/addP2PScreen.dart';
+import 'package:property_trading_app/new_UI_screens/p2p/p2p_screen.dart';
+import 'package:property_trading_app/new_UI_screens/profile/profile_screen.dart';
 
 
 import '../../../utils/app-color.dart';
@@ -28,25 +32,36 @@ class _RootScreenState extends State<RootScreen> {
       body: PersistentTabView(
         context,
         controller: _controller,
-        screens: [ const Home() , Container() ,Container(),],
+        screens: const [ Home() , P2PScreen(), AddP2PScreen() , ProfileScreen(), ],
         items:
         [
           PersistentBottomNavBarItem(
-            icon:  Container(padding:EdgeInsets.symmetric(vertical: 7),child: Image.asset('assets/images/homeicon.png',width: 25,height: 25,fit: BoxFit.fill,color: darkMain,)),
-
-
+            icon:  true ? const Icon(Icons.home, color: darkMain, size: 30,) : Container(
+                // padding:const EdgeInsets.symmetric(vertical: 7),
+                child: SvgPicture.asset("assets/images/home.svg",
+                  // width: 25,height: 25,fit: BoxFit.fill,color: darkMain,
+                )),
+            activeColorPrimary: darkMain,
+            inactiveColorPrimary: CupertinoColors.systemGrey,
+          ),
+          PersistentBottomNavBarItem(
+            icon: true ? const Icon(Icons.group, color: darkMain, size: 30,) : Container(
+                // padding:const EdgeInsets.symmetric(vertical: 5),
+                child: SvgPicture.asset('assets/images/p2p.svg',
+                  // width: 40,fit: BoxFit.fill,
+                )),
 
             activeColorPrimary: darkMain,
             inactiveColorPrimary: CupertinoColors.systemGrey,
           ),
           PersistentBottomNavBarItem(
-          icon:   Container(padding:EdgeInsets.symmetric(vertical: 5),child: Image.asset('assets/images/p2picon.png',width: 40,fit: BoxFit.fill,)),
+            icon:  const Icon(Icons.currency_exchange,color: darkMain,size: 27,),
 
-            activeColorPrimary: darkMain,
+            activeColorPrimary:darkMain,
             inactiveColorPrimary: CupertinoColors.systemGrey,
-          ),PersistentBottomNavBarItem(
-
-      icon:  Container(child: Icon(Icons.account_circle_rounded,color: darkMain,size: 40,)),
+          ),
+          PersistentBottomNavBarItem(
+          icon:  Container(child: Icon(Icons.account_circle_rounded,color: darkMain,size: 30,)),
 
             activeColorPrimary:darkMain,
             inactiveColorPrimary: CupertinoColors.systemGrey,

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:property_trading_app/global_widgets/custom_app_bar.dart';
+import 'package:property_trading_app/new_UI_screens/payment/credit_card_details.dart';
 import '../../../global_widgets/custom_button.dart';
 import '../../../utils/app-color.dart';
 
@@ -63,7 +64,9 @@ class PaymentOptions extends StatelessWidget {
                   CustomElevatedButton(
                     roundness: 25,
                     text: "Debit/Credit Card",
-                    onPressed: (){}, color: Colors.white,
+                    onPressed: (){
+                      Get.to(CreditCardDetailsScreen());
+                    }, color: Colors.white,
                     fixedSize: buttonSize,
                     textColor: darkMain,
                     prefixIcon: Container(
@@ -136,7 +139,7 @@ class PaymentOptions extends StatelessWidget {
            width: Get.width*0.86682242,
            child: Align(
               alignment: Alignment.centerLeft,
-              child: Text("Select Payment Method", style: TextStyle(color: mainGolden, fontSize: Get.width*0.0798*1),)),
+              child: Text("Select Payment Method", style: TextStyle(color: mainGolden, fontSize: Get.width*0.0798*0.75, fontWeight: FontWeight.bold),)),
          ),
         const SizedBox(height: 40,),
 

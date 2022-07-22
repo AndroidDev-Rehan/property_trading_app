@@ -27,16 +27,16 @@ class _SignUpState extends State<SignUp> {
               fit: BoxFit.fill,
             ),
             SizedBox(height: 10,),
-            Text(
+            const Text(
               'First create your account',
               style: TextStyle(
                   fontSize: 30,
                   color: Colors.white,
                   fontWeight: FontWeight.bold),
             ),
-            SizedBox(height: 30,),
-            Padding(
-              padding: const EdgeInsets.symmetric(vertical: 8.0,horizontal: 15),
+            const SizedBox(height: 30,),
+            const Padding(
+              padding: EdgeInsets.symmetric(vertical: 8.0,horizontal: 15),
               child: TextField(style: TextStyle(color: Colors.white,fontSize: 17),
                 decoration: InputDecoration(
                     hintText: 'Full Name/User Name',
@@ -48,8 +48,8 @@ class _SignUpState extends State<SignUp> {
                     enabledBorder: UnderlineInputBorder(
                         borderSide: BorderSide(color:Colors.white, width: 2))),),
             ),
-            Padding(
-              padding: const EdgeInsets.symmetric(vertical: 8.0,horizontal: 15),
+            const Padding(
+              padding: EdgeInsets.symmetric(vertical: 8.0,horizontal: 15),
               child: TextField(style: TextStyle(color: Colors.white,fontSize: 17),
                 decoration: InputDecoration(
                     hintText: 'Email',
@@ -61,8 +61,8 @@ class _SignUpState extends State<SignUp> {
                     enabledBorder: UnderlineInputBorder(
                         borderSide: BorderSide(color:Colors.white, width: 2))),),
             ),
-            Padding(
-              padding: const EdgeInsets.symmetric(vertical: 8.0,horizontal: 15),
+            const Padding(
+              padding: EdgeInsets.symmetric(vertical: 8.0,horizontal: 15),
               child: TextField(style: TextStyle(color: Colors.white,fontSize: 17),
                 decoration: InputDecoration(
                   suffixIcon: Icon(Icons.remove_red_eye_rounded,color: Colors.white,size: 25,),
@@ -75,8 +75,8 @@ class _SignUpState extends State<SignUp> {
                     enabledBorder: UnderlineInputBorder(
                         borderSide: BorderSide(color:Colors.white, width: 2))),),
             ),
-            Padding(
-              padding: const EdgeInsets.symmetric(vertical: 8.0,horizontal: 15),
+            const Padding(
+              padding: EdgeInsets.symmetric(vertical: 8.0,horizontal: 15),
               child: TextField(style: TextStyle(color: Colors.white,fontSize: 17),
                 decoration: InputDecoration(
                   suffixIcon: Icon(Icons.remove_red_eye_rounded,color: Colors.white,size: 25,),
@@ -89,8 +89,8 @@ class _SignUpState extends State<SignUp> {
                     enabledBorder: UnderlineInputBorder(
                         borderSide: BorderSide(color:Colors.white, width: 2))),),
             ),
-            Padding(
-              padding: const EdgeInsets.symmetric(vertical: 8.0,horizontal: 15),
+            const Padding(
+              padding: EdgeInsets.symmetric(vertical: 8.0,horizontal: 15),
               child: TextField(style: TextStyle(color: Colors.white,fontSize: 17),
                 decoration: InputDecoration(
 

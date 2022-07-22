@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:property_trading_app/global_widgets/custom_button.dart';
+import 'package:property_trading_app/new_UI_screens/payment/payment_method.dart';
+import 'package:property_trading_app/new_UI_screens/profile/other_user_profile.dart';
 import '../../global_widgets/custom_app_bar.dart';
 import '../../utils/app-color.dart';
 
@@ -83,7 +86,9 @@ class P2PScreen extends StatelessWidget {
           text: "Buy",
           textStyle: const TextStyle(),
 
-          onPressed: () {},
+          onPressed: () {
+            Get.to(PaymentOptions());
+          },
           horizontalPadding: 6,
           verticalPadding: 0,
           color: Colors.green,
@@ -94,15 +99,20 @@ class P2PScreen extends StatelessWidget {
   }
 
   Widget _buildSingleP2PTile() {
-    return Column(
-      children: [
-        ///top  Row
-        _buildTopRow(),
-        const SizedBox(height: 10,),
-        _buildLowerRow(),
-        const Divider(color: mainGolden,thickness: 2,),
-        const SizedBox(height: 10,)
-      ],
+    return InkWell(
+      onTap: (){
+        Get.to(OtherUserProfileScreen());
+      },
+      child: Column(
+        children: [
+          ///top  Row
+          _buildTopRow(),
+          const SizedBox(height: 10,),
+          _buildLowerRow(),
+          const Divider(color: mainGolden,thickness: 2,),
+          const SizedBox(height: 10,)
+        ],
+      ),
     );
   }
 

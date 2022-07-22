@@ -21,7 +21,7 @@ class ProfileScreen extends StatelessWidget {
         child: SingleChildScrollView(
           child: Column(
             children: [
-              const SizedBox(height: 30,),
+              const SizedBox(height: 10,),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -48,7 +48,7 @@ class ProfileScreen extends StatelessWidget {
 
                 ],
               ),
-              SizedBox(height: Get.height* 0.0777,),
+              SizedBox(height: Get.height* 0.0777 * 0.65,),
               Padding(
                 padding: EdgeInsets.symmetric(horizontal: paddingRes30, vertical: 8),
                 child: _buildCustomTextField("Username", readOnly: true),
@@ -69,14 +69,16 @@ class ProfileScreen extends StatelessWidget {
                 padding: EdgeInsets.symmetric(horizontal: paddingRes30, vertical: 8),
                 child: _buildCustomTextField("Your DOB"),
               ),
-              SizedBox(height: 20,),
+              const SizedBox(height: 20,),
               CustomElevatedButton(
                 text: "Update Profile",
                 onPressed: (){},
                 fixedSize: Size(Get.width*0.644859813,Get.height*0.0561,),
                 color: mainGolden,
+                textColor: darkMain,
 
-              )
+              ),
+              const SizedBox(height: 20,)
 
 
 
