@@ -1,3 +1,4 @@
+
 import 'package:flutter/material.dart';
 import 'package:property_trading_app/old_UI/utils/app-color.dart';
 import '../../../utils/app-color.dart';
@@ -40,8 +41,8 @@ class CustomElevatedButton extends StatelessWidget {
           style: ElevatedButton.styleFrom(
               primary: color ?? darkMain,
               shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(roundness ?? 20), ),
-            side: border ? BorderSide(color: Theme.of(context).primaryColor) : null,
-            fixedSize: fixedSize
+              side: border ? BorderSide(color: Theme.of(context).primaryColor) : null,
+              fixedSize: fixedSize
             // fixedSize: const Size(double.infinity, 50),
           ),
           child: Padding(
