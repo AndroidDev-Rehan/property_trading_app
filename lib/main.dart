@@ -6,6 +6,7 @@ import 'package:property_trading_app/new_UI_screens/payment/credit_card_details.
 
 import 'new_UI_screens/chat/chat.dart';
 import 'new_UI_screens/doc_verification/document_verification.dart';
+import 'new_UI_screens/p2p/addP2PScreen.dart';
 import 'new_UI_screens/payment/payment_method.dart';
 import 'new_UI_screens/profile/other_user_profile.dart';
 import 'new_UI_screens/profile/profile_screen.dart';
@@ -34,7 +35,7 @@ class MyApp extends StatelessWidget {
 
       ),
       // navigatorKey: navigatorKey,
-      home: const P2PScreen(),
+      home: const AddP2PScreen(),
     );
   }
 }
