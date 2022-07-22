@@ -128,7 +128,7 @@ class _DocVerState extends State<DocVer> {
 
             InkWell(
                 onTap: (){
-                  Get.to(RootScreen());
+
                 },
                 child: Container(decoration: BoxDecoration(color: darkMain,borderRadius: BorderRadius.all(Radius.circular(30))),height: 70,width: Get.width*0.75,child: Center(child: Text('Next Step',style: ButtonLabel,),),))
           ],

@@ -1,11 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:property_trading_app/old_UI/utils/app-color.dart';
-import 'package:property_trading_app/old_UI/view/auth/phone_signin.dart';
-import 'package:property_trading_app/old_UI/view/global_widgets/custom_button.dart';
-import '../../../global_widgets/custom_button.dart';
+
+
 import '../../../utils/app-color.dart';
-import '../../../utils/text_style.dart';
+
 
 class SignInOptionsScreen extends StatelessWidget {
   SignInOptionsScreen({Key? key}) : super(key: key);
@@ -24,7 +22,7 @@ class SignInOptionsScreen extends StatelessWidget {
             mainAxisSize: MainAxisSize.min,
             children: [
               CustomElevatedButton(text: "Sign In With Phone", onPressed: (){
-                Get.to(PhoneSignInScreen());
+
               }, color: Colors.white, fixedSize: buttonsize,textColor: darkMain, imageIcon: Image.asset("assets/images/phone1.png", height: 50, width: 40),),
               const SizedBox(height: 20,),
               CustomElevatedButton(text: "Sign In With Google", onPressed: (){}, fixedSize: buttonsize,textColor: darkMain, color:  Colors.white,imageIcon: Image.asset("assets/images/google.png",height: 50, width: 50,)),
@@ -38,6 +36,57 @@ class SignInOptionsScreen extends StatelessWidget {
             ],
           ),
         ),
+      ),
+    );
+  }
+}
+
+
+
+class CustomElevatedButton extends StatelessWidget {
+
+  final String text;
+  final Function onPressed;
+  final Color? color;
+  final double? roundness;
+  final double? horizontalPadding;
+  final double? verticalPadding;
+  final Color? textColor;
+  final bool border;
+  final Size? fixedSize;
+  final Image? imageIcon;
+  final IconData? iconData;
+
+
+  const CustomElevatedButton({Key? key, required this.text, required this.onPressed, this.color, this.roundness, this.horizontalPadding, this.verticalPadding, this.border = false, this.textColor, this.fixedSize, this.imageIcon, this.iconData}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return ClipRRect(
+      borderRadius: BorderRadius.circular(10),
+      child: ElevatedButton(
+          onPressed: (){
+            onPressed();
+          },
+          child: Padding(
+            padding:  EdgeInsets.symmetric(horizontal: horizontalPadding ?? 0, vertical: verticalPadding ?? 8),
+            child: Row(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                (imageIcon != null) ? imageIcon! : SizedBox(),
+                (iconData != null) ? Icon(iconData) : SizedBox(),
+                ((imageIcon != null) || (iconData!=null) )  ? SizedBox(width: 10,) : SizedBox(width: 0,),
+                Text(text, style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18,color: textColor),),
+              ],
+            ),
+          ),
+          style: ElevatedButton.styleFrom(
+              primary: color ?? darkMain,
+              shape: StadiumBorder(),
+              side: border ? BorderSide(color: Theme.of(context).primaryColor) : null,
+              fixedSize: fixedSize
+            // fixedSize: const Size(double.infinity, 50),
+          )
       ),
     );
   }
