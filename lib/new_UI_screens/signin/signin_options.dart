@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:property_trading_app/global_widgets/custom_text.dart';
 import 'package:property_trading_app/new_UI_screens/doc_verification/document_verification.dart';
 import 'package:property_trading_app/new_UI_screens/verification/verification.dart';
 
@@ -48,8 +49,7 @@ class SignInOptionsScreen extends StatelessWidget {
 
               }, fixedSize: buttonsize,textColor: darkMain, color:  Colors.white,imageIcon: Image.asset("assets/images/apple-logo.png", height: 40, width: 50),),
               const SizedBox(height: 60,),
-              RichText(text: TextSpan(style: TextStyle(color: Colors.white,fontSize: 20),text: 'Have an account ?',children: [TextSpan(text:'  Login',style: TextStyle(fontSize: 22,fontWeight: FontWeight.bold))]))
-
+              CustomText(text: 'Have an account ?  Login', size: 20)
 
 
             ],

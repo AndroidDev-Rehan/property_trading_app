@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:property_trading_app/utils/app-color.dart';
 
+import '../../global_widgets/custom_text.dart';
+
 class OtpScreen extends StatefulWidget {
   const OtpScreen({Key? key}) : super(key: key);
 
@@ -46,10 +48,7 @@ class _OtpScreenState extends State<OtpScreen> {
                   color: mainGolden, fontSize: 25, fontWeight: FontWeight.bold),
             ),
             SizedBox(height: 30,),
-            Text(
-              'Enter the 4 digit code that we just sent to prodeveloper@gmail.com',
-              style: TextStyle(color: Colors.white, fontSize: 18),
-            ),
+        CustomText(text: 'Enter the 4 digit code that we just sent to prodeveloper@gmail.com', size: 18),
             SizedBox(height: 50,),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
@@ -118,7 +117,8 @@ padding: EdgeInsets.all(5),
               ),
             ),
             SizedBox(height: 20,),
-            Align(alignment:Alignment.center,child: RichText(text: TextSpan(style: TextStyle(color: Colors.white,fontSize: 18),text: 'Didn’t receive the OTP?',children: [TextSpan(text:' Resend OTP',style: TextStyle(fontSize: 20,fontWeight: FontWeight.bold,color: mainGolden))])))
+
+        Center(child: CustomText(text: 'Didn’t receive the OTP? Resend OTP', size: 18))
             ,SizedBox(height: 40,),
           ],
         ),

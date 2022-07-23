@@ -4,6 +4,7 @@ import 'package:property_trading_app/new_UI_screens/doc_verification/document_ve
 import 'package:property_trading_app/utils/app-color.dart';
 
 import '../../global_widgets/custom_button.dart';
+import '../../global_widgets/custom_text.dart';
 import '../verification/verification.dart';
 
 class SignUp extends StatefulWidget {
@@ -31,13 +32,7 @@ class _SignUpState extends State<SignUp> {
               fit: BoxFit.fill,
             ),
             SizedBox(height: 10,),
-            const Text(
-              'First create your account',
-              style: TextStyle(
-                  fontSize: 30,
-                  color: Colors.white,
-                  fontWeight: FontWeight.bold),
-            ),
+            CustomText(text: 'First create your account', size: 30),
             const SizedBox(height: 30,),
             const Padding(
               padding: EdgeInsets.symmetric(vertical: 8.0,horizontal: 15),

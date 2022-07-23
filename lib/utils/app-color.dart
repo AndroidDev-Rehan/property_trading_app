@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 
 
-const Color mainGolden = Color.fromRGBO(209, 173, 93, 1.0);
+const Color mainGolden = Color.fromRGBO(237, 196, 109, 1.0);
 const Color darkMain = Color.fromRGBO(19, 60, 76, 1.0);
 
 const Color greyTextLighter = Color.fromRGBO(157, 163, 180, 1);

@@ -5,6 +5,7 @@ import 'package:property_trading_app/global_widgets/custom_button.dart';
 import 'package:property_trading_app/new_UI_screens/payment/payment_method.dart';
 import 'package:property_trading_app/new_UI_screens/profile/other_user_profile.dart';
 import '../../global_widgets/custom_app_bar.dart';
+import '../../global_widgets/custom_text.dart';
 import '../../utils/app-color.dart';
 
 class P2PScreen extends StatelessWidget {
@@ -86,7 +87,7 @@ class P2PScreen extends StatelessWidget {
         _buildLowerLeftPortion(),
         const Spacer(),
         CustomElevatedButton(
-          text: "Buy",
+          text: "Chat",
           textStyle: const TextStyle(),
 
           onPressed: () {
@@ -131,10 +132,7 @@ class P2PScreen extends StatelessWidget {
         const SizedBox(
           width: 10,
         ),
-        const Text(
-          "Arslan Ahmad ",
-          style: TextStyle(color: Colors.white),
-        ),
+        CustomText(text: 'Arslan Ahmad', size: 15),
         const Icon(
           Icons.circle,
           color: Colors.blue,

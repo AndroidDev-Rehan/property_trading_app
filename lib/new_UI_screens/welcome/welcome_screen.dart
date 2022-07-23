@@ -9,6 +9,7 @@ import '../../../global_widgets/custom_button.dart';
 import '../../../utils/app-color.dart';
 
 import '../../../utils/text_style.dart';
+import '../../global_widgets/custom_text.dart';
 
 
 
@@ -35,13 +36,7 @@ class WelcomeScreen extends StatelessWidget {
               width: screenSize,
               child:  Padding(
                 padding: EdgeInsets.only(left: 20.0, bottom: 20, right: screenSize*0.05102),
-                child: Text(
-                  "Stay on top of your finance with us. ",
-                  maxLines: 2,
-                  style: TextStyle(
-                    color: Colors.white,
-                    fontSize:35,
-                    fontWeight: FontWeight.bold),textAlign: TextAlign.center,),
+                child: CustomText(text: 'Stay on top of your finance with us. ', size: 35),
               ),
             ),
             SizedBox(height: 20),
