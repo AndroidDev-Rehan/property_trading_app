@@ -33,9 +33,9 @@ class ProfileScreen extends StatelessWidget {
                   Column(
                     mainAxisSize: MainAxisSize.min,
                     children: [
-                      SizedBox(height: 8,),
-                      Text("Bio-data", style: TextStyle(fontSize: 18, color: mainGolden),),
-                      SizedBox(height: 30,),
+                      const SizedBox(height: 8,),
+                      const Text("Bio-data", style: TextStyle(fontSize: 18, color: mainGolden),),
+                      const SizedBox(height: 30,),
                       Image.asset("assets/images/Oval.png"),
                       const SizedBox(height: 3,),
                       const Text("Martha Craig", style: TextStyle(fontSize: 24, color: Colors.white, fontWeight: FontWeight.bold),),
@@ -44,7 +44,7 @@ class ProfileScreen extends StatelessWidget {
 
                     ],
                   ),
-                  Icon(Icons.arrow_back_ios_sharp, color: darkMain,),
+                  const Icon(Icons.arrow_back_ios_sharp, color: darkMain,),
 
                 ],
               ),
@@ -95,26 +95,26 @@ class ProfileScreen extends StatelessWidget {
       decoration:  InputDecoration(
           hintText: hintText,
           hintStyle: const TextStyle(color: Colors.black),
-          border: OutlineInputBorder(
+          border: const OutlineInputBorder(
             // borderSide: const BorderSide(color: darkMain, ),
             // borderRadius: BorderRadius.circular(30),
           ),
-          enabledBorder: OutlineInputBorder(
+          enabledBorder: const OutlineInputBorder(
             // borderSide: const BorderSide(color: darkMain, ),
             // borderRadius: BorderRadius.circular(30),
           ),
-          focusedBorder: OutlineInputBorder(
+          focusedBorder: const OutlineInputBorder(
             // borderSide: const BorderSide(color: darkMain, ),
             // borderRadius: BorderRadius.circular(30),
           ),
-          disabledBorder: OutlineInputBorder(
+          disabledBorder: const OutlineInputBorder(
             // borderSide: const BorderSide(color: darkMain, ),
             // borderRadius: BorderRadius.circular(30),
           ),
 
           // isDense: true,
           filled: true,
-          contentPadding: EdgeInsets.only(top: 5, left: 15),
+          contentPadding: const EdgeInsets.only(top: 5, left: 15),
           fillColor: Colors.white,
       ),
       style: const TextStyle(

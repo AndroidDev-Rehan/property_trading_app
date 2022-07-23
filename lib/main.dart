@@ -1,19 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:get/get_navigation/src/root/get_material_app.dart';
 import 'package:intl/date_symbol_data_local.dart';
-import 'package:property_trading_app/new_UI_screens/dashboard/dashboard.dart';
-import 'package:property_trading_app/new_UI_screens/p2p/p2p_screen.dart';
-import 'package:property_trading_app/new_UI_screens/payment/credit_card_details.dart';
 import 'package:property_trading_app/new_UI_screens/splash/splash_screen.dart';
-
-import 'new_UI_screens/chat/chat.dart';
-import 'new_UI_screens/doc_verification/document_verification.dart';
-import 'new_UI_screens/p2p/addP2PScreen.dart';
-import 'new_UI_screens/payment/payment_method.dart';
-import 'new_UI_screens/profile/other_user_profile.dart';
-import 'new_UI_screens/profile/profile_screen.dart';
-import 'new_UI_screens/verification/verification.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -35,13 +23,10 @@ class MyApp extends StatelessWidget {
     return GetMaterialApp(
       theme: ThemeData(
         primaryColor: const Color.fromRGBO(209, 173, 93 ,1),
-        // primaryColor: Color(0xFF133c4c),
-          // primaryColor: Colors.amberAccent,
-          // colorScheme: ColorScheme.fromSwatch().copyWith(secondary: Color.fromRGBO(10, 11, 60, 1), primary:Colors.amberAccent )
-
       ),
       // navigatorKey: navigatorKey,
       home: const CustomSplashScreen(),
     );
   }
 }
+

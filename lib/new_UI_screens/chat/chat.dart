@@ -11,9 +11,12 @@ import 'package:image_picker/image_picker.dart';
 import 'package:mime/mime.dart';
 import 'package:open_file/open_file.dart';
 import 'package:path_provider/path_provider.dart';
+import 'package:persistent_bottom_nav_bar/persistent-tab-view.dart';
 import 'package:property_trading_app/global_widgets/custom_app_bar.dart';
+import 'package:property_trading_app/new_UI_screens/file_transfer/file_transfer.dart';
 import 'package:property_trading_app/old_UI/utils/app-color.dart';
 import 'package:uuid/uuid.dart';
+import '../../old_UI/view/home/graphscreen.dart';
 import '../../utils/app-color.dart';
 
 
@@ -43,12 +46,22 @@ class _ChatPageState extends State<ChatPage> {
         SizedBox(height: 30,),
         Padding(
           padding: const EdgeInsets.only(left: 32.0),
-          child: Row(
-            children: [
-              Image.asset("assets/images/Oval.png", scale: 2,),
-              SizedBox(width: 40,),
-              Text("Martha Craig", style: TextStyle(fontWeight: FontWeight.bold, color: Colors.white,fontSize: 20 ),),
-            ],
+          child: InkWell(
+            onTap: (){
+              pushNewScreen(
+                context,
+                screen: const ProfileTransferScreen(),
+                withNavBar: true, // OPTIONAL VALUE. True by default.
+                pageTransitionAnimation: PageTransitionAnimation.cupertino,
+              );
+            },
+            child: Row(
+              children: [
+                Image.asset("assets/images/Oval.png", scale: 2,),
+                SizedBox(width: 40,),
+                Text("Martha Craig", style: TextStyle(fontWeight: FontWeight.bold, color: Colors.white,fontSize: 20 ),),
+              ],
+            ),
           ),
         ),
         Expanded(

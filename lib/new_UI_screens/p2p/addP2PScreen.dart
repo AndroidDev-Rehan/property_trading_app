@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:get/get_core/get_core.dart';
 import 'package:get/get_navigation/get_navigation.dart';
+import 'package:persistent_bottom_nav_bar/persistent-tab-view.dart';
 import 'package:property_trading_app/global_widgets/custom_button.dart';
+import 'package:property_trading_app/new_UI_screens/payment/payment_method.dart';
 import '../../global_widgets/custom_app_bar.dart';
 import '../../utils/app-color.dart';
 
@@ -31,7 +33,14 @@ class AddP2PScreen extends StatelessWidget {
               const SizedBox(height: 60,),
               CustomElevatedButton(
                   text: "Next",
-                  onPressed: (){},
+                  onPressed: (){
+                    pushNewScreen(
+                      context,
+                      screen: PaymentOptions(),
+                      withNavBar: true, // OPTIONAL VALUE. True by default.
+                      pageTransitionAnimation: PageTransitionAnimation.cupertino,
+                    );
+                  },
                 color: mainGolden,
                 textColor: darkMain,
                 textStyle: TextStyle(color: darkMain),

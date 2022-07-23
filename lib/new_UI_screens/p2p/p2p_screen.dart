@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:persistent_bottom_nav_bar/persistent-tab-view.dart';
 import 'package:property_trading_app/global_widgets/custom_button.dart';
+import 'package:property_trading_app/new_UI_screens/chat/chat.dart';
 import 'package:property_trading_app/new_UI_screens/payment/payment_method.dart';
 import 'package:property_trading_app/new_UI_screens/profile/other_user_profile.dart';
 import '../../global_widgets/custom_app_bar.dart';
@@ -93,7 +94,7 @@ class P2PScreen extends StatelessWidget {
           onPressed: () {
             pushNewScreen(
               context,
-              screen: PaymentOptions(),
+              screen: ChatPage(),
               withNavBar: true, // OPTIONAL VALUE. True by default.
               pageTransitionAnimation: PageTransitionAnimation.cupertino,
             );
@@ -110,8 +111,12 @@ class P2PScreen extends StatelessWidget {
   Widget _buildSingleP2PTile(BuildContext context) {
     return InkWell(
       onTap: (){
-        Get.to(OtherUserProfileScreen());
-      },
+        pushNewScreen(
+          context,
+          screen: OtherUserProfileScreen(),
+          withNavBar: true, // OPTIONAL VALUE. True by default.
+          pageTransitionAnimation: PageTransitionAnimation.cupertino,
+        );      },
       child: Column(
         children: [
           ///top  Row

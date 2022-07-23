@@ -4,6 +4,7 @@ import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:persistent_bottom_nav_bar/persistent-tab-view.dart';
 import 'package:property_trading_app/global_widgets/custom_app_bar.dart';
+import 'package:property_trading_app/global_widgets/custom_button.dart';
 import 'package:property_trading_app/new_UI_screens/payment/payment_method.dart';
 
 import '../../../utils/app-color.dart';
@@ -303,32 +304,32 @@ class _DetailsPageState extends State<DetailsPage> {
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
-                          InkWell(
-                            child: Container(
-                              decoration: BoxDecoration(color: Colors.green,borderRadius: BorderRadius.all(Radius.circular(10))),
-                              padding: EdgeInsets.symmetric(vertical: 10,horizontal: 30),
-                              child: Text(
-                                'BUY',
-                                style: TextStyle(color: darkMain, fontSize: 22),
-                              ),
-                            ),
-                            onTap: (){
-                              pushNewScreen(
-                                context,
-                                screen: PaymentOptions(),
-                                withNavBar: true, // OPTIONAL VALUE. True by default.
-                                pageTransitionAnimation: PageTransitionAnimation.cupertino,
-                              );
+                          CustomElevatedButton(text: "Buy", onPressed: (){
+                            pushNewScreen(
+                              context,
+                              screen: PaymentOptions(),
+                              withNavBar: true, // OPTIONAL VALUE. True by default.
+                              pageTransitionAnimation: PageTransitionAnimation.cupertino,
+                            );
+                          },
+                            color: Colors.green,
+                            horizontalPadding: 20,
+                              verticalPadding: 10,
 
-                            },
                           ),
-                          Container(
-                            decoration: BoxDecoration(color: Colors.red,borderRadius: BorderRadius.all(Radius.circular(10))),
-                            padding: EdgeInsets.symmetric(vertical: 10,horizontal: 30),
-                            child: Text(
-                              'SELL',
-                              style: TextStyle(color: darkMain, fontSize: 22),
-                            ),
+                          CustomElevatedButton(text: "Sell", onPressed: (){
+                            pushNewScreen(
+                              context,
+                              screen: PaymentOptions(),
+                              withNavBar: true, // OPTIONAL VALUE. True by default.
+                              pageTransitionAnimation: PageTransitionAnimation.cupertino,
+                            );
+                          },
+                            color: Colors.red,
+                            horizontalPadding: 20,
+                            verticalPadding: 10,
+
+
                           ),
                         ],
                       ),
