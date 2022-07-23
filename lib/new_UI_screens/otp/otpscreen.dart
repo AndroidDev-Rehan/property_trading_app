@@ -22,16 +22,21 @@ class _OtpScreenState extends State<OtpScreen> {
           
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            SizedBox(height: 40,),
+            const SizedBox(height: 40,),
           
-            Container(
-              padding: EdgeInsets.all(10),
-              decoration:
-                  BoxDecoration(color: Colors.white, shape: BoxShape.circle),
-              child: Icon(
-                Icons.arrow_back_ios_new,
-                size: 30,
-                color: darkMain,
+            InkWell(
+              onTap: (){
+                Get.back();
+              },
+              child: Container(
+                padding: const EdgeInsets.all(10),
+                decoration:
+                    const BoxDecoration(color: Colors.white, shape: BoxShape.circle),
+                child: const Icon(
+                  Icons.arrow_back_ios_new,
+                  size: 30,
+                  color: darkMain,
+                ),
               ),
             ),
             SizedBox(height: 100,),

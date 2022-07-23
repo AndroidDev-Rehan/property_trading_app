@@ -1,5 +1,7 @@
 
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:get/get_core/src/get_main.dart';
 import 'package:property_trading_app/old_UI/utils/app-color.dart';
 import '../../../utils/app-color.dart';
 
@@ -20,7 +22,7 @@ class CustomElevatedButton extends StatelessWidget {
   final Image? imageIcon;
   final Widget? prefixIcon;
   final Widget? suffixIcon;
-
+  final double? textSize;
   final bool leftAlign;
   final double? iconSpacing;
   final TextStyle? textStyle;
@@ -28,7 +30,7 @@ class CustomElevatedButton extends StatelessWidget {
   // final Color? iconColor;
 
 
-  const CustomElevatedButton({Key? key, required this.text, required this.onPressed, this.color, this.roundness, this.horizontalPadding, this.verticalPadding, this.border = false, this.textColor, this.fixedSize, this.imageIcon, this.prefixIcon, this.leftAlign= false, this.iconSpacing, this.textStyle, this.suffixIcon}) : super(key: key);
+  const CustomElevatedButton({Key? key, required this.text, required this.onPressed, this.color, this.roundness, this.horizontalPadding, this.verticalPadding, this.border = false, this.textColor, this.fixedSize, this.imageIcon, this.prefixIcon, this.leftAlign= false, this.iconSpacing, this.textStyle, this.suffixIcon, this.textSize}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -55,7 +57,7 @@ class CustomElevatedButton extends StatelessWidget {
                   (imageIcon != null) ? imageIcon! : const SizedBox(),
                   (prefixIcon != null) ? prefixIcon! : SizedBox(),
                   ((imageIcon != null) || (prefixIcon!=null) )  ? SizedBox(width: iconSpacing ?? 10,) : SizedBox(width: 0,),
-                  Text(text, style: textStyle ?? TextStyle(fontWeight: FontWeight.bold, fontSize: 18,color: textColor),),
+                  Text(text, style: textStyle ?? TextStyle(fontWeight: FontWeight.bold, fontSize: textSize ?? Get.width*0.04591,color: textColor),),
                   (suffixIcon != null) ? Padding(
                     padding: const EdgeInsets.only(left: 8.0),
                     child: suffixIcon!,

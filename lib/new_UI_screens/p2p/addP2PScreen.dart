@@ -14,33 +14,35 @@ class AddP2PScreen extends StatelessWidget {
     return Scaffold(
       backgroundColor: darkMain,
       appBar: buildCustomAppBar(),
-      body: Padding(
-        padding: const EdgeInsets.symmetric(vertical: 18.0, horizontal: 30),
-        child: Column(
-          children: [
-            _buildTopRow(),
-            const SizedBox(height: 40,),
-            _buildAmountContainer(),
-            const SizedBox(height: 30,),
-            _buildAmountText(),
-            const SizedBox(height: 30,),
-            _buildFileNumber(),
-            const SizedBox(height: 50,),
-            _buildDialPad(),
-            const SizedBox(height: 60,),
-            CustomElevatedButton(
-                text: "Next",
-                onPressed: (){},
-              color: mainGolden,
-              textColor: darkMain,
-              textStyle: TextStyle(color: darkMain),
-              fixedSize: Size(double.infinity,40,),
-              roundness: 5,
+      body: SingleChildScrollView(
+        child: Padding(
+          padding: const EdgeInsets.symmetric(vertical: 18.0, horizontal: 30),
+          child: Column(
+            children: [
+              _buildTopRow(),
+              const SizedBox(height: 40,),
+              _buildAmountContainer(),
+              const SizedBox(height: 30,),
+              _buildAmountText(),
+              const SizedBox(height: 30,),
+              _buildFileNumber(),
+              const SizedBox(height: 50,),
+              _buildDialPad(),
+              const SizedBox(height: 60,),
+              CustomElevatedButton(
+                  text: "Next",
+                  onPressed: (){},
+                color: mainGolden,
+                textColor: darkMain,
+                textStyle: TextStyle(color: darkMain),
+                fixedSize: Size(double.infinity,40,),
+                roundness: 5,
 
-            )
+              )
 
 
-          ],
+            ],
+          ),
         ),
       ),
     );
@@ -163,12 +165,13 @@ class AddP2PScreen extends StatelessWidget {
 
 
     return GridView.builder(
-        gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+        gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
           crossAxisCount: 3,
-          childAspectRatio: 3,
+          childAspectRatio: Get.height > 750 ? 3 : 2,
           crossAxisSpacing: 15,
           mainAxisSpacing: 10
         ),
+        physics: NeverScrollableScrollPhysics(),
         itemBuilder: (context,index){
           return Container(
             padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 8),

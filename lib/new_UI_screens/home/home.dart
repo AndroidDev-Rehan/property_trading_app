@@ -86,7 +86,7 @@ class _HomeState extends State<Home> {
                 ),
               ),
               SizedBox(
-                height: 10,
+                height: 30,
               ),
               Text(
                 'Project In Running',
@@ -109,7 +109,7 @@ class _HomeState extends State<Home> {
                     }),
               ),
               SizedBox(
-                height: 10,
+                height: 30,
               ),
               Padding(
                 padding: const EdgeInsets.only(right: 15.0),
@@ -137,7 +137,7 @@ class _HomeState extends State<Home> {
                 height: 5,
               ),
               SizedBox(
-                height: 180,
+                height: 190,
                 child: ListView.builder(
                     shrinkWrap: true,
                     scrollDirection: Axis.horizontal,
@@ -155,14 +155,13 @@ class _HomeState extends State<Home> {
 
   _buildrunningproject() {
     return InkWell(
-      onTap: (){
+      onTap: () {
         pushNewScreen(
           context,
           screen: SubProjectscreen(),
           withNavBar: true, // OPTIONAL VALUE. True by default.
           pageTransitionAnimation: PageTransitionAnimation.cupertino,
         );
-
       },
       child: Container(
         margin: EdgeInsets.all(10),
@@ -206,7 +205,8 @@ class _HomeState extends State<Home> {
             Container(
               decoration: BoxDecoration(
                   color: darkMain.withOpacity(0.8),
-                  borderRadius: BorderRadius.only(topRight: Radius.circular(20))),
+                  borderRadius:
+                      BorderRadius.only(topRight: Radius.circular(20))),
               child: Padding(
                 padding: const EdgeInsets.all(15.0),
                 child: Icon(
@@ -231,7 +231,7 @@ class _HomeState extends State<Home> {
         borderRadius: BorderRadius.all(Radius.circular(25)),
       ),
       child: Padding(
-        padding: const EdgeInsets.all(15.0),
+        padding:  EdgeInsets.all(Get.height*0.0176470),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
@@ -243,24 +243,84 @@ class _HomeState extends State<Home> {
                   width: Get.width * 0.25,
                   fit: BoxFit.fill,
                 )),
-            SizedBox(width: 5,),
+            SizedBox(
+              width: 5,
+            ),
             SizedBox(
                 width: Get.width * 0.3,
                 child: Column(
                   children: [
-                    SizedBox(height: 5,),
+                    SizedBox(
+                      height: 5,
+                    ),
                     Text(
                       'Sky Dandelions Apartment',
                       style: TextStyle(color: darkMain, fontSize: 15),
                     ),
-                    SizedBox(height: 5,),
-                    Row(children: [Icon(Icons.star,color: mainGolden,),SizedBox(width: 5,),Text('4.9',style: TextStyle(color: mainGolden,fontWeight: FontWeight.bold,fontSize: 15),)],)
-                   ,
-                    Row(children: [Icon(Icons.edit_location,color: mainGolden,),SizedBox(width: 5,),Text('Jakarta',style: TextStyle(color: darkMain,fontWeight: FontWeight.bold,fontSize: 15),softWrap: true,overflow: TextOverflow.ellipsis,)],)
-,Spacer(),
-            Row(children: [Text('\$',style: TextStyle(color: darkMain,fontWeight: FontWeight.bold,fontSize: 25),),SizedBox(width: 5,),Text('290',style: TextStyle(color: darkMain,fontWeight: FontWeight.bold,fontSize: 25),)],)
-
-          ],
+                    SizedBox(
+                      height: 5,
+                    ),
+                    Row(
+                      children: [
+                        Icon(
+                          Icons.star,
+                          color: mainGolden,
+                        ),
+                        SizedBox(
+                          width: 5,
+                        ),
+                        Text(
+                          '4.9',
+                          style: TextStyle(
+                              color: mainGolden,
+                              fontWeight: FontWeight.bold,
+                              fontSize: 15),
+                        )
+                      ],
+                    ),
+                    Row(
+                      children: [
+                        Icon(
+                          Icons.edit_location,
+                          color: mainGolden,
+                        ),
+                        SizedBox(
+                          width: 5,
+                        ),
+                        Text(
+                          'Jakarta',
+                          style: TextStyle(
+                              color: darkMain,
+                              fontWeight: FontWeight.bold,
+                              fontSize: Get.height * 0.0176470),
+                          softWrap: true,
+                          overflow: TextOverflow.ellipsis,
+                        )
+                      ],
+                    ),
+                    Spacer(),
+                    Row(
+                      children: [
+                        Text(
+                          '\$',
+                          style: TextStyle(
+                              color: darkMain,
+                              fontWeight: FontWeight.bold,
+                              fontSize: Get.height*0.02941176),
+                        ),
+                        SizedBox(
+                          width: 5,
+                        ),
+                        Text(
+                          '290',
+                          style: TextStyle(
+                              color: darkMain,
+                              fontWeight: FontWeight.bold,
+                              fontSize: Get.height*0.02941176),
+                        )
+                      ],
+                    )
+                  ],
                 )),
           ],
         ),

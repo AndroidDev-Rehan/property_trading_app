@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:get/get_navigation/src/root/get_material_app.dart';
 import 'package:intl/date_symbol_data_local.dart';
 import 'package:property_trading_app/new_UI_screens/dashboard/dashboard.dart';
@@ -28,6 +29,9 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
+    print("height: ${Get.height}");
+    print("width: ${Get.width}");
+
     return GetMaterialApp(
       theme: ThemeData(
         primaryColor: const Color.fromRGBO(209, 173, 93 ,1),
@@ -37,7 +41,7 @@ class MyApp extends StatelessWidget {
 
       ),
       // navigatorKey: navigatorKey,
-      home: CustomSplashScreen(),
+      home: const CustomSplashScreen(),
     );
   }
 }

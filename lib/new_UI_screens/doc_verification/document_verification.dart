@@ -14,11 +14,11 @@ class DocumentVerificationScreen extends StatelessWidget {
       // appBar: buildCustomAppBar(),
       body: Center(
         child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 30.0),
+          padding: EdgeInsets.symmetric(horizontal: Get.width*0.07653061),
           child: Column(
             mainAxisSize: MainAxisSize.min,
             children: [
-              const Text("Submit Documents", style: TextStyle(color: mainGolden, fontSize: 25, fontWeight: FontWeight.bold),),
+              Text("Submit Documents", style: TextStyle(color: mainGolden, fontSize: Get.width * 0.07142, fontWeight: FontWeight.bold),),
               const SizedBox(height: 20,),
               const Text("We need to verify your identity. Please submit the documents below to verify your identity", style: TextStyle(color: mainGolden, fontSize: 14, fontWeight: FontWeight.w500), textAlign: TextAlign.center,),
               const SizedBox(height: 40,),
@@ -33,18 +33,19 @@ class DocumentVerificationScreen extends StatelessWidget {
                     Icon(Icons.person_pin_sharp),
                   ],
                 ),
-                iconSpacing: 20,
-                fixedSize: Size(Get.width*0.6*1.1,Get.height*0.0561*1.5,),
+                iconSpacing: Get.width*0.051020,
+                fixedSize: Size(Get.width*0.6*1.2,Get.height*0.0561*1.5,),
                 color: mainGolden,
                 textColor: darkMain,
                 suffixIcon: Padding(
-                  padding: const EdgeInsets.only(left: 20.0),
+                  padding:  EdgeInsets.only(left: Get.width*0.051020),
                   child: const Icon(Icons.upload_sharp),
                 ),
 
               ),
               const SizedBox(height: 20,),
               CustomElevatedButton(
+
                 text: "Take a Selfie",
                 onPressed: (){},
                 prefixIcon: Column(
@@ -55,11 +56,11 @@ class DocumentVerificationScreen extends StatelessWidget {
                     Icon(Icons.photo),
                   ],
                 ),
-                fixedSize: Size(Get.width*0.6*1.1,Get.height*0.0561*1.5,),
+                fixedSize: Size(Get.width*0.6*1.2,Get.height*0.0561*1.5,),
                 color: mainGolden,
                 textColor: darkMain,
                 suffixIcon: Padding(
-                  padding: const EdgeInsets.only(left: 20.0),
+                  padding:  EdgeInsets.only(left: Get.width*0.051020),
                   child: const Icon(Icons.upload_sharp),
                 ),
 

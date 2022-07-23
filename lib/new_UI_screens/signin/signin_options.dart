@@ -25,17 +25,26 @@ class SignInOptionsScreen extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             mainAxisSize: MainAxisSize.min,
             children: [
-              CustomElevatedButton(text: "Sign In With Phone", onPressed: (){
-                Get.to(OtpScreen());
-              }, color: Colors.white, fixedSize: buttonsize,textColor: darkMain, imageIcon: Image.asset("assets/images/phone1.png", height: 50, width: 40),),
+              CustomElevatedButton(
+                text: "Sign In With Phone",
+                textStyle: TextStyle(fontSize: Get.width*0.037558, fontWeight: FontWeight.bold, color: darkMain),
+                onPressed: (){
+                Get.to(const OtpScreen());
+                },
+                color: Colors.white, fixedSize: buttonsize,textColor: darkMain, imageIcon: Image.asset("assets/images/phone1.png", height: 50, width: 40),),
               const SizedBox(height: 20,),
-              CustomElevatedButton(text: "Sign In With Google", onPressed: (){
-                Get.to(DocumentVerificationScreen());
+              CustomElevatedButton(
+                  text: "Sign In With Google",
+                  textStyle: TextStyle(fontSize: Get.width*0.037558, fontWeight: FontWeight.bold, color: darkMain),
+                  onPressed: (){
+                Get.to(const DocumentVerificationScreen());
 
               }, fixedSize: buttonsize,textColor: darkMain, color:  Colors.white,imageIcon: Image.asset("assets/images/google.png",height: 50, width: 50,)),
               const SizedBox(height: 20,),
-              CustomElevatedButton(text: "Sign In With Apple ", onPressed: (){
-                Get.to(DocumentVerificationScreen());
+              CustomElevatedButton(text: "Sign In With Apple ",
+                textStyle: TextStyle(fontSize: Get.width*0.037558, fontWeight: FontWeight.bold, color: darkMain),
+                onPressed: (){
+                Get.to(const DocumentVerificationScreen());
 
               }, fixedSize: buttonsize,textColor: darkMain, color:  Colors.white,imageIcon: Image.asset("assets/images/apple-logo.png", height: 40, width: 50),),
               const SizedBox(height: 60,),
@@ -66,9 +75,10 @@ class CustomElevatedButton extends StatelessWidget {
   final Size? fixedSize;
   final Image? imageIcon;
   final IconData? iconData;
+  final TextStyle? textStyle;
 
 
-  const CustomElevatedButton({Key? key, required this.text, required this.onPressed, this.color, this.roundness, this.horizontalPadding, this.verticalPadding, this.border = false, this.textColor, this.fixedSize, this.imageIcon, this.iconData}) : super(key: key);
+  const CustomElevatedButton({Key? key, required this.text, required this.onPressed, this.color, this.roundness, this.horizontalPadding, this.verticalPadding, this.border = false, this.textColor, this.fixedSize, this.imageIcon, this.iconData, this.textStyle}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -78,6 +88,13 @@ class CustomElevatedButton extends StatelessWidget {
           onPressed: (){
             onPressed();
           },
+          style: ElevatedButton.styleFrom(
+              primary: color ?? darkMain,
+              shape: StadiumBorder(),
+              side: border ? BorderSide(color: Theme.of(context).primaryColor) : null,
+              fixedSize: fixedSize
+            // fixedSize: const Size(double.infinity, 50),
+          ),
           child: Padding(
             padding:  EdgeInsets.symmetric(horizontal: horizontalPadding ?? 0, vertical: verticalPadding ?? 8),
             child: Row(
@@ -86,16 +103,9 @@ class CustomElevatedButton extends StatelessWidget {
                 (imageIcon != null) ? imageIcon! : SizedBox(),
                 (iconData != null) ? Icon(iconData) : SizedBox(),
                 ((imageIcon != null) || (iconData!=null) )  ? SizedBox(width: 10,) : SizedBox(width: 0,),
-                Text(text, style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18,color: textColor),),
+                Text(text, style: textStyle ?? TextStyle(fontWeight: FontWeight.bold, fontSize: 18,color: textColor),),
               ],
             ),
-          ),
-          style: ElevatedButton.styleFrom(
-              primary: color ?? darkMain,
-              shape: StadiumBorder(),
-              side: border ? BorderSide(color: Theme.of(context).primaryColor) : null,
-              fixedSize: fixedSize
-            // fixedSize: const Size(double.infinity, 50),
           )
       ),
     );
