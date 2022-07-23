@@ -42,7 +42,7 @@ class _OtpScreenState extends State<OtpScreen> {
             ),
             SizedBox(height: 30,),
             Text(
-              'Enter the 4 digit code that we just sent to prodeveloper8987448@gmail.com',
+              'Enter the 4 digit code that we just sent to prodeveloper@gmail.com',
               style: TextStyle(color: Colors.white, fontSize: 18),
             ),
             SizedBox(height: 50,),

@@ -1,6 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:property_trading_app/new_UI_screens/doc_verification/document_verification.dart';
 import 'package:property_trading_app/utils/app-color.dart';
+
+import '../../global_widgets/custom_button.dart';
+import '../verification/verification.dart';
 
 class SignUp extends StatefulWidget {
   const SignUp({Key? key}) : super(key: key);
@@ -102,6 +106,18 @@ class _SignUpState extends State<SignUp> {
                         borderSide: BorderSide(color:Colors.white, width: 2)) ,
                     enabledBorder: UnderlineInputBorder(
                         borderSide: BorderSide(color:Colors.white, width: 2))),),
+            ),
+            SizedBox(height: 40,),
+            CustomElevatedButton(
+              text: "Sign Up",
+              onPressed: (){
+                Get.to(DocumentVerificationScreen());
+              },
+              fixedSize: Size(Get.width*0.5,Get.height*0.0561,),
+              color: mainGolden,
+              textColor: darkMain,
+              // suffixIcon: const Icon(Icons.arrow_forward),
+
             ),
 
           ],

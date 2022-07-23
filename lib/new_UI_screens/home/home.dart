@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:persistent_bottom_nav_bar/persistent-tab-view.dart';
 import 'package:property_trading_app/global_widgets/custom_app_bar.dart';
+import 'package:property_trading_app/new_UI_screens/subproject/subproject.dart';
 import 'package:property_trading_app/utils/app-color.dart';
 
 class Home extends StatefulWidget {
@@ -152,59 +154,70 @@ class _HomeState extends State<Home> {
   }
 
   _buildrunningproject() {
-    return Container(
-      margin: EdgeInsets.all(10),
-      width: 220,
-      decoration: BoxDecoration(
-          color: Colors.yellow,
-          borderRadius: BorderRadius.all(Radius.circular(15)),
-          image: DecorationImage(
-              fit: BoxFit.fill,
-              colorFilter: ColorFilter.mode(
-                  Colors.black.withOpacity(0.2), BlendMode.darken),
-              image: Image.asset(
-                'assets/images/h1.jpg',
-                height: 250,
-                width: 250,
-              ).image)),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: [
-          SizedBox(
-            height: 20,
-          ),
-          Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: Text(
-              'Halloween Sale!',
-              style: TextStyle(
-                  fontSize: 20,
-                  color: Colors.white,
-                  fontWeight: FontWeight.bold),
+    return InkWell(
+      onTap: (){
+        pushNewScreen(
+          context,
+          screen: SubProjectscreen(),
+          withNavBar: true, // OPTIONAL VALUE. True by default.
+          pageTransitionAnimation: PageTransitionAnimation.cupertino,
+        );
+
+      },
+      child: Container(
+        margin: EdgeInsets.all(10),
+        width: 220,
+        decoration: BoxDecoration(
+            color: Colors.yellow,
+            borderRadius: BorderRadius.all(Radius.circular(15)),
+            image: DecorationImage(
+                fit: BoxFit.fill,
+                colorFilter: ColorFilter.mode(
+                    Colors.black.withOpacity(0.2), BlendMode.darken),
+                image: Image.asset(
+                  'assets/images/h1.jpg',
+                  height: 250,
+                  width: 250,
+                ).image)),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            SizedBox(
+              height: 20,
             ),
-          ),
-          Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: Text(
-              'All discount up to 60%',
-              style: TextStyle(fontSize: 18, color: Colors.white),
-            ),
-          ),
-          Container(
-            decoration: BoxDecoration(
-                color: darkMain.withOpacity(0.8),
-                borderRadius: BorderRadius.only(topRight: Radius.circular(20))),
-            child: Padding(
-              padding: const EdgeInsets.all(15.0),
-              child: Icon(
-                Icons.arrow_forward_outlined,
-                color: Colors.white,
-                size: 30,
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Text(
+                'Halloween Sale!',
+                style: TextStyle(
+                    fontSize: 20,
+                    color: Colors.white,
+                    fontWeight: FontWeight.bold),
               ),
             ),
-          )
-        ],
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Text(
+                'All discount up to 60%',
+                style: TextStyle(fontSize: 18, color: Colors.white),
+              ),
+            ),
+            Container(
+              decoration: BoxDecoration(
+                  color: darkMain.withOpacity(0.8),
+                  borderRadius: BorderRadius.only(topRight: Radius.circular(20))),
+              child: Padding(
+                padding: const EdgeInsets.all(15.0),
+                child: Icon(
+                  Icons.arrow_forward_outlined,
+                  color: Colors.white,
+                  size: 30,
+                ),
+              ),
+            )
+          ],
+        ),
       ),
     );
   }

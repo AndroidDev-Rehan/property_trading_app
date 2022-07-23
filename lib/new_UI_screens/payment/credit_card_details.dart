@@ -5,6 +5,7 @@ import '../../../global_widgets/custom_button.dart';
 import '../../../utils/app-color.dart';
 
 import '../../utils/app-color.dart';
+import '../dashboard/dashboard.dart';
 
 
 
@@ -68,7 +69,9 @@ class CreditCardDetailsScreen extends StatelessWidget {
                   CustomElevatedButton(
                     roundness: 15,
                     text: "Checkout",
-                    onPressed: (){}, color: Colors.white,
+                    onPressed: (){
+                      Get.offAll(RootScreen());
+                    }, color: Colors.white,
                     fixedSize: Size(Get.width*0.77102,Get.height*0.06263),
                     textColor: darkMain,
                     horizontalPadding: 20,
@@ -188,7 +191,7 @@ class CreditCardDetailsScreen extends StatelessWidget {
         color: Colors.black,
 
       ),
-      cursorColor: Colors.white,
+      cursorColor: Colors.black,
     );
   }
 

@@ -14,7 +14,7 @@ class VerificationScreen extends StatelessWidget {
     print(Get.width);
     return Scaffold(
       backgroundColor: darkMain,
-      appBar: buildCustomAppBar(),
+      // appBar: buildCustomAppBar(),
       body: Center(
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 30.0),

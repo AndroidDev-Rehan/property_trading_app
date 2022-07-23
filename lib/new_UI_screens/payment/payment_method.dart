@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:persistent_bottom_nav_bar/persistent-tab-view.dart';
 import 'package:property_trading_app/global_widgets/custom_app_bar.dart';
 import 'package:property_trading_app/new_UI_screens/payment/credit_card_details.dart';
 import '../../../global_widgets/custom_button.dart';
@@ -98,7 +99,15 @@ class PaymentOptions extends StatelessWidget {
                   CustomElevatedButton(
                     roundness: 25,
                     text: "Continue",
-                    onPressed: (){}, color: Colors.white,
+                    onPressed: (){
+                      pushNewScreen(
+                        context,
+                        screen: CreditCardDetailsScreen(),
+                        withNavBar: true, // OPTIONAL VALUE. True by default.
+                        pageTransitionAnimation: PageTransitionAnimation.cupertino,
+                      );
+
+                    }, color: Colors.white,
                     fixedSize: Size(Get.width*0.65,40),
                     textColor: darkMain,
                     horizontalPadding: 20,

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:persistent_bottom_nav_bar/persistent-tab-view.dart';
 import 'package:property_trading_app/global_widgets/custom_button.dart';
 import 'package:property_trading_app/new_UI_screens/payment/payment_method.dart';
 import 'package:property_trading_app/new_UI_screens/profile/other_user_profile.dart';
@@ -17,14 +18,16 @@ class P2PScreen extends StatelessWidget {
       body: ListView(
         padding: const EdgeInsets.symmetric(vertical: 30, horizontal: 20),
         children: [
-          _buildSingleP2PTile(),
-          _buildSingleP2PTile(),
-          _buildSingleP2PTile(),
-          _buildSingleP2PTile(),
-          _buildSingleP2PTile(),
-          _buildSingleP2PTile(),
-          _buildSingleP2PTile(),
-          _buildSingleP2PTile(),
+          _buildSingleP2PTile(context),
+          _buildSingleP2PTile(context),
+          _buildSingleP2PTile(context),
+          _buildSingleP2PTile(context),
+          _buildSingleP2PTile(context),
+          _buildSingleP2PTile(context),
+          _buildSingleP2PTile(context),
+          _buildSingleP2PTile(context),
+
+
         ],
       ),
     );
@@ -77,7 +80,7 @@ class P2PScreen extends StatelessWidget {
     );
   }
 
-  Widget _buildLowerRow() {
+  Widget _buildLowerRow(BuildContext context) {
     return Row(
       children: [
         _buildLowerLeftPortion(),
@@ -87,7 +90,12 @@ class P2PScreen extends StatelessWidget {
           textStyle: const TextStyle(),
 
           onPressed: () {
-            Get.to(PaymentOptions());
+            pushNewScreen(
+              context,
+              screen: PaymentOptions(),
+              withNavBar: true, // OPTIONAL VALUE. True by default.
+              pageTransitionAnimation: PageTransitionAnimation.cupertino,
+            );
           },
           horizontalPadding: 6,
           verticalPadding: 0,
@@ -98,7 +106,7 @@ class P2PScreen extends StatelessWidget {
     );
   }
 
-  Widget _buildSingleP2PTile() {
+  Widget _buildSingleP2PTile(BuildContext context) {
     return InkWell(
       onTap: (){
         Get.to(OtherUserProfileScreen());
@@ -108,7 +116,7 @@ class P2PScreen extends StatelessWidget {
           ///top  Row
           _buildTopRow(),
           const SizedBox(height: 10,),
-          _buildLowerRow(),
+          _buildLowerRow(context),
           const Divider(color: mainGolden,thickness: 2,),
           const SizedBox(height: 10,)
         ],

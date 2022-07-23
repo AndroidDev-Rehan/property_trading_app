@@ -2,6 +2,9 @@ import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:persistent_bottom_nav_bar/persistent-tab-view.dart';
+import 'package:property_trading_app/global_widgets/custom_app_bar.dart';
+import 'package:property_trading_app/new_UI_screens/payment/payment_method.dart';
 
 import '../../../utils/app-color.dart';
 
@@ -47,6 +50,7 @@ class _DetailsPageState extends State<DetailsPage> {
     return SafeArea(
       child: Scaffold(
         backgroundColor: darkMain,
+        appBar: buildCustomAppBar(),
         body: SingleChildScrollView(
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
@@ -200,113 +204,133 @@ class _DetailsPageState extends State<DetailsPage> {
                 height: 10,
               ),
               Padding(
-                padding:
-                    const EdgeInsets.symmetric(horizontal: 10.0, vertical: 8),
-                child: Text(
-                  'Price',
-                  style: TextStyle(fontSize: 18, color: mainGolden),
-                ),
-              ),
-              Container(
-                  margin: EdgeInsets.symmetric(horizontal: 10),
-                  padding: EdgeInsets.all(10),
-                  height: 40,
-                  width: Get.width,
-                  decoration: BoxDecoration(
-                      border: Border.all(color: mainGolden, width: 1),
-                      borderRadius: BorderRadius.all(Radius.circular(10))),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Text(
-                        '0.057508',
-                        style: TextStyle(color: Colors.white, fontSize: 18),
-                      ),
-                      Text(
-                        'KLV',
-                        style: TextStyle(color: mainGolden, fontSize: 18),
-                      ),
-                    ],
-                  )),
-              SizedBox(
-                height: 10,
-              ),
-              Padding(
-                padding:
-                    const EdgeInsets.symmetric(horizontal: 10.0, vertical: 8),
-                child: Text(
-                  'Amount',
-                  style: TextStyle(fontSize: 18, color: mainGolden),
-                ),
-              ),
-              Container(
-                  margin: EdgeInsets.symmetric(horizontal: 10),
-                  padding: EdgeInsets.all(10),
-                  height: 40,
-                  width: Get.width,
-                  decoration: BoxDecoration(
-                      border: Border.all(color: mainGolden, width: 1),
-                      borderRadius: BorderRadius.all(Radius.circular(10))),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Text(
-                        '0',
-                        style: TextStyle(color: Colors.white, fontSize: 18),
-                      ),
-                      Text(
-                        'USDT',
-                        style: TextStyle(color: mainGolden, fontSize: 18),
-                      ),
-                    ],
-                  )),
-              SizedBox(
-                height: 20,
-              ),
-              Divider(
-                color: mainGolden,
-                height: 10,
-              ),
-              Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 20.0,vertical: 10),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                padding: const EdgeInsets.symmetric(horizontal: 16.0),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  mainAxisSize: MainAxisSize.min,
                   children: [
-                    Text(
-                      'Avaliable',
-                      style: TextStyle(color: Colors.white, fontSize: 18),
-                    ),
-                    Text(
-                      '0.00 USDT',
-                      style: TextStyle(color: mainGolden, fontSize: 18),
-                    ),
-                  ],
-                ),
-              ),
-              Divider(
-                color: mainGolden,
-                height: 10,
-              ),
-              SizedBox(height: 20,),
-              Padding(
-                padding: const EdgeInsets.all(20.0),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Container(
-                      decoration: BoxDecoration(color: Colors.green,borderRadius: BorderRadius.all(Radius.circular(10))),
-                      padding: EdgeInsets.symmetric(vertical: 10,horizontal: 30),
+                    Padding(
+                      padding:
+                          const EdgeInsets.symmetric(horizontal: 10.0, vertical: 8),
                       child: Text(
-                        'BUY',
-                        style: TextStyle(color: darkMain, fontSize: 22),
+                        'Price',
+                        style: TextStyle(fontSize: 18, color: mainGolden),
                       ),
                     ),
                     Container(
-                      decoration: BoxDecoration(color: Colors.red,borderRadius: BorderRadius.all(Radius.circular(10))),
-                      padding: EdgeInsets.symmetric(vertical: 10,horizontal: 30),
+                        margin: EdgeInsets.symmetric(horizontal: 10),
+                        padding: EdgeInsets.all(10),
+                        height: 40,
+                        width: Get.width,
+                        decoration: BoxDecoration(
+                            border: Border.all(color: mainGolden, width: 1),
+                            borderRadius: BorderRadius.all(Radius.circular(10))),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Text(
+                              '0.057508',
+                              style: TextStyle(color: Colors.white, fontSize: 18),
+                            ),
+                            Text(
+                              'KLV',
+                              style: TextStyle(color: mainGolden, fontSize: 18),
+                            ),
+                          ],
+                        )),
+                    SizedBox(
+                      height: 10,
+                    ),
+                    Padding(
+                      padding:
+                          const EdgeInsets.symmetric(horizontal: 10.0, vertical: 8),
                       child: Text(
-                        'SELL',
-                        style: TextStyle(color: darkMain, fontSize: 22),
+                        'Amount',
+                        style: TextStyle(fontSize: 18, color: mainGolden),
+                      ),
+                    ),
+                    Container(
+                        margin: EdgeInsets.symmetric(horizontal: 10),
+                        padding: EdgeInsets.all(10),
+                        height: 40,
+                        width: Get.width,
+                        decoration: BoxDecoration(
+                            border: Border.all(color: mainGolden, width: 1),
+                            borderRadius: BorderRadius.all(Radius.circular(10))),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Text(
+                              '0',
+                              style: TextStyle(color: Colors.white, fontSize: 18),
+                            ),
+                            Text(
+                              'USDT',
+                              style: TextStyle(color: mainGolden, fontSize: 18),
+                            ),
+                          ],
+                        )),
+                    SizedBox(
+                      height: 20,
+                    ),
+                    Divider(
+                      color: mainGolden,
+                      height: 10,
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 20.0,vertical: 10),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Text(
+                            'Avaliable',
+                            style: TextStyle(color: Colors.white, fontSize: 18),
+                          ),
+                          Text(
+                            '0.00 USDT',
+                            style: TextStyle(color: mainGolden, fontSize: 18),
+                          ),
+                        ],
+                      ),
+                    ),
+                    Divider(
+                      color: mainGolden,
+                      height: 10,
+                    ),
+                    SizedBox(height: 20,),
+                    Padding(
+                      padding: const EdgeInsets.all(20.0),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          InkWell(
+                            child: Container(
+                              decoration: BoxDecoration(color: Colors.green,borderRadius: BorderRadius.all(Radius.circular(10))),
+                              padding: EdgeInsets.symmetric(vertical: 10,horizontal: 30),
+                              child: Text(
+                                'BUY',
+                                style: TextStyle(color: darkMain, fontSize: 22),
+                              ),
+                            ),
+                            onTap: (){
+                              pushNewScreen(
+                                context,
+                                screen: PaymentOptions(),
+                                withNavBar: true, // OPTIONAL VALUE. True by default.
+                                pageTransitionAnimation: PageTransitionAnimation.cupertino,
+                              );
+
+                            },
+                          ),
+                          Container(
+                            decoration: BoxDecoration(color: Colors.red,borderRadius: BorderRadius.all(Radius.circular(10))),
+                            padding: EdgeInsets.symmetric(vertical: 10,horizontal: 30),
+                            child: Text(
+                              'SELL',
+                              style: TextStyle(color: darkMain, fontSize: 22),
+                            ),
+                          ),
+                        ],
                       ),
                     ),
                   ],

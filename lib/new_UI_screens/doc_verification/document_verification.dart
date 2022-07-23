@@ -1,10 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:property_trading_app/global_widgets/custom_button.dart';
-
-import '../../global_widgets/custom_app_bar.dart';
 import '../../utils/app-color.dart';
-import '../dashboard/dashboard.dart';
+import '../verification/verification.dart';
 
 class DocumentVerificationScreen extends StatelessWidget {
   const DocumentVerificationScreen({Key? key}) : super(key: key);
@@ -13,7 +11,7 @@ class DocumentVerificationScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: darkMain,
-      appBar: buildCustomAppBar(),
+      // appBar: buildCustomAppBar(),
       body: Center(
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 30.0),
@@ -70,7 +68,7 @@ class DocumentVerificationScreen extends StatelessWidget {
               CustomElevatedButton(
                 text: "Next Step",
                 onPressed: (){
-                  Get.to(RootScreen());
+                  Get.to(VerificationScreen());
                 },
                 fixedSize: Size(Get.width*0.55,Get.height*0.0561,),
                 color: mainGolden,

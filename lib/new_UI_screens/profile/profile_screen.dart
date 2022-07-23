@@ -114,14 +114,14 @@ class ProfileScreen extends StatelessWidget {
 
           // isDense: true,
           filled: true,
-          contentPadding: EdgeInsets.only(top: 5, left: 20),
-          fillColor: Colors.white
+          contentPadding: EdgeInsets.only(top: 5, left: 15),
+          fillColor: Colors.white,
       ),
       style: const TextStyle(
         color: Colors.black,
 
       ),
-      cursorColor: Colors.white,
+      cursorColor: Colors.black,
     );
   }
 

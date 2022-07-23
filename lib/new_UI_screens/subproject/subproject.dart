@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:persistent_bottom_nav_bar/persistent-tab-view.dart';
 import 'package:property_trading_app/global_widgets/custom_app_bar.dart';
+import 'package:property_trading_app/new_UI_screens/detailscreen/detailscreen.dart';
 import 'package:property_trading_app/utils/app-color.dart';
 
 class SubProjectscreen extends StatefulWidget {
@@ -125,13 +127,24 @@ class _SubProjectscreenState extends State<SubProjectscreen> {
                 ),
               ),
               SizedBox(width: 20,),
-              Container(
-                decoration: BoxDecoration(
-                    color:darkMain,
-                    borderRadius: BorderRadius.all(Radius.circular(10))),
-                child: Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 25.0,vertical: 15),
-                  child: Text('Open',style: TextStyle(color: mainGolden,fontSize: 18,fontWeight: FontWeight.bold),),
+              InkWell(
+                onTap: (){
+                  pushNewScreen(
+                    context,
+                    screen: DetailsPage(),
+                    withNavBar: true, // OPTIONAL VALUE. True by default.
+                    pageTransitionAnimation: PageTransitionAnimation.cupertino,
+                  );
+
+                },
+                child: Container(
+                  decoration: BoxDecoration(
+                      color:darkMain,
+                      borderRadius: BorderRadius.all(Radius.circular(10))),
+                  child: Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 25.0,vertical: 15),
+                    child: Text('Open',style: TextStyle(color: mainGolden,fontSize: 18,fontWeight: FontWeight.bold),),
+                  ),
                 ),
               ),
             ],
