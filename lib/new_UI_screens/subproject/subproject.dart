@@ -5,6 +5,8 @@ import 'package:property_trading_app/global_widgets/custom_app_bar.dart';
 import 'package:property_trading_app/new_UI_screens/detailscreen/detailscreen.dart';
 import 'package:property_trading_app/utils/app-color.dart';
 
+import '../../global_widgets/custom_button.dart';
+
 class SubProjectscreen extends StatefulWidget {
   const SubProjectscreen({Key? key}) : super(key: key);
 
@@ -56,7 +58,7 @@ class _SubProjectscreenState extends State<SubProjectscreen> {
               Text(
                 'Find perfect choice for your future house ',
                 style: TextStyle(
-                    color: mainGolden,
+                    color: textColor,
                     fontSize: 25,
                     fontWeight: FontWeight.bold),
               ),
@@ -66,7 +68,7 @@ class _SubProjectscreenState extends State<SubProjectscreen> {
               Text(
                 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed. ',
                 style: TextStyle(
-                    color: mainGolden,
+                    color: textColor,
                     fontSize: 15,
                 ),
               ),
@@ -127,25 +129,19 @@ class _SubProjectscreenState extends State<SubProjectscreen> {
                 ),
               ),
               SizedBox(width: 20,),
-              InkWell(
-                onTap: (){
-                  pushNewScreen(
-                    context,
-                    screen: DetailsPage(),
-                    withNavBar: true, // OPTIONAL VALUE. True by default.
-                    pageTransitionAnimation: PageTransitionAnimation.cupertino,
-                  );
+              CustomElevatedButton(
+                verticalPadding: 10,
+                horizontalPadding: 10,
+                text: 'Open', onPressed: (){
+                pushNewScreen(
+                  context,
+                  screen: DetailsPage(),
+                  withNavBar: true, // OPTIONAL VALUE. True by default.
+                  pageTransitionAnimation: PageTransitionAnimation.cupertino,
+                );
+              },
+                // textStyle: TextStyle(color: textColor),
 
-                },
-                child: Container(
-                  decoration: BoxDecoration(
-                      color:darkMain,
-                      borderRadius: BorderRadius.all(Radius.circular(10))),
-                  child: Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 25.0,vertical: 15),
-                    child: Text('Open',style: TextStyle(color: mainGolden,fontSize: 18,fontWeight: FontWeight.bold),),
-                  ),
-                ),
               ),
             ],
           ),

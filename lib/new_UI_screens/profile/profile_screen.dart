@@ -34,7 +34,7 @@ class ProfileScreen extends StatelessWidget {
                     mainAxisSize: MainAxisSize.min,
                     children: [
                       const SizedBox(height: 8,),
-                      const Text("Bio-data", style: TextStyle(fontSize: 18, color: mainGolden),),
+                      const Text("Bio-data", style: TextStyle(fontSize: 18, color: textColor),),
                       const SizedBox(height: 30,),
                       Image.asset("assets/images/Oval.png"),
                       const SizedBox(height: 3,),
@@ -95,11 +95,13 @@ class ProfileScreen extends StatelessWidget {
       decoration:  InputDecoration(
           hintText: hintText,
           hintStyle: const TextStyle(color: Colors.black),
-          border: const OutlineInputBorder(
+          border:  OutlineInputBorder(
+            borderRadius: BorderRadius.circular(30)
             // borderSide: const BorderSide(color: darkMain, ),
             // borderRadius: BorderRadius.circular(30),
           ),
-          enabledBorder: const OutlineInputBorder(
+          enabledBorder: OutlineInputBorder(
+              borderRadius: BorderRadius.circular(30)
             // borderSide: const BorderSide(color: darkMain, ),
             // borderRadius: BorderRadius.circular(30),
           ),
@@ -114,7 +116,7 @@ class ProfileScreen extends StatelessWidget {
 
           // isDense: true,
           filled: true,
-          contentPadding: const EdgeInsets.only(top: 5, left: 15),
+          contentPadding: const EdgeInsets.only(top: 5, left: 25),
           fillColor: Colors.white,
       ),
       style: const TextStyle(

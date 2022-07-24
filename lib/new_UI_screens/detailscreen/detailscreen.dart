@@ -37,7 +37,7 @@ class _DetailsPageState extends State<DetailsPage> {
     minY = sortedSpots.first.y;
     maxY = sortedSpots.last.y;
     profitPercent = ((spots.last.y - spots[spots.length - 2].y) /
-            spots[spots.length - 2].y) *
+        spots[spots.length - 2].y) *
         100;
     for (var i = 0; i < spots.length; i++) {
       totalSpotsValue.value += spots[i].y;
@@ -68,7 +68,7 @@ class _DetailsPageState extends State<DetailsPage> {
                     children: [
                       Text(
                         'Current Price',
-                        style: TextStyle(color: mainGolden),
+                        style: TextStyle(color: textColor),
                       ),
                       SizedBox(
                         height: 5,
@@ -76,14 +76,14 @@ class _DetailsPageState extends State<DetailsPage> {
                       Text(
                         '0.057508',
                         style: TextStyle(
-                            color: mainGolden, fontWeight: FontWeight.bold),
+                            color: textColor, fontWeight: FontWeight.bold),
                       ),
                       SizedBox(
                         height: 5,
                       ),
                       Text(
                         '= \$0.057508',
-                        style: TextStyle(color: mainGolden),
+                        style: TextStyle(color: textColor),
                       )
                     ],
                   ),
@@ -92,22 +92,22 @@ class _DetailsPageState extends State<DetailsPage> {
                     children: [
                       Text(
                         '24h High',
-                        style: TextStyle(color: mainGolden),
+                        style: TextStyle(color: textColor),
                       ),
                       Text(
                         '0.057508',
-                        style: TextStyle(color: mainGolden),
+                        style: TextStyle(color: textColor),
                       ),
                       SizedBox(
                         height: 10,
                       ),
                       Text(
                         '24h Low',
-                        style: TextStyle(color: mainGolden),
+                        style: TextStyle(color: textColor),
                       ),
                       Text(
                         '0.057508',
-                        style: TextStyle(color: mainGolden),
+                        style: TextStyle(color: textColor),
                       )
                     ],
                   ),
@@ -118,22 +118,22 @@ class _DetailsPageState extends State<DetailsPage> {
                     children: [
                       Text(
                         '24h Vol(KLV)',
-                        style: TextStyle(color: mainGolden),
+                        style: TextStyle(color: textColor),
                       ),
                       Text(
                         '5.87M',
-                        style: TextStyle(color: mainGolden),
+                        style: TextStyle(color: textColor),
                       ),
                       SizedBox(
                         height: 10,
                       ),
                       Text(
                         '24h Low',
-                        style: TextStyle(color: mainGolden),
+                        style: TextStyle(color: textColor),
                       ),
                       Text(
                         '\$ 180.92k',
-                        style: TextStyle(color: mainGolden),
+                        style: TextStyle(color: textColor),
                       )
                     ],
                   ),
@@ -143,7 +143,7 @@ class _DetailsPageState extends State<DetailsPage> {
                 ],
               ),
               Divider(
-                color: mainGolden,
+                color: textColor,
                 height: 40,
               ),
               SizedBox(
@@ -212,10 +212,10 @@ class _DetailsPageState extends State<DetailsPage> {
                   children: [
                     Padding(
                       padding:
-                          const EdgeInsets.symmetric(horizontal: 10.0, vertical: 8),
+                      const EdgeInsets.symmetric(horizontal: 10.0, vertical: 8),
                       child: Text(
                         'Price',
-                        style: TextStyle(fontSize: 18, color: mainGolden),
+                        style: TextStyle(fontSize: 18, color: textColor),
                       ),
                     ),
                     Container(
@@ -224,7 +224,7 @@ class _DetailsPageState extends State<DetailsPage> {
                         height: 40,
                         width: Get.width,
                         decoration: BoxDecoration(
-                            border: Border.all(color: mainGolden, width: 1),
+                            border: Border.all(color: textColor, width: 1),
                             borderRadius: BorderRadius.all(Radius.circular(10))),
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -235,7 +235,7 @@ class _DetailsPageState extends State<DetailsPage> {
                             ),
                             Text(
                               'KLV',
-                              style: TextStyle(color: mainGolden, fontSize: 18),
+                              style: TextStyle(color: textColor, fontSize: 18),
                             ),
                           ],
                         )),
@@ -244,10 +244,10 @@ class _DetailsPageState extends State<DetailsPage> {
                     ),
                     Padding(
                       padding:
-                          const EdgeInsets.symmetric(horizontal: 10.0, vertical: 8),
+                      const EdgeInsets.symmetric(horizontal: 10.0, vertical: 8),
                       child: Text(
                         'Amount',
-                        style: TextStyle(fontSize: 18, color: mainGolden),
+                        style: TextStyle(fontSize: 18, color: textColor),
                       ),
                     ),
                     Container(
@@ -256,7 +256,7 @@ class _DetailsPageState extends State<DetailsPage> {
                         height: 40,
                         width: Get.width,
                         decoration: BoxDecoration(
-                            border: Border.all(color: mainGolden, width: 1),
+                            border: Border.all(color: textColor, width: 1),
                             borderRadius: BorderRadius.all(Radius.circular(10))),
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -267,7 +267,7 @@ class _DetailsPageState extends State<DetailsPage> {
                             ),
                             Text(
                               'USDT',
-                              style: TextStyle(color: mainGolden, fontSize: 18),
+                              style: TextStyle(color: textColor, fontSize: 18),
                             ),
                           ],
                         )),
@@ -275,7 +275,7 @@ class _DetailsPageState extends State<DetailsPage> {
                       height: 20,
                     ),
                     Divider(
-                      color: mainGolden,
+                      color: textColor,
                       height: 10,
                     ),
                     Padding(
@@ -289,13 +289,13 @@ class _DetailsPageState extends State<DetailsPage> {
                           ),
                           Text(
                             '0.00 USDT',
-                            style: TextStyle(color: mainGolden, fontSize: 18),
+                            style: TextStyle(color: textColor, fontSize: 18),
                           ),
                         ],
                       ),
                     ),
                     Divider(
-                      color: mainGolden,
+                      color: textColor,
                       height: 10,
                     ),
                     SizedBox(height: 20,),
@@ -314,7 +314,7 @@ class _DetailsPageState extends State<DetailsPage> {
                           },
                             color: Colors.green,
                             horizontalPadding: 20,
-                              verticalPadding: 10,
+                            verticalPadding: 10,
 
                           ),
                           CustomElevatedButton(text: "Sell", onPressed: (){
@@ -346,12 +346,12 @@ class _DetailsPageState extends State<DetailsPage> {
 }
 
 LineChartData chart(
-  bool isHomePage,
-  List<FlSpot> spots,
-  double minY,
-  double maxY,
-  bool profit,
-) {
+    bool isHomePage,
+    List<FlSpot> spots,
+    double minY,
+    double maxY,
+    bool profit,
+    ) {
   List<Color> redColors = [Colors.white];
 
   return LineChartData(
@@ -359,51 +359,51 @@ LineChartData chart(
     borderData: FlBorderData(border: Border.all(width: 0)),
 
     titlesData:  FlTitlesData(
-            show: true,
-            rightTitles: SideTitles(showTitles: true,
-              reservedSize: 35,
-              margin: 10,
-              getTextStyles: (context, value) => TextStyle(
-                color: Colors.white,
-                fontWeight: FontWeight.bold,
-                fontSize: 12,
-              ),),
-            topTitles: SideTitles(showTitles: false),
-            bottomTitles: SideTitles(
-              showTitles: true,
-              reservedSize: 28,
-              interval: 1,
-              textAlign: TextAlign.start,
-              getTextStyles: (context, value) => TextStyle(
-                color: Colors.white,
-                fontWeight: FontWeight.bold,
-                fontSize: 12,
-              ),
-              getTitles: (value) {
-                switch (value.toInt()) {
-                  case 0:
-                    return '13 july';
-                  case 1:
-                    return '14 july';
-                  case 2:
-                    return '15 july';
-                  case 3:
-                    return '16 july';
-                  case 4:
-                    return '17 july';
-                  case 5:
-                    return '18 july';
-                  case 6:
-                    return '19 july';
-                  default:
-                    return '';
-                }
-              },
-              margin: 8,
-            ),
-            leftTitles: SideTitles(
-              showTitles: false,),
-          ),
+      show: true,
+      rightTitles: SideTitles(showTitles: true,
+        reservedSize: 35,
+        margin: 10,
+        getTextStyles: (context, value) => TextStyle(
+          color: Colors.white,
+          fontWeight: FontWeight.bold,
+          fontSize: 12,
+        ),),
+      topTitles: SideTitles(showTitles: false),
+      bottomTitles: SideTitles(
+        showTitles: true,
+        reservedSize: 28,
+        interval: 1,
+        textAlign: TextAlign.start,
+        getTextStyles: (context, value) => TextStyle(
+          color: Colors.white,
+          fontWeight: FontWeight.bold,
+          fontSize: 12,
+        ),
+        getTitles: (value) {
+          switch (value.toInt()) {
+            case 0:
+              return '13 july';
+            case 1:
+              return '14 july';
+            case 2:
+              return '15 july';
+            case 3:
+              return '16 july';
+            case 4:
+              return '17 july';
+            case 5:
+              return '18 july';
+            case 6:
+              return '19 july';
+            default:
+              return '';
+          }
+        },
+        margin: 8,
+      ),
+      leftTitles: SideTitles(
+        showTitles: false,),
+    ),
     lineTouchData: LineTouchData(
       touchTooltipData: LineTouchTooltipData(
           tooltipBgColor: Colors.black,

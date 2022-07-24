@@ -45,7 +45,7 @@ class P2PScreen extends StatelessWidget {
           children: const [
             Text(
               "Project ( DHA )",
-              style: TextStyle(fontSize: 15, color: mainGolden, fontWeight: FontWeight.bold),
+              style: TextStyle(fontSize: 15, color: textColor, fontWeight: FontWeight.bold),
             ),
             // SizedBox(
             //   width: 40,
@@ -55,11 +55,11 @@ class P2PScreen extends StatelessWidget {
         const SizedBox(height: 5,),
         Row(
           children: const [
-            Text("Price |", style: TextStyle(fontSize: 12, color: mainGolden)),
+            Text("Price |", style: TextStyle(fontSize: 12, color: textColor)),
             SizedBox(
               width: 20,
             ),
-            Text("4500", style: TextStyle(fontSize: 15, color: mainGolden)),
+            Text("4500", style: TextStyle(fontSize: 15, color: textColor)),
 
           ],
         ),
@@ -69,13 +69,13 @@ class P2PScreen extends StatelessWidget {
           children: const [
             Text(
               "Selling Limit |",
-              style: TextStyle(fontSize: 12, color: mainGolden),
+              style: TextStyle(fontSize: 12, color: textColor),
             ),
             SizedBox(
               width: 20,
             ),
             Text("\$44000 - \$48000",
-                style: TextStyle(fontSize: 12, color: mainGolden)),
+                style: TextStyle(fontSize: 12, color: textColor)),
           ],
         ),
       ],
@@ -89,7 +89,9 @@ class P2PScreen extends StatelessWidget {
         const Spacer(),
         CustomElevatedButton(
           text: "Chat",
-          textStyle: const TextStyle(),
+          textStyle: const TextStyle(
+            color: darkMain
+          ),
 
           onPressed: () {
             pushNewScreen(
@@ -123,7 +125,7 @@ class P2PScreen extends StatelessWidget {
           _buildTopRow(),
           const SizedBox(height: 10,),
           _buildLowerRow(context),
-          const Divider(color: mainGolden,thickness: 2,),
+          const Divider(color: textColor,thickness: 2,),
           const SizedBox(height: 10,)
         ],
       ),
@@ -146,7 +148,7 @@ class P2PScreen extends StatelessWidget {
         const Spacer(),
         const Text(
           "12 Trades | 5410 KLV",
-          style: TextStyle(fontSize: 12, color: mainGolden),
+          style: TextStyle(fontSize: 12, color: textColor),
         ),
         const SizedBox(
           width: 0,

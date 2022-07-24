@@ -79,11 +79,13 @@ class ProfileTransferScreen extends StatelessWidget {
       decoration:  InputDecoration(
         hintText: hintText,
         hintStyle: const TextStyle(color: Colors.black),
-        border: const OutlineInputBorder(
+        border:  OutlineInputBorder(
+            borderRadius: BorderRadius.circular(30)
           // borderSide: const BorderSide(color: darkMain, ),
           // borderRadius: BorderRadius.circular(30),
         ),
-        enabledBorder: const OutlineInputBorder(
+        enabledBorder: OutlineInputBorder(
+            borderRadius: BorderRadius.circular(30)
           // borderSide: const BorderSide(color: darkMain, ),
           // borderRadius: BorderRadius.circular(30),
         ),
@@ -98,7 +100,7 @@ class ProfileTransferScreen extends StatelessWidget {
 
         // isDense: true,
         filled: true,
-        contentPadding: const EdgeInsets.only(top: 5, left: 15),
+        contentPadding: const EdgeInsets.only(top: 5, left: 25),
         fillColor: Colors.white,
       ),
       style: const TextStyle(

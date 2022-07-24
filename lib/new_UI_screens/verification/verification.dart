@@ -23,9 +23,9 @@ class VerificationScreen extends StatelessWidget {
             children: [
               Image.asset("assets/images/verify_latest.png"),
               const SizedBox(height: 0,),
-              Text("Congrats !!", style: TextStyle(color: mainGolden, fontSize: Get.width * 0.0636574, fontWeight: FontWeight.bold),),
+              Text("Congrats !!", style: TextStyle(color: textColor, fontSize: Get.width * 0.0636574, fontWeight: FontWeight.bold),),
               const SizedBox(height: 20,),
-              Text("Your application has been successfully submitted. You will be notified your shortly", style: TextStyle(color: mainGolden, fontSize: Get.width*0.0356, fontWeight: FontWeight.w500), textAlign: TextAlign.center,),
+              Text("Your application has been successfully submitted. You will be notified your shortly", style: TextStyle(color: textColor, fontSize: Get.width*0.0356, fontWeight: FontWeight.w500), textAlign: TextAlign.center,),
               const SizedBox(height: 40,),
               CustomElevatedButton(
                 text: "Login Now",

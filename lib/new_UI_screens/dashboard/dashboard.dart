@@ -32,7 +32,7 @@ class _RootScreenState extends State<RootScreen> {
       body: PersistentTabView(
         context,
         controller: _controller,
-        screens: const [ Home() , P2PScreen(), AddP2PScreen() , ProfileScreen(), ],
+        screens:  [ Home() , P2PScreen(), AddP2PScreen() , ProfileScreen(), ],
         items:
         [
           PersistentBottomNavBarItem(

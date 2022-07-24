@@ -3,44 +3,46 @@ import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
 import 'package:property_trading_app/utils/app-color.dart';
 
-class CustomAppBar extends StatelessWidget {
-  const CustomAppBar({Key? key}) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return AppBar(
-      backgroundColor: mainGolden,
-      title: Padding(
-        padding: EdgeInsets.symmetric(horizontal: Get.width*0.04205),
-        child: TextFormField(
-          decoration:  InputDecoration(
-              hintText: "Search",
-              hintStyle: const TextStyle(color: mainGolden),
-              border: OutlineInputBorder(
-                  borderSide: const BorderSide(color: Colors.white, ),
-                  borderRadius: BorderRadius.circular(30)
-              ),
-              prefixIcon: const Icon(Icons.search, color: mainGolden,),
-              isDense: true,
-              filled: true,
-
-              // contentPadding: EdgeInsets.symmetric(vertical: 0),
-              fillColor: darkMain
-          ),
-          style: const TextStyle(
-            color: Colors.white,
-
-          ),
-          cursorColor: Colors.white,
-        ),
-      ),
-      toolbarHeight: Get.height * 0.0894117647,
-    );
-  }
-}
+// class CustomAppBar extends StatelessWidget {
+//   const CustomAppBar({Key? key}) : super(key: key);
+//
+//   @override
+//   Widget build(BuildContext context) {
+//     return AppBar(
+//       backgroundColor: mainGolden,
+//       title: Padding(
+//         padding: EdgeInsets.symmetric(horizontal: Get.width*0.04205),
+//         child: TextFormField(
+//           decoration:  InputDecoration(
+//               hintText: "Search",
+//               hintStyle: const TextStyle(color: mainGolden),
+//               border: OutlineInputBorder(
+//                   borderSide: const BorderSide(color: Colors.white, ),
+//                   borderRadius: BorderRadius.circular(30)
+//               ),
+//               prefixIcon: const Icon(Icons.search, color: mainGolden,),
+//               isDense: true,
+//               filled: true,
+//
+//               // contentPadding: EdgeInsets.symmetric(vertical: 0),
+//               fillColor: darkMain
+//           ),
+//           style: const TextStyle(
+//             color: Colors.white,
+//
+//           ),
+//           cursorColor: Colors.white,
+//         ),
+//       ),
+//       toolbarHeight: Get.height * 0.0894117647,
+//       automaticallyImplyLeading: false,
+//     );
+//   }
+// }
 
 PreferredSizeWidget buildCustomAppBar(){
   return AppBar(
+    automaticallyImplyLeading: false,
     backgroundColor: mainGolden,
     title: Padding(
       padding: EdgeInsets.symmetric(horizontal: Get.width*0.04205),
