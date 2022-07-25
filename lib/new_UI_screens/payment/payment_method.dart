@@ -148,7 +148,7 @@ class PaymentOptions extends StatelessWidget {
            width: Get.width*0.86682242,
            child: Align(
               alignment: Alignment.centerLeft,
-              child: Text("Select Payment Method", style: TextStyle(color: mainGolden, fontSize: Get.width*0.0798*0.75, fontWeight: FontWeight.bold),)),
+              child: Text("Select Payment Method", style: TextStyle(color: textColor, fontSize: Get.width*0.0798*0.75, fontWeight: FontWeight.bold),)),
          ),
         const SizedBox(height: 40,),
 
