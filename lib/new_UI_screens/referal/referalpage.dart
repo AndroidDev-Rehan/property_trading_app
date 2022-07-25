@@ -1,6 +1,8 @@
 import 'package:dotted_border/dotted_border.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:property_trading_app/global_widgets/custom_app_bar.dart';
+import 'package:property_trading_app/global_widgets/custom_button.dart';
 import 'package:property_trading_app/utils/app-color.dart';
 
 class ReferalPage extends StatefulWidget {
@@ -15,7 +17,8 @@ class _ReferalPageState extends State<ReferalPage> {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        
+        appBar: buildCustomAppBar(),
+        backgroundColor: darkMain,
         body: Container(
           height: Get.height,
           width: Get.width,
@@ -141,89 +144,105 @@ class _ReferalPageState extends State<ReferalPage> {
                   ),
                 ),
                 Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: Text(
-                    'Referal Code',
-                    style: TextStyle(
-                        color: Colors.black,
-                        fontSize: 25,
-                        fontWeight: FontWeight.bold),
-                  ),
-                ),
-                Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: DottedBorder(
-                    color: darkMain,
-                    strokeWidth: 2,
-                    dashPattern: [8],
-                    child: Container(
-                      color: darkMain.withOpacity(0.5),
-                      padding: EdgeInsets.all(15),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          Text(
-                            'ABCD123',
-                            style: TextStyle(
-                                fontSize: 20,
-                                color: Colors.white,
-                                fontWeight: FontWeight.bold),
-                          ),
-                          Text(
-                            'Tap to copy',
-                            style: TextStyle(
-                              fontSize: 18,
-                              color: Colors.white,
-                            ),
-                          )
-                        ],
+                  padding: const EdgeInsets.symmetric(horizontal: 16.0,vertical: 8),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    mainAxisSize: MainAxisSize.min,
+                    children: [
+                      Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: Text(
+                          'Referal Code',
+                          style: TextStyle(
+                              color: textColor,
+                              fontSize: 25,
+                              fontWeight: FontWeight.bold),
+                        ),
                       ),
-                    ),
-                  ),
-                ),
-                Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: Text(
-                    'Redeemers',
-                    style: TextStyle(
-                        color: Colors.black,
-                        fontSize: 25,
-                        fontWeight: FontWeight.bold),
-                  ),
-                ),
-
-                Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: ListView.builder(
-                      shrinkWrap: true,
-                      itemCount: 5,
-                      itemBuilder: (context, index) {
-                        return Padding(
-                          padding: const EdgeInsets.symmetric(vertical: 8.0),
-                          child: Row(
-                            children: [
-                              CircleAvatar(
-                                backgroundImage: Image.asset(
-                                  'assets/images/person.jpg',
-
-                                  fit: BoxFit.fill,
-                                ).image,
-                                radius: 25,
-                              ),
-                              SizedBox(
-                                width: 10,
-                              ),
-                              Text(
-                                'Testing@gmail.com',
-                                style: TextStyle(
-                                  color: Colors.black,
-                                  fontSize: 15,
+                      Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: DottedBorder(
+                          color: darkMain,
+                          strokeWidth: 2,
+                          dashPattern: [8],
+                          child: Container(
+                            decoration: BoxDecoration(
+                              color: Colors.white.withOpacity(0.5),
+                              borderRadius: BorderRadius.circular(10),
+                            ),
+                            padding: EdgeInsets.all(15),
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: [
+                                Text(
+                                  'ABCD123',
+                                  style: TextStyle(
+                                      fontSize: 20,
+                                      color: Colors.white,
+                                      fontWeight: FontWeight.bold),
                                 ),
-                              )
-                            ],
+                                CustomElevatedButton(
+                                    text: "Tap to Copy", onPressed: (){
+
+                                })
+                                // Text(
+                                //   'Tap to copy',
+                                //   style: TextStyle(
+                                //     fontSize: 18,
+                                //     color: Colors.white,
+                                //   ),
+                                // )
+                              ],
+                            ),
                           ),
-                        );
-                      }),
+                        ),
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: Text(
+                          'Redeemers',
+                          style: TextStyle(
+                              color: textColor,
+                              fontSize: 25,
+                              fontWeight: FontWeight.bold),
+                        ),
+                      ),
+
+                      Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: ListView.builder(
+                            shrinkWrap: true,
+                            itemCount: 5,
+                            itemBuilder: (context, index) {
+                              return Padding(
+                                padding: const EdgeInsets.symmetric(vertical: 8.0),
+                                child: Row(
+                                  children: [
+                                    CircleAvatar(
+                                      backgroundImage: Image.asset(
+                                        'assets/images/person.jpg',
+
+                                        fit: BoxFit.fill,
+                                      ).image,
+                                      radius: 25,
+                                    ),
+                                    SizedBox(
+                                      width: 10,
+                                    ),
+                                    Text(
+                                      'Testing@gmail.com',
+                                      style: TextStyle(
+                                        color: textColor,
+                                        fontSize: 15,
+                                      ),
+                                    )
+                                  ],
+                                ),
+                              );
+                            }),
+                      ),
+                    ],
+                  ),
                 )
               ],
             ),

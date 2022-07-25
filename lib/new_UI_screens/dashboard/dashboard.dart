@@ -3,6 +3,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:persistent_bottom_nav_bar/persistent-tab-view.dart';
+import 'package:property_trading_app/new_UI_screens/home/ads_screen.dart';
 import 'package:property_trading_app/new_UI_screens/p2p/addP2PScreen.dart';
 import 'package:property_trading_app/new_UI_screens/p2p/p2p_screen.dart';
 import 'package:property_trading_app/new_UI_screens/profile/profile_screen.dart';
@@ -32,7 +33,7 @@ class _RootScreenState extends State<RootScreen> {
       body: PersistentTabView(
         context,
         controller: _controller,
-        screens:  [ Home() , P2PScreen(), AddP2PScreen() , ProfileScreen(), ],
+        screens:  [ AdsPage() , P2PScreen(), Home() , ProfileScreen(), ],
         items:
         [
           PersistentBottomNavBarItem(
@@ -55,7 +56,7 @@ class _RootScreenState extends State<RootScreen> {
             inactiveColorPrimary: CupertinoColors.systemGrey,
           ),
           PersistentBottomNavBarItem(
-            icon:  const Icon(Icons.currency_exchange,color: darkMain,size: 27,),
+            icon:  const Icon(Icons.details,color: darkMain,size: 27,),
 
             activeColorPrimary:darkMain,
             inactiveColorPrimary: CupertinoColors.systemGrey,

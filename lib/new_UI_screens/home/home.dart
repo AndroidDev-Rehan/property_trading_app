@@ -130,6 +130,9 @@ class _HomeState extends State<Home> {
                               borderRadius:
                                   BorderRadius.all(Radius.circular(20)),
                               color: Colors.white),
+                          child: Center(
+                            child: Icon(Icons.account_balance_sharp, color: darkMain,),
+                          ),
                         )
                       ],
                     ),
