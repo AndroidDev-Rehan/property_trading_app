@@ -110,12 +110,12 @@ class CreditCardDetailsScreen extends StatelessWidget {
         const SizedBox(height: 30,),
         _buildYellowContainer(),
         const SizedBox(height: 40,),
-        SizedBox(
-          width: Get.width*0.77102,
-          child: Align(
-              alignment: Alignment.centerLeft,
-              child: Text("Enter Card Details", style: TextStyle(color: mainGolden, fontSize: Get.width*0.0798*1.1),)),
-        ),
+        Align(
+            alignment: Alignment.centerLeft,
+            child: Padding(
+              padding: EdgeInsets.only(left: Get.width*0.07653061),
+              child: Text("Enter Card Details", style: TextStyle(color: mainGolden, fontSize: Get.width*0.0798*1,),maxLines: 1,),
+            )),
         const SizedBox(height: 40,),
 
       ],

@@ -21,6 +21,7 @@ class _HomeState extends State<Home> {
   ScrollController _scrollControllerproject = ScrollController();
   ScrollController _scrollController = ScrollController();
 
+
   void _scrollRight() {
     if(currentposition<((10*(Get.width *0.65+20)))) {
       _scrollController.animateTo(
@@ -91,55 +92,67 @@ class _HomeState extends State<Home> {
               SizedBox(
                 height: 10,
               ),
-              Container(
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.all(Radius.circular(15)),
-                  gradient: LinearGradient(
-                      colors: [mainGolden, Color.fromRGBO(225, 200, 140, 1.0)]),
-                ),
-                padding: EdgeInsets.all(20),
-                margin: EdgeInsets.only(right: 15),
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.start,
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    SizedBox(
-                      height: 5,
-                    ),
-                    Text(
-                      'Your total asset portfolio',
-                      style: TextStyle(color: darkMain, fontSize: 18),
-                    ),
-                    SizedBox(
-                      height: 10,
-                    ),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        Text(
-                          'N203,935',
-                          style: TextStyle(
-                              color: darkMain,
-                              fontSize: 30,
-                              fontWeight: FontWeight.bold),
-                        ),
-                        Container(
-                          width: Get.width * 0.3,
-                          height: 30,
-                          decoration: BoxDecoration(
-                              borderRadius:
-                                  BorderRadius.all(Radius.circular(20)),
-                              color: Colors.white),
-                          child: Center(
-                            child: Icon(Icons.account_balance_sharp, color: darkMain,),
+              SizedBox(
+                height: 230,
+                child: ListView.builder(
+                  scrollDirection: Axis.horizontal,
+                  itemCount: 5,
+                  itemBuilder: (context,index){
+                    return                   Container(
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.all(Radius.circular(15)),
+                        gradient: LinearGradient(
+                            colors: [mainGolden, Color.fromRGBO(225, 200, 140, 1.0)]),
+                      ),
+                      padding: EdgeInsets.all(20),
+                      margin: EdgeInsets.only(right: 15),
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          SizedBox(
+                            height: 5,
                           ),
-                        )
-                      ],
-                    ),
-                    SizedBox(
-                      height: 5,
-                    ),
-                  ],
+                          Text(
+                            'Your total asset portfolio',
+                            style: TextStyle(color: darkMain, fontSize: 18),
+                          ),
+                          SizedBox(
+                            height: 10,
+                          ),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              Text(
+                                'N203,935',
+                                style: TextStyle(
+                                    color: darkMain,
+                                    fontSize: 30,
+                                    fontWeight: FontWeight.bold),
+                              ),
+                              SizedBox(width: 50,),
+                              Container(
+                                width: Get.width * 0.3,
+                                height: 30,
+                                decoration: BoxDecoration(
+                                    borderRadius:
+                                    BorderRadius.all(Radius.circular(20)),
+                                    color: Colors.white),
+                                child: Center(
+                                  child: Icon(Icons.account_balance_sharp, color: darkMain,),
+                                ),
+                              )
+                            ],
+                          ),
+                          SizedBox(
+                            height: 15,
+                          ),
+                          Expanded(child: Image.asset("assets/images/h22.jpg", height: 100,width: 300,fit: BoxFit.cover,))
+                        ],
+                      ),
+                    );
+
+                  },
                 ),
               ),
               SizedBox(

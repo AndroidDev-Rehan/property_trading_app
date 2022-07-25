@@ -30,7 +30,7 @@ class MyApp extends StatelessWidget {
         primaryColor: const Color.fromRGBO(209, 173, 93 ,1),
       ),
       // navigatorKey: navigatorKey,
-      home: CustomSplashScreen(),
+      home: const CustomSplashScreen(),
     );
   }
 }

@@ -6,6 +6,7 @@ import 'package:persistent_bottom_nav_bar/persistent-tab-view.dart';
 import 'package:property_trading_app/global_widgets/custom_app_bar.dart';
 import 'package:property_trading_app/global_widgets/custom_button.dart';
 import 'package:property_trading_app/new_UI_screens/payment/payment_method.dart';
+import 'package:property_trading_app/old_UI/view/history/history%20screen.dart';
 
 import '../../../utils/app-color.dart';
 
@@ -149,18 +150,14 @@ class _DetailsPageState extends State<DetailsPage> {
               SizedBox(
                 height: 20,
               ),
-              Container(
-                margin: EdgeInsets.all(10),
-                padding: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
-                decoration: BoxDecoration(
-                    borderRadius: BorderRadius.all(Radius.circular(10)),
-                    color: Color(0x400c9a54)),
-                child: Text(
-                  'History',
-                  style: TextStyle(
-                      fontSize: 20,
-                      fontWeight: FontWeight.w500,
-                      color: Colors.white),
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 20.0),
+                child: Row(
+                  children: [
+                    CustomElevatedButton(text: "History", onPressed: (){
+                      pushNewScreen(context, screen: History());
+                    }),
+                  ],
                 ),
               ),
               SizedBox(
@@ -221,7 +218,7 @@ class _DetailsPageState extends State<DetailsPage> {
                     Container(
                         margin: EdgeInsets.symmetric(horizontal: 10),
                         padding: EdgeInsets.all(10),
-                        height: 40,
+                        // height: 40,
                         width: Get.width,
                         decoration: BoxDecoration(
                             border: Border.all(color: textColor, width: 1),
@@ -253,7 +250,7 @@ class _DetailsPageState extends State<DetailsPage> {
                     Container(
                         margin: EdgeInsets.symmetric(horizontal: 10),
                         padding: EdgeInsets.all(10),
-                        height: 40,
+                        // height: 40,
                         width: Get.width,
                         decoration: BoxDecoration(
                             border: Border.all(color: textColor, width: 1),

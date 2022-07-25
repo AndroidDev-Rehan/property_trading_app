@@ -3,6 +3,7 @@ import 'package:get/get.dart';
 import 'package:persistent_bottom_nav_bar/persistent-tab-view.dart';
 import 'package:property_trading_app/global_widgets/custom_button.dart';
 import 'package:property_trading_app/new_UI_screens/chat/chat.dart';
+import 'package:property_trading_app/new_UI_screens/p2p/addP2PScreen.dart';
 import 'package:property_trading_app/new_UI_screens/payment/payment_method.dart';
 import 'package:property_trading_app/new_UI_screens/profile/other_user_profile.dart';
 import '../../global_widgets/custom_app_bar.dart';
@@ -17,19 +18,39 @@ class P2PScreen extends StatelessWidget {
     return Scaffold(
       backgroundColor: darkMain,
       appBar: buildCustomAppBar(),
-      body: ListView(
-        padding: const EdgeInsets.symmetric(vertical: 30, horizontal: 20),
+      body: Column(
         children: [
-          _buildSingleP2PTile(context),
-          _buildSingleP2PTile(context),
-          _buildSingleP2PTile(context),
-          _buildSingleP2PTile(context),
-          _buildSingleP2PTile(context),
-          _buildSingleP2PTile(context),
-          _buildSingleP2PTile(context),
-          _buildSingleP2PTile(context),
+          SizedBox(height: 30,),
+          Padding(
+            padding: const EdgeInsets.only(left: 20.0,right: 20),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.end,
+              children: [
+                CustomElevatedButton(
+                  prefixIcon: Icon(Icons.add, color: darkMain,),
+                  text: "Add New", onPressed: (){
+                  pushNewScreen(context, screen: AddP2PScreen());
+                }, horizontalPadding: 5,),
+              ],
+            ),
+          ),
+          Expanded(
+            child: ListView(
+              padding: const EdgeInsets.symmetric(vertical: 20, horizontal: 20),
+              children: [
+                _buildSingleP2PTile(context),
+                _buildSingleP2PTile(context),
+                _buildSingleP2PTile(context),
+                _buildSingleP2PTile(context),
+                _buildSingleP2PTile(context),
+                _buildSingleP2PTile(context),
+                _buildSingleP2PTile(context),
+                _buildSingleP2PTile(context),
 
 
+              ],
+            ),
+          ),
         ],
       ),
     );

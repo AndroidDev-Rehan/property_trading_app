@@ -122,21 +122,25 @@ class AdsPage extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.spaceAround,
                   children: [
                     CustomElevatedButton(
-                      text: "Referals     ",
+                      textStyle: TextStyle(color: darkMain,fontSize: Get.width*0.04074074074, fontWeight: FontWeight.bold),
+
+                      text: "Referals  ",
                       onPressed: (){
                         pushNewScreen(context, screen: ReferalPage(), pageTransitionAnimation: PageTransitionAnimation.cupertino);
                       },
                       prefixIcon: const Icon(Icons.accessibility_sharp, color: darkMain,),
-                      fixedSize: Size(Get.width*0.4, 40),
+                      fixedSize: Size(Get.width*0.425, 40),
 
                     ),
                     CustomElevatedButton(
+                      textStyle: TextStyle(color: darkMain,fontSize: Get.width*0.04074074074, fontWeight: FontWeight.bold),
+
                       text: "Deposit    ",
                       onPressed: (){
                         pushNewScreen(context, screen: PaymentOptions(), pageTransitionAnimation: PageTransitionAnimation.cupertino);
                       },
                       prefixIcon: Icon(Icons.monetization_on, color: darkMain,),
-                      fixedSize: Size(Get.width*0.4, 40),
+                      fixedSize: Size(Get.width*0.425, 40),
 
 
                     ),
@@ -147,22 +151,26 @@ class AdsPage extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.spaceAround,
                   children: [
                     CustomElevatedButton(
-                      text: "Add P2P    ",
+                      textStyle: TextStyle(color: darkMain,fontSize: Get.width*0.04074074074, fontWeight: FontWeight.bold),
+
+                      text: "   P2P      ",
                       onPressed: (){
-                        pushNewScreen(context, screen: AddP2PScreen(), pageTransitionAnimation: PageTransitionAnimation.cupertino);
+                        pushNewScreen(context, screen: P2PScreen(), pageTransitionAnimation: PageTransitionAnimation.cupertino);
                       },
                       prefixIcon: Icon(Icons.add_box_rounded, color: darkMain,),
 
-                      fixedSize: Size(Get.width*0.4, 40),
+                      fixedSize: Size(Get.width*0.425, 40),
 
                     ),
                     CustomElevatedButton(
+                      textStyle: TextStyle(color: darkMain,fontSize: Get.width*0.04074074074, fontWeight: FontWeight.bold),
+
                       text: "Withdraw",
                       onPressed: (){
                         pushNewScreen(context, screen: CreditCardDetailsScreen(), pageTransitionAnimation: PageTransitionAnimation.cupertino);
                       },
                       prefixIcon: Icon(Icons.account_balance_sharp, color: darkMain,),
-                      fixedSize: Size(Get.width*0.4, 40),
+                      fixedSize: Size(Get.width*0.425, 40),
 
 
                     ),
@@ -178,17 +186,20 @@ class AdsPage extends StatelessWidget {
                         pushNewScreen(context, screen: ChatPage(), pageTransitionAnimation: PageTransitionAnimation.cupertino);
                       },
                       prefixIcon: Icon(Icons.message, color: darkMain,),
-                      fixedSize: Size(Get.width*0.4, 40),
+                      fixedSize: Size(Get.width*0.425, 40),
+                      textStyle: TextStyle(color: darkMain,fontSize: Get.width*0.04074074074, fontWeight: FontWeight.bold),
 
 
                     ),
                     CustomElevatedButton(
+                      textStyle: TextStyle(color: darkMain,fontSize: Get.width*0.04074074074, fontWeight: FontWeight.bold),
+
                       text: "Projects   ",
                       onPressed: (){
                         pushNewScreen(context, screen: SubProjectscreen(), pageTransitionAnimation: PageTransitionAnimation.cupertino);
                       },
                       prefixIcon: Icon(Icons.home, color: darkMain,),
-                      fixedSize: Size(Get.width*0.4, 40),
+                      fixedSize: Size(Get.width*0.425, 40),
 
 
                     ),

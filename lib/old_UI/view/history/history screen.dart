@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/get_core.dart';
+import 'package:property_trading_app/global_widgets/custom_app_bar.dart';
 import 'package:property_trading_app/old_UI/view/home/tradingsubcategory.dart';
 import '../../../utils/app-color.dart';
 
@@ -19,15 +20,8 @@ class _HistoryState extends State<History> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        centerTitle: true,
-        title: const Text(
-          'History',
-          style: TextStyle(
-              fontSize: 20, fontWeight: FontWeight.bold, color: Colors.white),
-        ),
-        backgroundColor: darkMain,
-      ),
+      backgroundColor: darkMain,
+      appBar: buildCustomAppBar(),
       body: ListView.builder(
           itemCount: 10,
           itemBuilder: (context, index) {
@@ -43,12 +37,12 @@ class _HistoryState extends State<History> {
                         'Muhammad Ali',
                         style: TextStyle(
                             fontSize: 20,
-                            color: darkMain,
+                            color: textColor,
                             fontWeight: FontWeight.bold),
                       ),
                        Text(
                         'Price: ${index+1}0K',
-                        style: TextStyle(fontSize: 18, color: darkMain),
+                        style: TextStyle(fontSize: 18, color: textColor),
                       ),
 
                     ],

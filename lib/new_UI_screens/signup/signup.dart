@@ -28,9 +28,9 @@ class _SignUpState extends State<SignUp> {
             children: [
               Image.asset(
                 'assets/images/logo.png',
-                height: Get.height * 0.4,
-                width: Get.width ,
-                fit: BoxFit.fill,
+                // height: Get.height * 0.4,
+                // width: Get.width ,
+                // fit: BoxFit.fill,
               ),
               SizedBox(height: 10,),
               CustomText(text: 'First create your account', size: 30),
