@@ -18,9 +18,9 @@ class DocumentVerificationScreen extends StatelessWidget {
           child: Column(
             mainAxisSize: MainAxisSize.min,
             children: [
-              Text("Submit Documents", style: TextStyle(color: mainGolden, fontSize: Get.width * 0.07142, fontWeight: FontWeight.bold),),
+              Text("Submit Documents", style: TextStyle(color: textColor, fontSize: Get.width * 0.07142, fontWeight: FontWeight.bold),),
               const SizedBox(height: 20,),
-              const Text("We need to verify your identity. Please submit the documents below to verify your identity", style: TextStyle(color: mainGolden, fontSize: 14, fontWeight: FontWeight.w500), textAlign: TextAlign.center,),
+              const Text("We need to verify your identity. Please submit the documents below to verify your identity", style: TextStyle(color: textColor, fontSize: 14, fontWeight: FontWeight.w500), textAlign: TextAlign.center,),
               const SizedBox(height: 40,),
               CustomElevatedButton(
                 text: "  Photo ID  ",
@@ -30,7 +30,7 @@ class DocumentVerificationScreen extends StatelessWidget {
                   children: [
                     Text("Step 1",style: TextStyle(color: Colors.black, fontWeight: FontWeight.bold),),
                     SizedBox(height: 3,),
-                    Icon(Icons.person_pin_sharp),
+                    Icon(Icons.person_pin_sharp, color: Colors.black,),
                   ],
                 ),
                 iconSpacing: Get.width*0.051020,
@@ -39,7 +39,7 @@ class DocumentVerificationScreen extends StatelessWidget {
                 textColor: darkMain,
                 suffixIcon: Padding(
                   padding:  EdgeInsets.only(left: Get.width*0.051020),
-                  child: const Icon(Icons.upload_sharp),
+                  child: const Icon(Icons.upload_sharp, color: Colors.black,),
                 ),
 
               ),
@@ -53,7 +53,7 @@ class DocumentVerificationScreen extends StatelessWidget {
                   children: [
                     Text("Step 2",style: TextStyle(color: Colors.black, fontWeight: FontWeight.bold),),
                     SizedBox(height: 3,),
-                    Icon(Icons.photo),
+                    Icon(Icons.photo, color: Colors.black,),
                   ],
                 ),
                 fixedSize: Size(Get.width*0.6*1.2,Get.height*0.0561*1.5,),
@@ -61,7 +61,7 @@ class DocumentVerificationScreen extends StatelessWidget {
                 textColor: darkMain,
                 suffixIcon: Padding(
                   padding:  EdgeInsets.only(left: Get.width*0.051020),
-                  child: const Icon(Icons.upload_sharp),
+                  child: const Icon(Icons.upload_sharp,color: Colors.black),
                 ),
 
               ),

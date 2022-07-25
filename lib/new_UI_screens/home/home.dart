@@ -145,7 +145,7 @@ class _HomeState extends State<Home> {
               Text(
                 'Project In Running',
                 style: TextStyle(
-                    color: mainGolden,
+                    color: textColor,
                     fontSize: 30,
                     fontWeight: FontWeight.bold),
               ),
@@ -171,18 +171,18 @@ class _HomeState extends State<Home> {
                 padding: const EdgeInsets.only(right: 15.0),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
+                  children: const [
                     Text(
                       'Comming Soon',
                       style: TextStyle(
-                          color: mainGolden,
+                          color: textColor,
                           fontSize: 20,
                           fontWeight: FontWeight.bold),
                     ),
                     Text(
                       'view all',
                       style: TextStyle(
-                          color: mainGolden,
+                          color: textColor,
                           fontSize: 20,
                           fontWeight: FontWeight.bold),
                     ),

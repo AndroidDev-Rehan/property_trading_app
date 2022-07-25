@@ -13,6 +13,7 @@ import 'package:open_file/open_file.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:persistent_bottom_nav_bar/persistent-tab-view.dart';
 import 'package:property_trading_app/global_widgets/custom_app_bar.dart';
+import 'package:property_trading_app/global_widgets/custom_button.dart';
 import 'package:property_trading_app/new_UI_screens/file_transfer/file_transfer.dart';
 import 'package:property_trading_app/old_UI/utils/app-color.dart';
 import 'package:uuid/uuid.dart';
@@ -44,6 +45,7 @@ class _ChatPageState extends State<ChatPage> {
     body: Column(
       children: [
         SizedBox(height: 30,),
+
         Padding(
           padding: const EdgeInsets.only(left: 32.0),
           child: InkWell(
@@ -58,8 +60,21 @@ class _ChatPageState extends State<ChatPage> {
             child: Row(
               children: [
                 Image.asset("assets/images/Oval.png", scale: 2,),
-                SizedBox(width: 40,),
-                Text("Martha Craig", style: TextStyle(fontWeight: FontWeight.bold, color: Colors.white,fontSize: 20 ),),
+                SizedBox(width: 20,),
+                Text("Martha Craig", style: TextStyle(fontWeight: FontWeight.bold, color: Colors.white,fontSize: 18 ),),
+                Spacer(),
+                CustomElevatedButton(text: "Files", onPressed: (){
+                  pushNewScreen(
+                    context,
+                    screen: const ProfileTransferScreen(),
+                    withNavBar: true, // OPTIONAL VALUE. True by default.
+                    pageTransitionAnimation: PageTransitionAnimation.cupertino,
+                  );
+                },
+                horizontalPadding: 10,
+                  verticalPadding: 10,
+                ),
+                SizedBox(width: 15,)
               ],
             ),
           ),

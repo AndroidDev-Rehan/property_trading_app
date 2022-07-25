@@ -41,8 +41,9 @@ class CustomElevatedButton extends StatelessWidget {
             onPressed();
           },
           style: ElevatedButton.styleFrom(
-              primary: color ?? darkMain,
-              shape:StadiumBorder(),
+            primary: Colors.white,
+              // primary: color ?? darkMain,
+              shape:const StadiumBorder(),
               side: border ? BorderSide(color: Theme.of(context).primaryColor) : null,
               fixedSize: fixedSize
             // fixedSize: const Size(double.infinity, 50),
@@ -57,7 +58,7 @@ class CustomElevatedButton extends StatelessWidget {
                   (imageIcon != null) ? imageIcon! : const SizedBox(),
                   (prefixIcon != null) ? prefixIcon! : SizedBox(),
                   ((imageIcon != null) || (prefixIcon!=null) )  ? SizedBox(width: iconSpacing ?? 10,) : SizedBox(width: 0,),
-                  Text(text, style: textStyle ?? TextStyle(fontWeight: FontWeight.bold, fontSize: textSize ?? Get.width*0.04591,color: textColor),),
+                  Text(text, style: textStyle ?? TextStyle(fontWeight: FontWeight.bold, fontSize: textSize ?? Get.width*0.04591,color: darkMain),),
                   (suffixIcon != null) ? Padding(
                     padding: const EdgeInsets.only(left: 8.0),
                     child: suffixIcon!,

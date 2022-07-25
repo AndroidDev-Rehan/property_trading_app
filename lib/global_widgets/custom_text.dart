@@ -20,16 +20,16 @@ class CustomText extends StatelessWidget {
     return Stack(
       children: <Widget>[
         // Stroked text as border.
-        Text(
-          text,
-          style: TextStyle(
-            fontSize: this.size,
-            foreground: Paint()
-              ..style = PaintingStyle.stroke
-              ..strokeWidth = 5
-              ..color = Colors.black,
-          ),
-        ),
+        // Text(
+        //   text,
+        //   style: TextStyle(
+        //     fontSize: this.size,
+        //     foreground: Paint()
+        //       ..style = PaintingStyle.stroke
+        //       ..strokeWidth = 5
+        //       ..color = Colors.black,
+        //   ),
+        // ),
         // Solid text as fill.
         Text(
           text,
