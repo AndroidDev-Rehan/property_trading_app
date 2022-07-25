@@ -46,7 +46,7 @@ class _ReferalPageState extends State<ReferalPage> {
                         height: 10,
                       ),
                       Text(
-                        '1 Referal = Rs.10/-',
+                        '1 Referal = Rs.100/-',
                         style: TextStyle(
                             color: Colors.white,
                             fontWeight: FontWeight.bold,
