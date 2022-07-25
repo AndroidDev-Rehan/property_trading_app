@@ -30,8 +30,11 @@ class _RootScreenState extends State<RootScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: PersistentTabView(
+
         context,
+
         controller: _controller,
+
         screens: const [ Home() , P2PScreen(), AddP2PScreen() , ProfileScreen(), ],
         items:
         [
@@ -76,9 +79,9 @@ class _RootScreenState extends State<RootScreen> {
         hideNavigationBarWhenKeyboardShows: true,
    // Recommended to set 'resizeToAvoidBottomInset' as true while using this argument. Default is true.
         decoration: NavBarDecoration(
+gradient:LinearGradient(begin: Alignment.topCenter,end:Alignment.bottomCenter,colors: [Colors.black26,mainGolden,mainGolden],stops: [0.1,0.15,1],),
 
-
-          colorBehindNavBar: mainGolden,
+colorBehindNavBar: mainGolden
         ),
         popAllScreensOnTapOfSelectedTab: true,
         popActionScreens: PopActionScreensType.all,
@@ -86,6 +89,7 @@ class _RootScreenState extends State<RootScreen> {
           duration: Duration(milliseconds: 50),
           curve: Curves.ease,
         ),
+
         screenTransitionAnimation: const ScreenTransitionAnimation( // Screen transition animation on change of selected tab.
           animateTabTransition: true,
           curve: Curves.ease,

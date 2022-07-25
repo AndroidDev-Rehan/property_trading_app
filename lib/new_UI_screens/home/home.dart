@@ -1,3 +1,6 @@
+import 'dart:async';
+import 'dart:ffi';
+
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:persistent_bottom_nav_bar/persistent-tab-view.dart';
@@ -13,8 +16,59 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> {
+  double currentposition=Get.width * 0.65 + 20;
+  double currentpositionproject=220 + 20;
+  ScrollController _scrollControllerproject = ScrollController();
+  ScrollController _scrollController = ScrollController();
+
+  void _scrollRight() {
+    if(currentposition<((10*(Get.width *0.65+20)))) {
+      _scrollController.animateTo(
+        currentposition,
+        duration: Duration(seconds: 2),
+        curve: Curves.fastOutSlowIn,
+      );
+      currentposition += Get.width * 0.65 + 20;
+    }
+    else{
+      _scrollController.animateTo(
+        0,
+        duration: Duration(seconds: 2),
+        curve: Curves.fastOutSlowIn,
+      );
+      currentposition=Get.width * 0.65 + 20;
+    }
+
+  }
+  void _scrollRightProject(){
+    if(currentpositionproject<((10*(220+20)))) {
+      _scrollControllerproject.animateTo(
+        currentpositionproject,
+        duration: Duration(seconds: 2),
+        curve: Curves.fastOutSlowIn,
+      );
+      currentpositionproject += 220 + 20;
+    }
+    else{
+      _scrollControllerproject.animateTo(
+        0,
+        duration: Duration(seconds: 2),
+        curve: Curves.fastOutSlowIn,
+      );
+      currentpositionproject=220+ 20;
+    }
+  }
+  @override
+  void initState() {
+    // TODO: implement initState
+    Timer.periodic(Duration(seconds: 5), (Timer t) => _scrollRight());
+    Timer.periodic(Duration(seconds: 3), (Timer t) => _scrollRightProject());
+    super.initState();
+  }
   @override
   Widget build(BuildContext context) {
+
+
     return Scaffold(
       appBar: buildCustomAppBar(),
       body: Container(
@@ -101,6 +155,8 @@ class _HomeState extends State<Home> {
               SizedBox(
                 height: 200,
                 child: ListView.builder(
+
+                    controller: _scrollControllerproject,
                     shrinkWrap: true,
                     scrollDirection: Axis.horizontal,
                     itemCount: 10,
@@ -139,6 +195,8 @@ class _HomeState extends State<Home> {
               SizedBox(
                 height: 190,
                 child: ListView.builder(
+
+                    controller: _scrollController,
                     shrinkWrap: true,
                     scrollDirection: Axis.horizontal,
                     itemCount: 10,

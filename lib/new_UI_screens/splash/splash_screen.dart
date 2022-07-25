@@ -290,7 +290,7 @@ height: Get.height,
                     return Column(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        Image.asset(w.splash,height: Get.height*0.4,width: Get.width,fit: BoxFit.fill,),
+                        Image.asset(w.splash,height: Get.height*0.43,width: Get.width,fit: BoxFit.fill,),
                         Text('Above  The Crowd In Property',style: TextStyle(fontSize: 18,color: Colors.white,fontStyle: FontStyle.italic),)
                       ],
                     );
