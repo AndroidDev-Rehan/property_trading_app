@@ -124,6 +124,18 @@ class AdsPage extends StatelessWidget {
                     CustomElevatedButton(
                       textStyle: TextStyle(color: darkMain,fontSize: Get.width*0.04074074074, fontWeight: FontWeight.bold),
 
+                      text: "Projects   ",
+                      onPressed: (){
+                        pushNewScreen(context, screen: SubProjectscreen(), pageTransitionAnimation: PageTransitionAnimation.cupertino);
+                      },
+                      prefixIcon: Icon(Icons.home, color: darkMain,),
+                      fixedSize: Size(Get.width*0.425, 40),
+
+
+                    ),
+                    CustomElevatedButton(
+                      textStyle: TextStyle(color: darkMain,fontSize: Get.width*0.04074074074, fontWeight: FontWeight.bold),
+
                       text: "Referals  ",
                       onPressed: (){
                         pushNewScreen(context, screen: ReferalPage(), pageTransitionAnimation: PageTransitionAnimation.cupertino);
@@ -132,6 +144,13 @@ class AdsPage extends StatelessWidget {
                       fixedSize: Size(Get.width*0.425, 40),
 
                     ),
+
+                  ],
+                ),
+                SizedBox(height: 20,),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceAround,
+                  children: [
                     CustomElevatedButton(
                       textStyle: TextStyle(color: darkMain,fontSize: Get.width*0.04074074074, fontWeight: FontWeight.bold),
 
@@ -140,6 +159,19 @@ class AdsPage extends StatelessWidget {
                         pushNewScreen(context, screen: PaymentOptions(), pageTransitionAnimation: PageTransitionAnimation.cupertino);
                       },
                       prefixIcon: Icon(Icons.monetization_on, color: darkMain,),
+                      fixedSize: Size(Get.width*0.425, 40),
+
+
+                    ),
+
+                    CustomElevatedButton(
+                      textStyle: TextStyle(color: darkMain,fontSize: Get.width*0.04074074074, fontWeight: FontWeight.bold),
+
+                      text: "Withdraw",
+                      onPressed: (){
+                        pushNewScreen(context, screen: CreditCardDetailsScreen(), pageTransitionAnimation: PageTransitionAnimation.cupertino);
+                      },
+                      prefixIcon: Icon(Icons.account_balance_sharp, color: darkMain,),
                       fixedSize: Size(Get.width*0.425, 40),
 
 
@@ -163,25 +195,7 @@ class AdsPage extends StatelessWidget {
 
                     ),
                     CustomElevatedButton(
-                      textStyle: TextStyle(color: darkMain,fontSize: Get.width*0.04074074074, fontWeight: FontWeight.bold),
-
-                      text: "Withdraw",
-                      onPressed: (){
-                        pushNewScreen(context, screen: CreditCardDetailsScreen(), pageTransitionAnimation: PageTransitionAnimation.cupertino);
-                      },
-                      prefixIcon: Icon(Icons.account_balance_sharp, color: darkMain,),
-                      fixedSize: Size(Get.width*0.425, 40),
-
-
-                    ),
-                  ],
-                ),
-                SizedBox(height: 20,),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceAround,
-                  children: [
-                    CustomElevatedButton(
-                      text: "Contact CS",
+                      text: "Contact US",
                       onPressed: (){
                         pushNewScreen(context, screen: ChatPage(), pageTransitionAnimation: PageTransitionAnimation.cupertino);
                       },
@@ -191,18 +205,7 @@ class AdsPage extends StatelessWidget {
 
 
                     ),
-                    CustomElevatedButton(
-                      textStyle: TextStyle(color: darkMain,fontSize: Get.width*0.04074074074, fontWeight: FontWeight.bold),
 
-                      text: "Projects   ",
-                      onPressed: (){
-                        pushNewScreen(context, screen: SubProjectscreen(), pageTransitionAnimation: PageTransitionAnimation.cupertino);
-                      },
-                      prefixIcon: Icon(Icons.home, color: darkMain,),
-                      fixedSize: Size(Get.width*0.425, 40),
-
-
-                    ),
                   ],
                 ),
                 SizedBox(height: 20,),
