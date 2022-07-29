@@ -43,4 +43,3 @@ class _CustomSplashScreenState extends State<CustomSplashScreen> {
   }
 
 }
-
