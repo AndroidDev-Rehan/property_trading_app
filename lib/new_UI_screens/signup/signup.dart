@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:property_trading_app/controllers/signup_controller.dart';
 import 'package:property_trading_app/new_UI_screens/doc_verification/document_verification.dart';
+import 'package:property_trading_app/new_UI_screens/otp/otpscreen.dart';
 import 'package:property_trading_app/utils/app-color.dart';
 
 import '../../global_widgets/custom_button.dart';
@@ -207,7 +208,7 @@ class _SignUpState extends State<SignUp> {
                       });
 
                       if(success){
-                        Get.to(DocumentVerificationScreen());
+                        Get.to(OtpScreen(phoneno: '+92${signUpController.phoneNoController.text.substring(1)}',));
                       }
                       else{
                         print("sign up failed");

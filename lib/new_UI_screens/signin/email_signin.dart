@@ -1,6 +1,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:property_trading_app/new_UI_screens/otp/otpscreen.dart';
 
 import '../../global_widgets/custom_button.dart';
 import '../../old_UI/view/auth/widget/CustomTextField.dart';
@@ -106,7 +107,7 @@ class _EmailSignInScreenState extends State<EmailSignInScreen> {
       UserCredential userCredential = await FirebaseAuth.instance
           .signInWithEmailAndPassword(
               email: emailController.text, password: passController.text);
-      Get.offAll(DocumentVerificationScreen());
+      Get.offAll(OtpScreen(phoneno: FirebaseAuth.instance.currentUser!.phoneNumber!,login: true,));
     }
     catch(e){
       showAlert(context,e.toString());

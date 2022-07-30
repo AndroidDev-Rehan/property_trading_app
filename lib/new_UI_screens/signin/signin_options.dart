@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:property_trading_app/global_widgets/custom_text.dart';
 import 'package:property_trading_app/new_UI_screens/doc_verification/document_verification.dart';
+import 'package:property_trading_app/new_UI_screens/signin/email_signin.dart';
 import 'package:property_trading_app/new_UI_screens/verification/verification.dart';
 
 
@@ -30,7 +31,7 @@ class SignInOptionsScreen extends StatelessWidget {
                 text: "Sign In With Phone",
                 textStyle: TextStyle(fontSize: Get.width*0.037558, fontWeight: FontWeight.bold, color: darkMain),
                 onPressed: (){
-                Get.to(const OtpScreen());
+                Get.to( EmailSignInScreen());
                 },
                 color: Colors.white, fixedSize: buttonsize,textColor: darkMain, imageIcon: Image.asset("assets/images/phone1.png", height: 50, width: 40),),
               const SizedBox(height: 20,),
