@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:property_trading_app/controllers/signup_controller.dart';
 import 'package:property_trading_app/new_UI_screens/doc_verification/document_verification.dart';
 import 'package:property_trading_app/utils/app-color.dart';
 
@@ -15,6 +16,12 @@ class SignUp extends StatefulWidget {
 }
 
 class _SignUpState extends State<SignUp> {
+  SignUpController signUpController = SignUpController();
+
+  final GlobalKey<FormState> _key =   GlobalKey<FormState>();
+
+  bool loading = false;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -23,103 +30,209 @@ class _SignUpState extends State<SignUp> {
         height: Get.height,
         width: Get.width,
         child: SingleChildScrollView(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Image.asset(
-                'assets/images/logo.png',
-                // height: Get.height * 0.4,
-                // width: Get.width ,
-                // fit: BoxFit.fill,
-              ),
-              SizedBox(height: 10,),
-              CustomText(text: 'First create your account', size: 30),
-              const SizedBox(height: 30,),
-              const Padding(
-                padding: EdgeInsets.symmetric(vertical: 8.0,horizontal: 15),
-                child: TextField(style: TextStyle(color: Colors.white,fontSize: 17),
-                  decoration: InputDecoration(
-                      hintText: 'Full Name/User Name',
-                      hintStyle: TextStyle(fontSize: 17, color: Colors.white),
-                      fillColor: Colors.grey,
+          child: Form(
+            key: _key,
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Image.asset(
+                  'assets/images/logo.png',
+                  // height: Get.height * 0.4,
+                  // width: Get.width ,
+                  // fit: BoxFit.fill,
+                ),
+                const SizedBox(
+                  height: 10,
+                ),
+                const CustomText(text: 'First create your account', size: 30),
+                const SizedBox(
+                  height: 30,
+                ),
+                Padding(
+                  padding: EdgeInsets.symmetric(vertical: 8.0, horizontal: 15),
+                  child: TextFormField(
+                    validator: (value){
+                      if(value == null || value.trim().isEmpty){
+                        return "Field is required";
+                      }
+                      return null;
+                    },
+                    controller: signUpController.userNameController,
+                    style: TextStyle(color: Colors.white, fontSize: 17),
+                    decoration: InputDecoration(
+                        hintText: 'Full Name/User Name',
+                        hintStyle: TextStyle(fontSize: 17, color: Colors.white),
+                        fillColor: Colors.grey,
+                        focusedBorder: UnderlineInputBorder(
+                            borderSide:
+                                BorderSide(color: Colors.white, width: 2)),
+                        enabledBorder: UnderlineInputBorder(
+                            borderSide:
+                                BorderSide(color: Colors.white, width: 2))),
+                  ),
+                ),
+                Padding(
+                  padding: EdgeInsets.symmetric(vertical: 8.0, horizontal: 15),
+                  child: TextFormField(
+                    validator: (value){
+                      if(value == null || value.trim().isEmpty){
+                        return "Field is required";
+                      }
+                      if(!signUpController.isValidEmail(value.trim())){
+                        return "not a valid email";
+                      }
 
-                      focusedBorder:UnderlineInputBorder(
-                          borderSide: BorderSide(color:Colors.white, width: 2)) ,
-                      enabledBorder: UnderlineInputBorder(
-                          borderSide: BorderSide(color:Colors.white, width: 2))),),
-              ),
-              const Padding(
-                padding: EdgeInsets.symmetric(vertical: 8.0,horizontal: 15),
-                child: TextField(style: TextStyle(color: Colors.white,fontSize: 17),
-                  decoration: InputDecoration(
-                      hintText: 'Email',
-                      hintStyle: TextStyle(fontSize: 17, color: Colors.white),
+                      return null;
+                    },
 
+                    style: TextStyle(color: Colors.white, fontSize: 17),
+                    controller: signUpController.emailController,
+                    decoration: InputDecoration(
+                        hintText: 'Email',
+                        hintStyle: TextStyle(fontSize: 17, color: Colors.white),
+                        focusedBorder: UnderlineInputBorder(
+                            borderSide:
+                                BorderSide(color: Colors.white, width: 2)),
+                        enabledBorder: UnderlineInputBorder(
+                            borderSide:
+                                BorderSide(color: Colors.white, width: 2))),
+                  ),
+                ),
+                Padding(
+                  padding: EdgeInsets.symmetric(vertical: 8.0, horizontal: 15),
+                  child: TextFormField(
+                    validator: (value){
+                      if(value == null || value.trim().isEmpty){
+                        return "Field is required";
+                      }
+                      return null;
+                    },
 
-                      focusedBorder:UnderlineInputBorder(
-                          borderSide: BorderSide(color:Colors.white, width: 2)) ,
-                      enabledBorder: UnderlineInputBorder(
-                          borderSide: BorderSide(color:Colors.white, width: 2))),),
-              ),
-              const Padding(
-                padding: EdgeInsets.symmetric(vertical: 8.0,horizontal: 15),
-                child: TextField(style: TextStyle(color: Colors.white,fontSize: 17),
-                  decoration: InputDecoration(
-                    suffixIcon: Icon(Icons.remove_red_eye_rounded,color: Colors.white,size: 25,),
-                      hintText: 'Password',
-                      hintStyle: TextStyle(fontSize: 17, color: Colors.white),
+                    controller: signUpController.passController,
+                    style: TextStyle(color: Colors.white, fontSize: 17),
+                    decoration: InputDecoration(
+                        suffixIcon: Icon(
+                          Icons.remove_red_eye_rounded,
+                          color: Colors.white,
+                          size: 25,
+                        ),
+                        hintText: 'Password',
+                        hintStyle: TextStyle(fontSize: 17, color: Colors.white),
+                        focusedBorder: UnderlineInputBorder(
+                            borderSide:
+                                BorderSide(color: Colors.white, width: 2)),
+                        enabledBorder: UnderlineInputBorder(
+                            borderSide:
+                                BorderSide(color: Colors.white, width: 2)),
 
+                    ),
+                    obscureText: true,
+                  ),
+                ),
+                Padding(
+                  padding: EdgeInsets.symmetric(vertical: 8.0, horizontal: 15),
+                  child: TextFormField(
+                    validator: (value){
+                      if(value == null || value.trim().isEmpty){
+                        return "Field is required";
+                      }
+                      if(value!=signUpController.passController.text){
+                        return "Password does not match.";
+                      }
+                      return null;
+                    },
 
-                      focusedBorder:UnderlineInputBorder(
-                          borderSide: BorderSide(color:Colors.white, width: 2)) ,
-                      enabledBorder: UnderlineInputBorder(
-                          borderSide: BorderSide(color:Colors.white, width: 2))),),
-              ),
-              const Padding(
-                padding: EdgeInsets.symmetric(vertical: 8.0,horizontal: 15),
-                child: TextField(style: TextStyle(color: Colors.white,fontSize: 17),
-                  decoration: InputDecoration(
-                    suffixIcon: Icon(Icons.remove_red_eye_rounded,color: Colors.white,size: 25,),
-                      hintText: 'Confirm your Password',
-                      hintStyle: TextStyle(fontSize: 17, color: Colors.white),
+                    controller: signUpController.confirmPassController,
+                    style: TextStyle(color: Colors.white, fontSize: 17),
+                    decoration: InputDecoration(
+                        suffixIcon: Icon(
+                          Icons.remove_red_eye_rounded,
+                          color: Colors.white,
+                          size: 25,
+                        ),
+                        hintText: 'Confirm your Password',
+                        hintStyle: TextStyle(fontSize: 17, color: Colors.white),
+                        focusedBorder: UnderlineInputBorder(
+                            borderSide:
+                                BorderSide(color: Colors.white, width: 2)),
+                        enabledBorder: UnderlineInputBorder(
+                            borderSide:
+                                BorderSide(color: Colors.white, width: 2))),
+                    obscureText: true,
+                  ),
+                ),
+                Padding(
+                  padding: EdgeInsets.symmetric(vertical: 8.0, horizontal: 15),
+                  child: TextFormField(
+                    validator: (value){
+                      if(value == null || value.trim().isEmpty){
+                        return "Field is required";
+                      }
+                      return null;
+                    },
+                    controller: signUpController.phoneNoController,
+                    style: TextStyle(color: Colors.white, fontSize: 17),
+                    decoration: InputDecoration(
+                        hintText: 'Phone Number',
+                        hintStyle: TextStyle(fontSize: 17, color: Colors.white),
+                        focusedBorder: UnderlineInputBorder(
+                            borderSide:
+                                BorderSide(color: Colors.white, width: 2)),
+                        enabledBorder: UnderlineInputBorder(
+                            borderSide:
+                                BorderSide(color: Colors.white, width: 2))),
+                  ),
+                ),
+                SizedBox(
+                  height: 40,
+                ),
+                loading ? SizedBox(
+                  height: 40,
+                  child: Center(
+                    child: CircularProgressIndicator(),
+                  ),
+                ):
+                CustomElevatedButton(
+                  text: "Sign Up",
+                  onPressed: () async{
+                    if(_key.currentState!.validate()){
+                      setState((){
+                        loading = true;
+                      });
 
+                      final bool success = await signUpController.signUp();
 
-                      focusedBorder:UnderlineInputBorder(
-                          borderSide: BorderSide(color:Colors.white, width: 2)) ,
-                      enabledBorder: UnderlineInputBorder(
-                          borderSide: BorderSide(color:Colors.white, width: 2))),),
-              ),
-              const Padding(
-                padding: EdgeInsets.symmetric(vertical: 8.0,horizontal: 15),
-                child: TextField(style: TextStyle(color: Colors.white,fontSize: 17),
-                  decoration: InputDecoration(
+                      setState((){
+                        loading = false;
+                      });
 
-                      hintText: 'Phone Number',
-                      hintStyle: TextStyle(fontSize: 17, color: Colors.white),
+                      if(success){
+                        Get.to(DocumentVerificationScreen());
+                      }
+                      else{
+                        print("sign up failed");
+                      }
 
-
-                      focusedBorder:UnderlineInputBorder(
-                          borderSide: BorderSide(color:Colors.white, width: 2)) ,
-                      enabledBorder: UnderlineInputBorder(
-                          borderSide: BorderSide(color:Colors.white, width: 2))),),
-              ),
-              SizedBox(height: 40,),
-              CustomElevatedButton(
-                text: "Sign Up",
-                onPressed: (){
-                  Get.to(DocumentVerificationScreen());
-                },
-                fixedSize: Size(Get.width*0.5,Get.height*0.0561,),
-                color: mainGolden,
-                textColor: darkMain,
-                // suffixIcon: const Icon(Icons.arrow_forward),
-
-              ),
-SizedBox(height: 20,)
-            ],
+                    }
+                  },
+                  fixedSize: Size(
+                    Get.width * 0.5,
+                    Get.height * 0.0561,
+                  ),
+                  color: mainGolden,
+                  textColor: darkMain,
+                  // suffixIcon: const Icon(Icons.arrow_forward),
+                ),
+                SizedBox(
+                  height: 20,
+                )
+              ],
+            ),
           ),
         ),
       ),
     );
   }
+
+
 }

@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "500075903892",
+    "project_id": "gdotmarketing-85b8f",
+    "storage_bucket": "gdotmarketing-85b8f.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:500075903892:android:aaca5f2a45f5df628cad81",
+        "android_client_info": {
+          "package_name": "com.gmarketing.property"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "500075903892-h70514cpg6eufrhlf58aaiv40ok9hevv.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.gmarketing.property",
+            "certificate_hash": "a80edb0a7c85b98cb87b1dc84dc05aabcde9f583"
+          }
+        },
+        {
+          "client_id": "500075903892-li69ecruprctsl83hl2lgf6535r5sae8.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD3dgUmGXpFaXzvEReQRie0veqWCCXl7tE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "500075903892-li69ecruprctsl83hl2lgf6535r5sae8.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

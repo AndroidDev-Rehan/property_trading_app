@@ -1,6 +1,8 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
+import 'package:property_trading_app/new_UI_screens/welcome/welcome_screen.dart';
 import 'package:property_trading_app/utils/app-color.dart';
 
 // class CustomAppBar extends StatelessWidget {
@@ -86,5 +88,11 @@ PreferredSizeWidget buildCustomAppBar(){
       ),
     ),
     toolbarHeight: Get.height * 0.0894117647,
+    leading: InkWell(
+        onTap: () async{
+          await FirebaseAuth.instance.signOut();
+          Get.offAll(const WelcomeScreen());
+        },
+        child: Icon(Icons.logout)),
   );
 }
