@@ -1,14 +1,18 @@
 class AppUser{
   final String username;
+  final String id;
   final String password;
   final String email;
   final String phone;
+  final bool activated;
 
   const AppUser({
     required this.username,
     required this.password,
     required this.email,
     required this.phone,
+    required this.id,
+    this.activated = false
   });
 
   Map<String, dynamic> toMap() {
@@ -17,6 +21,8 @@ class AppUser{
       'password': password,
       'email': email,
       'phone': phone,
+      'activated' : activated,
+      'id' : id
     };
   }
 
@@ -26,6 +32,8 @@ class AppUser{
       password: map['password'] as String,
       email: map['email'] as String,
       phone: map['phone'] as String,
+      activated: map['activated'] ?? false,
+      id: map['id']
     );
   }
 }

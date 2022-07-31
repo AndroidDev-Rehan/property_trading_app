@@ -3,12 +3,9 @@ import 'package:get/get.dart';
 import 'package:property_trading_app/global_widgets/custom_text.dart';
 import 'package:property_trading_app/new_UI_screens/doc_verification/document_verification.dart';
 import 'package:property_trading_app/new_UI_screens/signin/email_signin.dart';
-import 'package:property_trading_app/new_UI_screens/verification/verification.dart';
 
 
 import '../../../utils/app-color.dart';
-import '../../old_UI/view/auth/phone_signin.dart';
-import '../otp/otpscreen.dart';
 
 
 class SignInOptionsScreen extends StatelessWidget {
@@ -39,14 +36,14 @@ class SignInOptionsScreen extends StatelessWidget {
                   text: "Sign In With Google",
                   textStyle: TextStyle(fontSize: Get.width*0.037558, fontWeight: FontWeight.bold, color: darkMain),
                   onPressed: (){
-                Get.to(const DocumentVerificationScreen());
+                Get.to( DocumentVerificationScreen());
 
               }, fixedSize: buttonsize,textColor: darkMain, color:  Colors.white,imageIcon: Image.asset("assets/images/google.png",height: 50, width: 50,)),
               const SizedBox(height: 20,),
               CustomElevatedButton(text: "Sign In With Apple ",
                 textStyle: TextStyle(fontSize: Get.width*0.037558, fontWeight: FontWeight.bold, color: darkMain),
                 onPressed: (){
-                Get.to(const DocumentVerificationScreen());
+                Get.to( DocumentVerificationScreen());
 
               }, fixedSize: buttonsize,textColor: darkMain, color:  Colors.white,imageIcon: Image.asset("assets/images/apple-logo.png", height: 40, width: 50),),
               const SizedBox(height: 60,),

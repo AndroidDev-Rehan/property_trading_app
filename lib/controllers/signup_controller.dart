@@ -28,18 +28,26 @@ class SignUpController extends GetxController {
           .createUserWithEmailAndPassword(
           email: emailController.text, password: passController.text);
 
-      AppUser appUser = AppUser(
+      if(userCredential.user!=null) {
+
+        AppUser appUser = AppUser(
           username: userNameController.text,
           password: passController.text,
           email: emailController.text,
-          phone: phoneNoController.text);
-      await FirebaseFirestore.instance
-          .collection("users")
-          .doc(FirebaseAuth.instance.currentUser!.uid)
-          .set(appUser.toMap());
-      print(
-          "current user after signing up: ${FirebaseAuth.instance.currentUser}");
-      return true;
+          phone: phoneNoController.text,
+          id: userCredential.user!.uid,
+        );
+
+
+        await FirebaseFirestore.instance
+            .collection("users")
+            .doc(FirebaseAuth.instance.currentUser!.uid)
+            .set(appUser.toMap());
+        print(
+            "current user after signing up: ${FirebaseAuth.instance.currentUser}");
+        return true;
+      }
+      return false;
     } catch (e) {
       Get.snackbar("Failed", e.toString());
       print(e);
@@ -83,6 +91,7 @@ class SignUpController extends GetxController {
         r"^[a-zA-Z0-9.a-zA-Z0-9.!#$%&'*+-/=?^_`{|}~]+@[a-zA-Z0-9]+\.[a-zA-Z]+")
         .hasMatch(email);
   }
+
   void verifyLoginOtp() {
     FirebaseAuth auth = FirebaseAuth.instance;
     auth
@@ -94,4 +103,6 @@ class SignUpController extends GetxController {
       Get.snackbar('Invalid Otp', e.toString());
     });
   }
+
+
 }
