@@ -1,51 +1,87 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:property_trading_app/collect_user_info/collect_user_info.dart';
 import 'package:property_trading_app/global_widgets/custom_text.dart';
 import 'package:property_trading_app/new_UI_screens/doc_verification/document_verification.dart';
 import 'package:property_trading_app/new_UI_screens/signin/email_signin.dart';
-
-
+import 'package:google_sign_in/google_sign_in.dart';
 import '../../../utils/app-color.dart';
+import '../../controllers/google_signin_controller.dart';
 
 
-class SignInOptionsScreen extends StatelessWidget {
+class SignInOptionsScreen extends StatefulWidget {
   SignInOptionsScreen({Key? key}) : super(key: key);
+
+  @override
+  State<SignInOptionsScreen> createState() => _SignInOptionsScreenState();
+}
+
+class _SignInOptionsScreenState extends State<SignInOptionsScreen> {
   Size buttonsize=  Size(Get.width*0.7,Get.height*0.07);
+
+  bool loading = false;
 
   @override
   Widget build(BuildContext context) {
     return SafeArea(
-      child: Scaffold(
+      child:  Scaffold(
         body: Container(
           height: Get.height,
           width: Get.width,
           color: darkMain,
-          child: Column(
+          child: loading ? Center(
+            child: CircularProgressIndicator(),
+          ) : Column(
             mainAxisAlignment: MainAxisAlignment.center,
             mainAxisSize: MainAxisSize.min,
             children: [
               CustomElevatedButton(
-                text: "Sign In With Phone",
+                text: "Sign In With Email",
                 textStyle: TextStyle(fontSize: Get.width*0.037558, fontWeight: FontWeight.bold, color: darkMain),
                 onPressed: (){
                 Get.to( EmailSignInScreen());
                 },
-                color: Colors.white, fixedSize: buttonsize,textColor: darkMain, imageIcon: Image.asset("assets/images/phone1.png", height: 50, width: 40),),
+                color: Colors.white, fixedSize: buttonsize,textColor: darkMain,
+                imageIcon: Image.asset("assets/images/phone1.png", height: 50, width: 40),
+
+              ),
               const SizedBox(height: 20,),
               CustomElevatedButton(
                   text: "Sign In With Google",
                   textStyle: TextStyle(fontSize: Get.width*0.037558, fontWeight: FontWeight.bold, color: darkMain),
-                  onPressed: (){
-                Get.to( DocumentVerificationScreen());
+                  onPressed: () async{
+                    setState((){
+                      loading = true;
+                    });
+                    User? user = await GoogleSignInController.signInWithGoogle(context: context);
+                    if(user!=null) {
+                      DocumentSnapshot documentSnapshot = await FirebaseFirestore.instance.collection("users").doc(user.uid).get();
+                      if (documentSnapshot.exists) {
+                        Get.off(DocumentVerificationScreen());
+                      }
+                      else {
+                        Get.off(CollectUserInfo());
+                      }
 
-              }, fixedSize: buttonsize,textColor: darkMain, color:  Colors.white,imageIcon: Image.asset("assets/images/google.png",height: 50, width: 50,)),
+                      Get.snackbar("Success", "Login");
+                      print(user);
+                    }
+
+                    setState((){
+                      loading = false;
+                    });
+
+
+                    // Get.to( DocumentVerificationScreen());
+
+                  }, fixedSize: buttonsize,textColor: darkMain, color:  Colors.white,imageIcon: Image.asset("assets/images/google.png",height: 50, width: 50,)),
               const SizedBox(height: 20,),
               CustomElevatedButton(text: "Sign In With Apple ",
                 textStyle: TextStyle(fontSize: Get.width*0.037558, fontWeight: FontWeight.bold, color: darkMain),
-                onPressed: (){
-                Get.to( DocumentVerificationScreen());
-
-              }, fixedSize: buttonsize,textColor: darkMain, color:  Colors.white,imageIcon: Image.asset("assets/images/apple-logo.png", height: 40, width: 50),),
+                onPressed: () async{
+                }, fixedSize: buttonsize,textColor: darkMain, color:  Colors.white,imageIcon: Image.asset("assets/images/apple-logo.png", height: 40, width: 50),),
               const SizedBox(height: 60,),
               CustomText(text: 'Have an account ?  Login', size: 20)
 

@@ -59,11 +59,15 @@ class _HomeState extends State<Home> {
       currentpositionproject=220+ 20;
     }
   }
+
+  Timer? timer1;
+  Timer? timer2;
+
   @override
   void initState() {
     // TODO: implement initState
-    Timer.periodic(Duration(seconds: 5), (Timer t) => _scrollRight());
-    Timer.periodic(Duration(seconds: 3), (Timer t) => _scrollRightProject());
+    timer1= Timer.periodic(Duration(seconds: 5), (Timer t) => _scrollRight());
+    timer2  = Timer.periodic(Duration(seconds: 3), (Timer t) => _scrollRightProject());
     super.initState();
   }
   @override
@@ -400,5 +404,14 @@ class _HomeState extends State<Home> {
         ),
       ),
     );
+  }
+
+  @override
+  void dispose(){
+    _scrollController.dispose();
+    _scrollControllerproject.dispose();
+    timer1?.cancel();
+    timer2?.cancel();
+    super.dispose();
   }
 }

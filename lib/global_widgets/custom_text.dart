@@ -14,6 +14,7 @@ class CustomText extends StatelessWidget {
   final double? size;
   final FontWeight? fontWeight;
 
+
   const CustomText({Key? key, required this.text, required this.size, this.fontWeight}) : super(key: key);
 
   @override
