@@ -67,6 +67,7 @@ class _VerificationScreenState extends State<VerificationScreen> {
     _interstitialAd!.fullScreenContentCallback = FullScreenContentCallback(
 
       onAdShowedFullScreenContent: (InterstitialAd ad) async{
+        print("into signout");
         await FirebaseAuth.instance.signOut();
         try{
           await GoogleSignInController.signOut();

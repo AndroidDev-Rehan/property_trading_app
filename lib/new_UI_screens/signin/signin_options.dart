@@ -9,6 +9,8 @@ import 'package:property_trading_app/new_UI_screens/signin/email_signin.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 import '../../../utils/app-color.dart';
 import '../../controllers/google_signin_controller.dart';
+import '../dashboard/dashboard.dart';
+import '../verification/verification.dart';
 
 
 class SignInOptionsScreen extends StatefulWidget {
@@ -57,16 +59,27 @@ class _SignInOptionsScreenState extends State<SignInOptionsScreen> {
                     });
                     User? user = await GoogleSignInController.signInWithGoogle(context: context);
                     if(user!=null) {
-                      DocumentSnapshot documentSnapshot = await FirebaseFirestore.instance.collection("users").doc(user.uid).get();
-                      if (documentSnapshot.exists) {
-                        Get.off(DocumentVerificationScreen());
-                      }
-                      else {
-                        Get.off(CollectUserInfo());
+                      DocumentSnapshot<Map> documentSnapshot = await FirebaseFirestore.instance.collection("users").doc(user.uid).get();
+                      Map? map = documentSnapshot.data();
+
+                      if(!documentSnapshot.exists){
+                        Get.offAll(const CollectUserInfo());
                       }
 
-                      Get.snackbar("Success", "Login");
-                      print(user);
+                      // if( (map!["documentsSubmitted"] ==null) ||  (!map["documentsSubmitted"]) ){
+                      if( !(map!["documentsSubmitted"] ?? false)  ){
+                       Get.offAll(DocumentVerificationScreen());
+                      }
+
+                      if(! map["activated"] ){
+                         Get.offAll(VerificationScreen());
+                      }
+
+
+                       Get.offAll(const RootScreen());
+
+                      // Get.snackbar("Success", "Login");
+                      // print(user);
                     }
 
                     setState((){

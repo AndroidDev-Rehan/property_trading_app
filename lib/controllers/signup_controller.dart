@@ -10,6 +10,9 @@ import 'package:property_trading_app/new_UI_screens/verification/verification.da
 import 'package:stop_watch_timer/stop_watch_timer.dart';
 import 'package:toast/toast.dart';
 
+import '../collect_user_info/collect_user_info.dart';
+import '../new_UI_screens/dashboard/dashboard.dart';
+
 class SignUpController extends GetxController {
   final TextEditingController userNameController = TextEditingController();
   final TextEditingController emailController = TextEditingController();
@@ -65,7 +68,8 @@ class SignUpController extends GetxController {
         verificationCompleted: (PhoneAuthCredential authCredential) {},
         verificationFailed: (FirebaseAuthException authException) {},
         codeSent: (String verificationId, int? forceResendingToken) {
-          Toast.show("Otp Sent",backgroundColor: Colors.white, duration: Toast.lengthShort, gravity:  Toast.bottom);
+          Get.snackbar("Success","Otp Sent", backgroundColor: Colors.white);
+          // Toast.show("Otp Sent",backgroundColor: Colors.white, duration: Toast.lengthShort, gravity:  Toast.lengthLong);
           stopWatchTimer!.setPresetSecondTime(60);
           stopWatchTimer!.onExecute.add(StopWatchExecute.start);
           smscode.value = verificationId;
@@ -98,7 +102,27 @@ class SignUpController extends GetxController {
         .signInWithCredential(PhoneAuthProvider.credential(
         verificationId: smscode.value, smsCode: otpcode.value))
         .then((result) async {
-      Get.to(()=>DocumentVerificationScreen());
+      DocumentSnapshot<Map> documentSnapshot = await FirebaseFirestore.instance.collection("users").doc(FirebaseAuth.instance.currentUser!.uid).get();
+      Map? map = documentSnapshot.data();
+
+      if(!documentSnapshot.exists){
+        Get.offAll(const CollectUserInfo());
+      }
+
+      // if( (map!["documentsSubmitted"] ==null) ||  (!map["documentsSubmitted"]) ){
+      else if( !(map!["documentsSubmitted"] ?? false)  ){
+        Get.offAll(DocumentVerificationScreen());
+      }
+
+      else if(! map["activated"] ){
+        Get.offAll(VerificationScreen());
+      }
+
+      else{
+        Get.offAll(const RootScreen());
+      }
+      // Get.snackbar("Success", "Login");
+      // print(user);
     }).catchError((e) {
       Get.snackbar('Invalid Otp', e.toString());
     });

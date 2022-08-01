@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_mobile_ads/google_mobile_ads.dart';
 import 'package:property_trading_app/new_UI_screens/admin/account_approval_requests.dart';
+import 'package:property_trading_app/new_UI_screens/dashboard/dashboard.dart';
 import 'package:property_trading_app/new_UI_screens/splash/splash_screen.dart';
 import 'package:property_trading_app/utils/binding.dart';
 

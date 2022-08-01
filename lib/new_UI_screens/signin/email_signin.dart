@@ -60,6 +60,7 @@ class _EmailSignInScreenState extends State<EmailSignInScreen> {
                         // color: mainGolden,
                         fontWeight: FontWeight.bold),
                      controller: passController,
+                       password: true,
                      ),
                     const SizedBox(height: 15,),
                     Row(
@@ -107,7 +108,9 @@ class _EmailSignInScreenState extends State<EmailSignInScreen> {
       UserCredential userCredential = await FirebaseAuth.instance
           .signInWithEmailAndPassword(
               email: emailController.text, password: passController.text);
-      Get.offAll(OtpScreen(phoneno: FirebaseAuth.instance.currentUser!.phoneNumber!,login: true,));
+      String phoneNo = FirebaseAuth.instance.currentUser!.phoneNumber!;
+      await FirebaseAuth.instance.signOut();
+      Get.offAll(OtpScreen(phoneno: phoneNo ,login: true,));
     }
     catch(e){
       showAlert(context,e.toString());

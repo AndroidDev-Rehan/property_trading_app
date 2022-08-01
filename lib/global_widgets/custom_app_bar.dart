@@ -91,6 +91,7 @@ PreferredSizeWidget buildCustomAppBar(){
     toolbarHeight: Get.height * 0.0894117647,
     leading: InkWell(
         onTap: () async{
+          print("into logout function");
           await FirebaseAuth.instance.signOut();
           try{
             await GoogleSignInController.signOut();
