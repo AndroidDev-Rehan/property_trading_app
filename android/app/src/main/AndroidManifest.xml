@@ -1,9 +1,11 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.property_trading_app">
+
    <application
         android:label="G.Marketing"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
+
         <activity
             android:name=".MainActivity"
             android:exported="true"
@@ -24,12 +26,18 @@
                 <action android:name="android.intent.action.MAIN"/>
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
+
         </activity>
+
         <!-- Don't delete the meta-data below.
              This is used by the Flutter tool to generate GeneratedPluginRegistrant.java -->
+       <meta-data
+           android:name="com.google.android.gms.ads.APPLICATION_ID"
+           android:value="ca-app-pub-2025219748618763~2498612509"/>
         <meta-data
             android:name="flutterEmbedding"
             android:value="2" />
+       
        <meta-data android:name="com.google.android.geo.API_KEY"
            android:value="AIzaSyAYANzEztYpWIMVGt0JUlofbtzD7nzyZfk"/>
     </application>

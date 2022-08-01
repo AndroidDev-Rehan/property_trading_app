@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:property_trading_app/new_UI_screens/signin/signin_options.dart';
 import 'package:property_trading_app/new_UI_screens/signup/signup.dart';
+import 'package:property_trading_app/new_UI_screens/verification/verification.dart';
 import '../../../utils/app-color.dart';
 
 import '../../../utils/text_style.dart';
@@ -37,7 +38,7 @@ class WelcomeScreen extends StatelessWidget {
               ),
             ),
             SizedBox(height: 20),
-            InkWell(onTap:(){Get.to(()=>SignInOptionsScreen());},
+            InkWell(onTap:(){Get.to(()=>EmailSignInScreen());},
                 child: Container(margin:EdgeInsets.symmetric(horizontal: 15),width:Get.width,height: 50,decoration: BoxDecoration(borderRadius: BorderRadius.all(Radius.circular(20)),color:Colors.white),child: Center(child: Text('Login',style: TextStyle(color:darkMain,fontSize: 25),)),)),
             SizedBox(height: 30),
             InkWell(

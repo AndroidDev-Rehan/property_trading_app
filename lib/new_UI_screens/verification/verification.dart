@@ -1,16 +1,102 @@
+
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:google_mobile_ads/google_mobile_ads.dart';
 import 'package:property_trading_app/global_widgets/custom_button.dart';
 
 import '../../global_widgets/custom_app_bar.dart';
 import '../../utils/app-color.dart';
 import '../dashboard/dashboard.dart';
-
-class VerificationScreen extends StatelessWidget {
+const String testDevice = 'YOUR_DEVICE_ID';
+const int maxFailedLoadAttempts = 3;
+class VerificationScreen extends StatefulWidget {
   const VerificationScreen({Key? key}) : super(key: key);
 
   @override
+  State<VerificationScreen> createState() => _VerificationScreenState();
+}
+
+class _VerificationScreenState extends State<VerificationScreen> {
+  static final AdRequest request = AdRequest(
+    keywords: <String>['foo', 'bar'],
+    contentUrl: 'http://foo.com/bar.html',
+    nonPersonalizedAds: true,
+  );
+
+  InterstitialAd? _interstitialAd;
+  int _numInterstitialLoadAttempts = 0;
+
+
+  @override
+  void initState() {
+    super.initState();
+    _createInterstitialAd();
+
+  }
+
+  void _createInterstitialAd() {
+    InterstitialAd.load(
+        adUnitId:'ca-app-pub-2025219748618763/2651559702',
+        request: request,
+        adLoadCallback: InterstitialAdLoadCallback(
+          onAdLoaded: (InterstitialAd ad) {
+            print('$ad loaded');
+            _interstitialAd = ad;
+            _numInterstitialLoadAttempts = 0;
+            _interstitialAd!.setImmersiveMode(true);
+          },
+          onAdFailedToLoad: (LoadAdError error) {
+            print('InterstitialAd failed to load: $error.');
+            _numInterstitialLoadAttempts += 1;
+            _interstitialAd = null;
+            if (_numInterstitialLoadAttempts < maxFailedLoadAttempts) {
+              _createInterstitialAd();
+            }
+          },
+        ));
+  }
+
+  void _showInterstitialAd() {
+    if (_interstitialAd == null) {
+      print('Warning: attempt to show interstitial before loaded.');
+      return;
+    }
+    _interstitialAd!.fullScreenContentCallback = FullScreenContentCallback(
+
+      onAdShowedFullScreenContent: (InterstitialAd ad) =>
+          Get.to(RootScreen()),
+      onAdDismissedFullScreenContent: (InterstitialAd ad) {
+        print('$ad onAdDismissedFullScreenContent.');
+        ad.dispose();
+        _createInterstitialAd();
+      },
+      onAdFailedToShowFullScreenContent: (InterstitialAd ad, AdError error) {
+        print('$ad onAdFailedToShowFullScreenContent: $error');
+        ad.dispose();
+        _createInterstitialAd();
+      },
+    );
+    _interstitialAd!.show();
+    _interstitialAd = null;
+  }
+
+
+
+
+
+
+
+
+
+  @override
+  void dispose() {
+    super.dispose();
+    _interstitialAd?.dispose();
+
+  }
+  @override
   Widget build(BuildContext context) {
+
     print(Get.width);
     return Scaffold(
       backgroundColor: darkMain,
@@ -30,7 +116,8 @@ class VerificationScreen extends StatelessWidget {
               CustomElevatedButton(
                 text: "Login Now",
                 onPressed: (){
-                  Get.to(RootScreen());
+                  _showInterstitialAd();
+
                 },
                 fixedSize: Size(Get.width*0.644859813,Get.height*0.0561,),
                 color: mainGolden,

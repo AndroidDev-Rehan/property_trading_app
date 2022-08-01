@@ -67,6 +67,7 @@ dependencies:
   cloud_firestore: ^3.4.2
   image_cropper: ^2.0.3
   firebase_storage: ^10.3.4
+  google_mobile_ads: ^2.0.0
 
 
 dev_dependencies:
