@@ -86,7 +86,8 @@ class SignUpController extends GetxController {
         .then((result) async {
       Get.to(()=>DocumentVerificationScreen());
     }).catchError((e) {
-      Get.snackbar('Invalid Otp', e.toString());
+      Get.snackbar('Invalid Otp', e.toString(),        backgroundColor: Colors.white
+      );
     });
   }
 
@@ -124,7 +125,8 @@ class SignUpController extends GetxController {
       // Get.snackbar("Success", "Login");
       // print(user);
     }).catchError((e) {
-      Get.snackbar('Invalid Otp', e.toString());
+      Get.snackbar('Invalid Otp', e.toString(),        backgroundColor: Colors.white
+      );
     });
   }
 

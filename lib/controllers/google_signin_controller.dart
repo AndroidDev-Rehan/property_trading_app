@@ -20,7 +20,7 @@ class GoogleSignInController extends GetxController{
     try{
       AppUser appUser = AppUser(
         username: userNameController.text,
-        password: passController.text,
+        password: "",
         email: FirebaseAuth.instance.currentUser!.email!,
         phone: phoneNoController.text,
         id: FirebaseAuth.instance.currentUser!.uid,
@@ -34,7 +34,7 @@ class GoogleSignInController extends GetxController{
       return true;
     }
     catch(e){
-      Get.snackbar("Error", e.toString());
+      Get.snackbar("Error", e.toString(), backgroundColor: Colors.white);
       return false;
     }
   }
@@ -79,12 +79,15 @@ class GoogleSignInController extends GetxController{
           user = userCredential.user;
         } on FirebaseAuthException catch (e) {
           if (e.code == 'account-exists-with-different-credential') {
-            Get.snackbar("Request Failed", e.code);
+            Get.snackbar("Request Failed", e.code,         backgroundColor: Colors.white
+            );
           } else if (e.code == 'invalid-credential') {
-            Get.snackbar("Request Failed", e.code);
+            Get.snackbar("Request Failed", e.code,         backgroundColor: Colors.white
+            );
           }
         } catch (e) {
-          Get.snackbar("Request Failed", e.toString());
+          Get.snackbar("Request Failed", e.toString(),        backgroundColor: Colors.white
+          );
         }
       }
     }
@@ -101,7 +104,8 @@ class GoogleSignInController extends GetxController{
       }
       await FirebaseAuth.instance.signOut();
     } catch (e) {
-      Get.snackbar("Google signout error", e.toString());
+      Get.snackbar("Google signout error", e.toString(),        backgroundColor: Colors.white
+      );
     }
   }
 

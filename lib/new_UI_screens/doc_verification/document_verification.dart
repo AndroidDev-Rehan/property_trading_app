@@ -129,6 +129,7 @@ class _DocumentVerificationScreenState extends State<DocumentVerificationScreen>
       Get.snackbar(
         'Success',
         'Photo Added',
+        backgroundColor: Colors.white
       );
       setState((){});
     }
@@ -144,6 +145,7 @@ class _DocumentVerificationScreenState extends State<DocumentVerificationScreen>
       Get.snackbar(
         'Success',
         'Photo Added',
+          backgroundColor: Colors.white
       );
 
       setState((){});
@@ -194,13 +196,15 @@ class _DocumentVerificationScreenState extends State<DocumentVerificationScreen>
         });
       }
       catch(e){
-        Get.snackbar("error", e.toString());
+        Get.snackbar("error", e.toString(),        backgroundColor: Colors.white
+        );
         print(e);
 
       }
     }
     else{
-      Get.snackbar("Failure", "Upload Required Files");
+      Get.snackbar("Failure", "Upload Required Files",        backgroundColor: Colors.white
+      );
     }
   }
 

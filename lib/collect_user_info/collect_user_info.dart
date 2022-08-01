@@ -71,69 +71,6 @@ class _CollectUserInfoState extends State<CollectUserInfo> {
                         ),
                       ),
                       Padding(
-                        padding: const EdgeInsets.symmetric(vertical: 8.0, horizontal: 15),
-                        child: TextFormField(
-                          validator: (value){
-                            if(value == null || value.trim().isEmpty){
-                              return "Field is required";
-                            }
-                            return null;
-                          },
-
-                          controller: googleSignInController.passController,
-                          style: const TextStyle(color: Colors.white, fontSize: 17),
-                          decoration: const InputDecoration(
-                            suffixIcon: Icon(
-                              Icons.remove_red_eye_rounded,
-                              color: Colors.white,
-                              size: 25,
-                            ),
-                            hintText: 'Password',
-                            hintStyle: TextStyle(fontSize: 17, color: Colors.white),
-                            focusedBorder: UnderlineInputBorder(
-                                borderSide:
-                                BorderSide(color: Colors.white, width: 2)),
-                            enabledBorder: UnderlineInputBorder(
-                                borderSide:
-                                BorderSide(color: Colors.white, width: 2)),
-
-                          ),
-                          obscureText: true,
-                        ),
-                      ),
-                      Padding(
-                        padding: EdgeInsets.symmetric(vertical: 8.0, horizontal: 15),
-                        child: TextFormField(
-                          validator: (value){
-                            if(value == null || value.trim().isEmpty){
-                              return "Field is required";
-                            }
-                            if(value!=googleSignInController.passController.text){
-                              return "Password does not match.";
-                            }
-                            return null;
-                          },
-
-                          controller: googleSignInController.confirmPassController,
-                          style: TextStyle(color: Colors.white, fontSize: 17),
-                          decoration: InputDecoration(
-                              suffixIcon: Icon(
-                                Icons.remove_red_eye_rounded,
-                                color: Colors.white,
-                                size: 25,
-                              ),
-                              hintText: 'Confirm your Password',
-                              hintStyle: TextStyle(fontSize: 17, color: Colors.white),
-                              focusedBorder: UnderlineInputBorder(
-                                  borderSide:
-                                  BorderSide(color: Colors.white, width: 2)),
-                              enabledBorder: UnderlineInputBorder(
-                                  borderSide:
-                                  BorderSide(color: Colors.white, width: 2))),
-                          obscureText: true,
-                        ),
-                      ),
-                      Padding(
                         padding: EdgeInsets.symmetric(vertical: 8.0, horizontal: 15),
                         child: TextFormField(
                           validator: (value){
@@ -182,7 +119,8 @@ class _CollectUserInfoState extends State<CollectUserInfo> {
                       });
 
                       if(success){
-                        Get.snackbar("Success", "Info Submitted");
+                        Get.snackbar("Success", "Info Submitted",        backgroundColor: Colors.white
+                        );
                         Get.to(DocumentVerificationScreen());
                       }
 

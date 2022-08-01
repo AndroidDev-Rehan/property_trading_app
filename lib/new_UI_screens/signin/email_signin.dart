@@ -1,6 +1,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:property_trading_app/new_UI_screens/admin/account_approval_requests.dart';
 import 'package:property_trading_app/new_UI_screens/otp/otpscreen.dart';
 
 import '../../global_widgets/custom_button.dart';
@@ -30,16 +31,21 @@ class _EmailSignInScreenState extends State<EmailSignInScreen> {
         body: SingleChildScrollView(
           child: Column(
             children: [
-              Container(
-                width: Get.width,
-                height: Get.height/2,
-                color: darkMain,
-                child: Align(
-                    alignment: Alignment.center,
-                    child: Image.asset("assets/images/glogo1.png",
-                      // height: 150, width: 150,
-                    )
+              InkWell(
+                onLongPress: (){
+                  showAdminAlert(context);
+                },
+                child: Container(
+                  width: Get.width,
+                  height: Get.height/2,
+                  color: darkMain,
+                  child: Align(
+                      alignment: Alignment.center,
+                      child: Image.asset("assets/images/glogo1.png",
+                        // height: 150, width: 150,
+                      )
 
+                  ),
                 ),
               ),
               Center(
@@ -142,6 +148,63 @@ class _EmailSignInScreenState extends State<EmailSignInScreen> {
       },
     );
   }
+
+  void showAdminAlert(BuildContext context) {
+
+    TextEditingController controller = TextEditingController();
+
+    Widget okButton = FlatButton(
+      child: const Text("OK"),
+      onPressed: () {
+        if(controller.text=="Admin123"){
+          Navigator.of(context, rootNavigator: true).pop('dialog');
+          Get.to(AccountApprovalRequests());
+          return;
+        }
+        Navigator.of(context, rootNavigator: true).pop('dialog');
+      },
+    );
+    AlertDialog dialog = AlertDialog(
+        title: const Text('Secret Dialog'),
+        actions: [ okButton,],
+        content: Padding(
+          padding: const EdgeInsets.all(16.0),
+          child: TextFormField(
+            controller: controller,
+            obscureText: true,
+            decoration: InputDecoration(
+              contentPadding: const EdgeInsets.symmetric(horizontal: 16.0),
+              hintText: "ENTER PASSWORD",
+              border: OutlineInputBorder(
+                borderSide: BorderSide(color: Colors.black),
+                borderRadius: BorderRadius.circular(30)
+              ),
+              focusedBorder: OutlineInputBorder(
+                  borderSide: BorderSide(color: Colors.black),
+                  borderRadius: BorderRadius.circular(30)
+
+              ),
+              enabledBorder: OutlineInputBorder(
+                  borderSide: BorderSide(color: Colors.black),
+                  borderRadius: BorderRadius.circular(30)
+
+              ),
+              disabledBorder: OutlineInputBorder(
+                  borderSide: BorderSide(color: Colors.black),
+                  borderRadius: BorderRadius.circular(30)
+              ),
+            ),
+          ),
+        )
+    );
+    showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        return dialog;
+      },
+    );
+  }
+
 }
 
 

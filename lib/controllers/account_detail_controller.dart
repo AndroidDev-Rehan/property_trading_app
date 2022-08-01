@@ -1,4 +1,5 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:property_trading_app/utils/CollectionNames.dart';
 
@@ -21,12 +22,14 @@ class AccountDetailController extends GetxController{
           .delete();
 
       Get.back();
-      Get.snackbar("Success", "Accepted");
+      Get.snackbar("Success", "Accepted",        backgroundColor: Colors.white
+      );
 
 
     }
     catch (e){
-      Get.snackbar("Failed", e.toString());
+      Get.snackbar("Failed", e.toString(),        backgroundColor: Colors.white
+      );
     }
     loading.value = false;
 
@@ -43,11 +46,13 @@ class AccountDetailController extends GetxController{
           .delete();
 
       Get.back();
-      Get.snackbar("Success", "Rejected");
+      Get.snackbar("Success", "Rejected",        backgroundColor: Colors.white
+      );
 
     }
     catch (e){
-      Get.snackbar("Failed", e.toString());
+      Get.snackbar("Failed", e.toString(),        backgroundColor: Colors.white
+      );
     }
     loading.value = false;
 
