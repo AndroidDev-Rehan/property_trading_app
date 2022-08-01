@@ -1,16 +1,11 @@
-import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:property_trading_app/controllers/google_signin_controller.dart';
-import 'package:property_trading_app/controllers/signup_controller.dart';
 import 'package:property_trading_app/new_UI_screens/doc_verification/document_verification.dart';
-import 'package:property_trading_app/new_UI_screens/otp/otpscreen.dart';
 import 'package:property_trading_app/utils/app-color.dart';
 
 import '../../global_widgets/custom_button.dart';
 import '../../global_widgets/custom_text.dart';
-import '../models/app_user.dart';
 
 class CollectUserInfo extends StatefulWidget {
   const CollectUserInfo({Key? key}) : super(key: key);
@@ -62,8 +57,8 @@ class _CollectUserInfoState extends State<CollectUserInfo> {
                             return null;
                           },
                           controller: googleSignInController.userNameController,
-                          style: TextStyle(color: Colors.white, fontSize: 17),
-                          decoration: InputDecoration(
+                          style: const TextStyle(color: Colors.white, fontSize: 17),
+                          decoration: const InputDecoration(
                               hintText: 'Full Name',
                               hintStyle: TextStyle(fontSize: 17, color: Colors.white),
                               fillColor: Colors.grey,
@@ -76,7 +71,7 @@ class _CollectUserInfoState extends State<CollectUserInfo> {
                         ),
                       ),
                       Padding(
-                        padding: EdgeInsets.symmetric(vertical: 8.0, horizontal: 15),
+                        padding: const EdgeInsets.symmetric(vertical: 8.0, horizontal: 15),
                         child: TextFormField(
                           validator: (value){
                             if(value == null || value.trim().isEmpty){
@@ -86,8 +81,8 @@ class _CollectUserInfoState extends State<CollectUserInfo> {
                           },
 
                           controller: googleSignInController.passController,
-                          style: TextStyle(color: Colors.white, fontSize: 17),
-                          decoration: InputDecoration(
+                          style: const TextStyle(color: Colors.white, fontSize: 17),
+                          decoration: const InputDecoration(
                             suffixIcon: Icon(
                               Icons.remove_red_eye_rounded,
                               color: Colors.white,
