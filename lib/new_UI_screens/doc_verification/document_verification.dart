@@ -185,7 +185,8 @@ class _DocumentVerificationScreenState extends State<DocumentVerificationScreen>
           UserRequest userRequest = UserRequest(photoIdUrl: photoIdUrl, selfieUrl: selfieUrl, user: appUser);
 
           await FirebaseFirestore.instance.collection(CollectionNames.userRequests).doc(FirebaseAuth.instance.currentUser!.uid).set(userRequest.toMap());
-          Get.to(VerificationScreen());
+          await FirebaseFirestore.instance.collection("users").doc(FirebaseAuth.instance.currentUser!.uid).update({"documentsSubmitted" : true});
+          Get.to(const VerificationScreen());
 
         }
         setState(() {

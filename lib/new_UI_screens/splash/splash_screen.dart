@@ -2,6 +2,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:property_trading_app/new_UI_screens/verification/verification.dart';
 import '../../../utils/app-color.dart';
 import '../welcome/welcome_screen.dart';
 import 'package:property_trading_app/collect_user_info/collect_user_info.dart';
@@ -29,19 +30,28 @@ class _CustomSplashScreenState extends State<CustomSplashScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: darkMain,
-      body: Builder(
-        builder: (context) {
-          return Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              // const Text('Above Everyone Hello HI',style: TextStyle(fontSize: 18,color: Colors.white,fontStyle: FontStyle.italic),),
-              // const SizedBox(height: 20,),
-              Image.asset('assets/images/glogo1.png',),
-              const SizedBox(height: 20,),
-              const Text('Above the crowd in Property',style: TextStyle(fontSize: 18,color: Colors.white,fontStyle: FontStyle.italic),)
-            ],
+      body: TweenAnimationBuilder<double>(
+        tween: Tween<double>(begin: 1, end: 0),
+        duration: const Duration(seconds: 1),
+        // child is *optional* so we can pass null or omit it
+        child: null,
+        // builder is *required*
+        // note that the third argument is an (optional) child
+        builder: (BuildContext context, double value, Widget? child) {
+          return Transform.translate(
+            offset: Offset(Get.width*value,0 ),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                // const Text('Above Everyone Hello HI',style: TextStyle(fontSize: 18,color: Colors.white,fontStyle: FontStyle.italic),),
+                // const SizedBox(height: 20,),
+                Image.asset('assets/images/glogo1.png',),
+                const SizedBox(height: 20,),
+                const Text('Above the crowd in Property',style: TextStyle(fontSize: 18,color: Colors.white,fontStyle: FontStyle.italic),)
+              ],
+            ),
           );
-        }
+        },
       ),
 
     );
@@ -49,6 +59,7 @@ class _CustomSplashScreenState extends State<CustomSplashScreen> {
 
   screenFunction() async {
    Widget widget = await returnRightScreen();
+   await Future.delayed(Duration(seconds: 3));
    Get.offAll(()=>widget);
   }
 
@@ -64,13 +75,18 @@ class _CustomSplashScreenState extends State<CustomSplashScreen> {
       return const CollectUserInfo();
     }
 
-    if(! map!["activated"] ){
+    // if( (map!["documentsSubmitted"] ==null) ||  (!map["documentsSubmitted"]) ){
+    if( !(map!["documentsSubmitted"] ?? false)  ){
       return DocumentVerificationScreen();
     }
+
+    if(! map["activated"] ){
+      return VerificationScreen();
+    }
+
 
     return const RootScreen();
 
   }
-
 
 }

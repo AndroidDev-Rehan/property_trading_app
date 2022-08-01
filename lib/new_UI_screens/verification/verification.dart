@@ -1,12 +1,15 @@
 
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_mobile_ads/google_mobile_ads.dart';
 import 'package:property_trading_app/global_widgets/custom_button.dart';
 
+import '../../controllers/google_signin_controller.dart';
 import '../../global_widgets/custom_app_bar.dart';
 import '../../utils/app-color.dart';
 import '../dashboard/dashboard.dart';
+import '../welcome/welcome_screen.dart';
 const String testDevice = 'YOUR_DEVICE_ID';
 const int maxFailedLoadAttempts = 3;
 class VerificationScreen extends StatefulWidget {
@@ -63,8 +66,18 @@ class _VerificationScreenState extends State<VerificationScreen> {
     }
     _interstitialAd!.fullScreenContentCallback = FullScreenContentCallback(
 
-      onAdShowedFullScreenContent: (InterstitialAd ad) =>
-          Get.to(RootScreen()),
+      onAdShowedFullScreenContent: (InterstitialAd ad) async{
+        await FirebaseAuth.instance.signOut();
+        try{
+          await GoogleSignInController.signOut();
+        }
+        catch(e){
+          print(e);
+        }
+        Get.offAll(const WelcomeScreen());
+        print(FirebaseAuth.instance.currentUser?.uid);
+
+      },
       onAdDismissedFullScreenContent: (InterstitialAd ad) {
         print('$ad onAdDismissedFullScreenContent.');
         ad.dispose();
@@ -114,9 +127,10 @@ class _VerificationScreenState extends State<VerificationScreen> {
               Text("Your application has been successfully submitted. You will be notified your shortly", style: TextStyle(color: textColor, fontSize: Get.width*0.0356, fontWeight: FontWeight.w500), textAlign: TextAlign.center,),
               const SizedBox(height: 40,),
               CustomElevatedButton(
-                text: "Login Now",
+                text: "Login From Another Account",
                 onPressed: (){
                   _showInterstitialAd();
+
 
                 },
                 fixedSize: Size(Get.width*0.644859813,Get.height*0.0561,),

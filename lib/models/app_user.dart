@@ -5,6 +5,7 @@ class AppUser{
   final String email;
   final String phone;
   final bool activated;
+  final bool documentsSubmitted;
 
   const AppUser({
     required this.username,
@@ -12,7 +13,8 @@ class AppUser{
     required this.email,
     required this.phone,
     required this.id,
-    this.activated = false
+    this.activated = false,
+    this.documentsSubmitted = false,
   });
 
   Map<String, dynamic> toMap() {
@@ -22,7 +24,8 @@ class AppUser{
       'email': email,
       'phone': phone,
       'activated' : activated,
-      'id' : id
+      'id' : id,
+      "documentsSubmitted": documentsSubmitted
     };
   }
 
@@ -33,7 +36,8 @@ class AppUser{
       email: map['email'] as String,
       phone: map['phone'] as String,
       activated: map['activated'] ?? false,
-      id: map['id']
+      id: map['id'],
+      documentsSubmitted: map["documentsSubmitted"] ?? false
     );
   }
 }

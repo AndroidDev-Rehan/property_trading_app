@@ -4,12 +4,9 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_mobile_ads/google_mobile_ads.dart';
+import 'package:property_trading_app/new_UI_screens/admin/account_approval_requests.dart';
 import 'package:property_trading_app/new_UI_screens/splash/splash_screen.dart';
 import 'package:property_trading_app/utils/binding.dart';
-
-import 'new_UI_screens/admin/account_approval_requests.dart';
-import 'new_UI_screens/doc_verification/document_verification.dart';
-import 'new_UI_screens/home/home.dart';
 
 void main() async {
 
@@ -41,7 +38,7 @@ class MyApp extends StatelessWidget {
         primaryColor: const Color.fromRGBO(209, 173, 93 ,1),
       ),
       // navigatorKey: navigatorKey,
-      home:  const Home(),
+      home:  CustomSplashScreen(),
       initialBinding: AuthBinding(),
     );
   }

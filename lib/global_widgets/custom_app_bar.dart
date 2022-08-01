@@ -92,7 +92,12 @@ PreferredSizeWidget buildCustomAppBar(){
     leading: InkWell(
         onTap: () async{
           await FirebaseAuth.instance.signOut();
-          await GoogleSignInController.signOut();
+          try{
+            await GoogleSignInController.signOut();
+          }
+          catch(e){
+            print(e);
+          }
           Get.offAll(const WelcomeScreen());
           print(FirebaseAuth.instance.currentUser?.uid);
         },
