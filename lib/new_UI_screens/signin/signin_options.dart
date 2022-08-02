@@ -10,6 +10,7 @@ import 'package:google_sign_in/google_sign_in.dart';
 import '../../../utils/app-color.dart';
 import '../../controllers/google_signin_controller.dart';
 import '../dashboard/dashboard.dart';
+import '../otp/otpscreen.dart';
 import '../verification/verification.dart';
 
 
@@ -67,16 +68,9 @@ class _SignInOptionsScreenState extends State<SignInOptionsScreen> {
                       }
 
                       // if( (map!["documentsSubmitted"] ==null) ||  (!map["documentsSubmitted"]) ){
-                      if( !(map!["documentsSubmitted"] ?? false)  ){
-                       Get.offAll(DocumentVerificationScreen());
-                      }
-
-                      if(! map["activated"] ){
-                         Get.offAll(VerificationScreen());
-                      }
-
-
-                       Get.offAll(const RootScreen());
+                      String phoneNo = FirebaseAuth.instance.currentUser!.phoneNumber!;
+                      await FirebaseAuth.instance.signOut();
+                      Get.offAll(OtpScreen(phoneno: phoneNo ,login: true,));
 
                       // Get.snackbar("Success", "Login");
                       // print(user);

@@ -69,6 +69,8 @@ dependencies:
   firebase_storage: ^10.3.4
   google_mobile_ads: ^2.0.0
   google_sign_in: ^5.4.0
+  pin_code_fields: ^7.4.0
+
 
 
 dev_dependencies:

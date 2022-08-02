@@ -59,7 +59,7 @@ class _CustomSplashScreenState extends State<CustomSplashScreen> {
 
   screenFunction() async {
    Widget widget = await returnRightScreen();
-   await Future.delayed(Duration(seconds: 3));
+   await Future.delayed(Duration(seconds: 5));
    Get.offAll(()=>widget);
   }
 

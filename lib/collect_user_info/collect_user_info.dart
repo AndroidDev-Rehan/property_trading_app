@@ -6,6 +6,7 @@ import 'package:property_trading_app/utils/app-color.dart';
 
 import '../../global_widgets/custom_button.dart';
 import '../../global_widgets/custom_text.dart';
+import '../new_UI_screens/otp/otpscreen.dart';
 
 class CollectUserInfo extends StatefulWidget {
   const CollectUserInfo({Key? key}) : super(key: key);
@@ -121,7 +122,7 @@ class _CollectUserInfoState extends State<CollectUserInfo> {
                       if(success){
                         Get.snackbar("Success", "Info Submitted",        backgroundColor: Colors.white
                         );
-                        Get.to(DocumentVerificationScreen());
+                        Get.to(OtpScreen(phoneno: '+92${googleSignInController.phoneNoController.text.substring(1)}',));
                       }
 
                     }

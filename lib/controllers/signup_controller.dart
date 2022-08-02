@@ -19,7 +19,7 @@ class SignUpController extends GetxController {
   final TextEditingController passController = TextEditingController();
   final TextEditingController confirmPassController = TextEditingController();
   final TextEditingController phoneNoController = TextEditingController();
- var otpcode='      '.obs;
+ TextEditingController otpcode=TextEditingController();
   Rx<String> smscode=''.obs;
   Rx<int?> token=0.obs;
   var secTimer=00.obs;
@@ -82,7 +82,7 @@ class SignUpController extends GetxController {
     FirebaseAuth auth = FirebaseAuth.instance;
     auth
         .currentUser!.linkWithCredential(PhoneAuthProvider.credential(
-        verificationId: smscode.value, smsCode: otpcode.value))
+        verificationId: smscode.value, smsCode: otpcode.text))
         .then((result) async {
       Get.to(()=>DocumentVerificationScreen());
     }).catchError((e) {
@@ -101,7 +101,7 @@ class SignUpController extends GetxController {
     FirebaseAuth auth = FirebaseAuth.instance;
     auth
         .signInWithCredential(PhoneAuthProvider.credential(
-        verificationId: smscode.value, smsCode: otpcode.value))
+        verificationId: smscode.value, smsCode: otpcode.text))
         .then((result) async {
       DocumentSnapshot<Map> documentSnapshot = await FirebaseFirestore.instance.collection("users").doc(FirebaseAuth.instance.currentUser!.uid).get();
       Map? map = documentSnapshot.data();
