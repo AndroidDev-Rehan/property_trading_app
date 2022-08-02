@@ -50,138 +50,146 @@ class _SignUpState extends State<SignUp> {
                   height: 30,
                 ),
                 Padding(
-                  padding: EdgeInsets.symmetric(vertical: 8.0, horizontal: 15),
-                  child: TextFormField(
-                    validator: (value){
-                      if(value == null || value.trim().isEmpty){
-                        return "Field is required";
-                      }
-                      return null;
-                    },
-                    controller: signUpController.userNameController,
-                    style: TextStyle(color: Colors.white, fontSize: 17),
-                    decoration: InputDecoration(
-                        hintText: 'Full Name/User Name',
-                        hintStyle: TextStyle(fontSize: 17, color: Colors.white),
-                        fillColor: Colors.grey,
-                        focusedBorder: UnderlineInputBorder(
-                            borderSide:
-                                BorderSide(color: Colors.white, width: 2)),
-                        enabledBorder: UnderlineInputBorder(
-                            borderSide:
-                                BorderSide(color: Colors.white, width: 2))),
-                  ),
-                ),
-                Padding(
-                  padding: EdgeInsets.symmetric(vertical: 8.0, horizontal: 15),
-                  child: TextFormField(
-                    validator: (value){
-                      if(value == null || value.trim().isEmpty){
-                        return "Field is required";
-                      }
-                      if(!signUpController.isValidEmail(value.trim())){
-                        return "not a valid email";
-                      }
-
-                      return null;
-                    },
-
-                    style: TextStyle(color: Colors.white, fontSize: 17),
-                    controller: signUpController.emailController,
-                    decoration: InputDecoration(
-                        hintText: 'Email',
-                        hintStyle: TextStyle(fontSize: 17, color: Colors.white),
-                        focusedBorder: UnderlineInputBorder(
-                            borderSide:
-                                BorderSide(color: Colors.white, width: 2)),
-                        enabledBorder: UnderlineInputBorder(
-                            borderSide:
-                                BorderSide(color: Colors.white, width: 2))),
-                  ),
-                ),
-                Padding(
-                  padding: EdgeInsets.symmetric(vertical: 8.0, horizontal: 15),
-                  child: TextFormField(
-                    validator: (value){
-                      if(value == null || value.trim().isEmpty){
-                        return "Field is required";
-                      }
-                      return null;
-                    },
-
-                    controller: signUpController.passController,
-                    style: TextStyle(color: Colors.white, fontSize: 17),
-                    decoration: InputDecoration(
-                        suffixIcon: Icon(
-                          Icons.remove_red_eye_rounded,
-                          color: Colors.white,
-                          size: 25,
+                  padding: const EdgeInsets.symmetric(horizontal: 16.0),
+                  child: Column(
+                    mainAxisSize: MainAxisSize.min,
+                    children: [
+                      Padding(
+                        padding: EdgeInsets.symmetric(vertical: 8.0, horizontal: 15),
+                        child: TextFormField(
+                          validator: (value){
+                            if(value == null || value.trim().isEmpty){
+                              return "Field is required";
+                            }
+                            return null;
+                          },
+                          controller: signUpController.userNameController,
+                          style: TextStyle(color: Colors.white, fontSize: 17),
+                          decoration: InputDecoration(
+                              hintText: 'Full Name/User Name',
+                              hintStyle: TextStyle(fontSize: 17, color: Colors.white),
+                              fillColor: Colors.grey,
+                              focusedBorder: UnderlineInputBorder(
+                                  borderSide:
+                                      BorderSide(color: Colors.white, width: 2)),
+                              enabledBorder: UnderlineInputBorder(
+                                  borderSide:
+                                      BorderSide(color: Colors.white, width: 2))),
                         ),
-                        hintText: 'Password',
-                        hintStyle: TextStyle(fontSize: 17, color: Colors.white),
-                        focusedBorder: UnderlineInputBorder(
-                            borderSide:
-                                BorderSide(color: Colors.white, width: 2)),
-                        enabledBorder: UnderlineInputBorder(
-                            borderSide:
-                                BorderSide(color: Colors.white, width: 2)),
+                      ),
+                      Padding(
+                        padding: EdgeInsets.symmetric(vertical: 8.0, horizontal: 15),
+                        child: TextFormField(
+                          validator: (value){
+                            if(value == null || value.trim().isEmpty){
+                              return "Field is required";
+                            }
+                            if(!signUpController.isValidEmail(value.trim())){
+                              return "not a valid email";
+                            }
 
-                    ),
-                    obscureText: true,
-                  ),
-                ),
-                Padding(
-                  padding: EdgeInsets.symmetric(vertical: 8.0, horizontal: 15),
-                  child: TextFormField(
-                    validator: (value){
-                      if(value == null || value.trim().isEmpty){
-                        return "Field is required";
-                      }
-                      if(value!=signUpController.passController.text){
-                        return "Password does not match.";
-                      }
-                      return null;
-                    },
+                            return null;
+                          },
 
-                    controller: signUpController.confirmPassController,
-                    style: TextStyle(color: Colors.white, fontSize: 17),
-                    decoration: InputDecoration(
-                        suffixIcon: Icon(
-                          Icons.remove_red_eye_rounded,
-                          color: Colors.white,
-                          size: 25,
+                          style: TextStyle(color: Colors.white, fontSize: 17),
+                          controller: signUpController.emailController,
+                          decoration: InputDecoration(
+                              hintText: 'Email',
+                              hintStyle: TextStyle(fontSize: 17, color: Colors.white),
+                              focusedBorder: UnderlineInputBorder(
+                                  borderSide:
+                                      BorderSide(color: Colors.white, width: 2)),
+                              enabledBorder: UnderlineInputBorder(
+                                  borderSide:
+                                      BorderSide(color: Colors.white, width: 2))),
                         ),
-                        hintText: 'Confirm your Password',
-                        hintStyle: TextStyle(fontSize: 17, color: Colors.white),
-                        focusedBorder: UnderlineInputBorder(
-                            borderSide:
-                                BorderSide(color: Colors.white, width: 2)),
-                        enabledBorder: UnderlineInputBorder(
-                            borderSide:
-                                BorderSide(color: Colors.white, width: 2))),
-                    obscureText: true,
-                  ),
-                ),
-                Padding(
-                  padding: EdgeInsets.symmetric(vertical: 8.0, horizontal: 15),
-                  child: TextFormField(
-                    validator: (value){
-                      if(value == null || value.trim().isEmpty){
-                        return "Field is required";
-                      }
-                      return null;
-                    },
-                    controller: signUpController.phoneNoController,
-                    style: TextStyle(color: Colors.white, fontSize: 17),
-                    decoration: InputDecoration(
-                        hintText: 'Phone Number',
-                        hintStyle: TextStyle(fontSize: 17, color: Colors.white),
-                        focusedBorder: UnderlineInputBorder(
-                            borderSide:
-                                BorderSide(color: Colors.white, width: 2)),
-                        enabledBorder: UnderlineInputBorder(
-                            borderSide:
-                                BorderSide(color: Colors.white, width: 2))),
+                      ),
+                      Padding(
+                        padding: EdgeInsets.symmetric(vertical: 8.0, horizontal: 15),
+                        child: TextFormField(
+                          validator: (value){
+                            if(value == null || value.trim().isEmpty){
+                              return "Field is required";
+                            }
+                            return null;
+                          },
+
+                          controller: signUpController.passController,
+                          style: TextStyle(color: Colors.white, fontSize: 17),
+                          decoration: InputDecoration(
+                              suffixIcon: Icon(
+                                Icons.remove_red_eye_rounded,
+                                color: Colors.white,
+                                size: 25,
+                              ),
+                              hintText: 'Password',
+                              hintStyle: TextStyle(fontSize: 17, color: Colors.white),
+                              focusedBorder: UnderlineInputBorder(
+                                  borderSide:
+                                      BorderSide(color: Colors.white, width: 2)),
+                              enabledBorder: UnderlineInputBorder(
+                                  borderSide:
+                                      BorderSide(color: Colors.white, width: 2)),
+
+                          ),
+                          obscureText: true,
+                        ),
+                      ),
+                      Padding(
+                        padding: EdgeInsets.symmetric(vertical: 8.0, horizontal: 15),
+                        child: TextFormField(
+                          validator: (value){
+                            if(value == null || value.trim().isEmpty){
+                              return "Field is required";
+                            }
+                            if(value!=signUpController.passController.text){
+                              return "Password does not match.";
+                            }
+                            return null;
+                          },
+
+                          controller: signUpController.confirmPassController,
+                          style: TextStyle(color: Colors.white, fontSize: 17),
+                          decoration: InputDecoration(
+                              suffixIcon: Icon(
+                                Icons.remove_red_eye_rounded,
+                                color: Colors.white,
+                                size: 25,
+                              ),
+                              hintText: 'Confirm your Password',
+                              hintStyle: TextStyle(fontSize: 17, color: Colors.white),
+                              focusedBorder: UnderlineInputBorder(
+                                  borderSide:
+                                      BorderSide(color: Colors.white, width: 2)),
+                              enabledBorder: UnderlineInputBorder(
+                                  borderSide:
+                                      BorderSide(color: Colors.white, width: 2))),
+                          obscureText: true,
+                        ),
+                      ),
+                      Padding(
+                        padding: EdgeInsets.symmetric(vertical: 8.0, horizontal: 15),
+                        child: TextFormField(
+                          validator: (value){
+                            if(value == null || value.trim().isEmpty){
+                              return "Field is required";
+                            }
+                            return null;
+                          },
+                          controller: signUpController.phoneNoController,
+                          style: TextStyle(color: Colors.white, fontSize: 17),
+                          decoration: InputDecoration(
+                              hintText: 'Phone Number',
+                              hintStyle: TextStyle(fontSize: 17, color: Colors.white),
+                              focusedBorder: UnderlineInputBorder(
+                                  borderSide:
+                                      BorderSide(color: Colors.white, width: 2)),
+                              enabledBorder: UnderlineInputBorder(
+                                  borderSide:
+                                      BorderSide(color: Colors.white, width: 2))),
+                        ),
+                      ),
+                    ],
                   ),
                 ),
                 SizedBox(

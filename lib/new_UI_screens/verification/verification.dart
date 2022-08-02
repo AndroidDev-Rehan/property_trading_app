@@ -128,13 +128,13 @@ class _VerificationScreenState extends State<VerificationScreen> {
               Text("Your application has been successfully submitted. You will be notified your shortly", style: TextStyle(color: textColor, fontSize: Get.width*0.0356, fontWeight: FontWeight.w500), textAlign: TextAlign.center,),
               const SizedBox(height: 40,),
               CustomElevatedButton(
-                text: "Login From Another Account",
+                text: "Login with other Account",
                 onPressed: (){
                   _showInterstitialAd();
 
 
                 },
-                fixedSize: Size(Get.width*0.644859813,Get.height*0.0561,),
+                fixedSize: Size(Get.width*0.7,Get.height*0.0561,),
                 color: mainGolden,
                 textColor: darkMain,
 

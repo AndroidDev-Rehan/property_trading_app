@@ -7,6 +7,7 @@ import 'package:property_trading_app/global_widgets/custom_text.dart';
 import 'package:property_trading_app/new_UI_screens/doc_verification/document_verification.dart';
 import 'package:property_trading_app/new_UI_screens/signin/email_signin.dart';
 import 'package:google_sign_in/google_sign_in.dart';
+import 'package:property_trading_app/new_UI_screens/signup/signup.dart';
 import '../../../utils/app-color.dart';
 import '../../controllers/google_signin_controller.dart';
 import '../dashboard/dashboard.dart';
@@ -90,7 +91,11 @@ class _SignInOptionsScreenState extends State<SignInOptionsScreen> {
                 onPressed: () async{
                 }, fixedSize: buttonsize,textColor: darkMain, color:  Colors.white,imageIcon: Image.asset("assets/images/apple-logo.png", height: 40, width: 50),),
               const SizedBox(height: 60,),
-              CustomText(text: 'Have an account ?  Login', size: 20)
+              InkWell(
+                  onTap: (){
+                    Get.to(SignUp());
+                  },
+                  child: CustomText(text: 'Dont have an account ?  Sign Up', size: 20))
 
 
             ],

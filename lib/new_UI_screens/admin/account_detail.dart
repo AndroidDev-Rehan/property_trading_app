@@ -149,12 +149,23 @@ class AccountDetailScreen extends StatelessWidget {
             children: [
               Icon(Icons.photo, color: Colors.white,),
               SizedBox(width: 20,),
-              Text("Photo ID ", style: TextStyle(color: Colors.white, fontSize: 15)),
+              Text("Photo ID Front", style: TextStyle(color: Colors.white, fontSize: 15)),
             ],
           ),
           SizedBox(height: 10,),
           Image.network(userRequest.photoIdUrl),
           SizedBox(height: 20,),
+          Row(
+            children: [
+              Icon(Icons.photo, color: Colors.white,),
+              SizedBox(width: 20,),
+              Text("Photo ID Back", style: TextStyle(color: Colors.white, fontSize: 15)),
+            ],
+          ),
+          SizedBox(height: 10,),
+          Image.network(userRequest.photoIdBackUrl),
+          SizedBox(height: 20,),
+
           Row(
             children: [
               Icon(Icons.camera_alt, color: Colors.white,),

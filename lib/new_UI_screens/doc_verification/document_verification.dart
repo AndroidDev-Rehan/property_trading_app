@@ -1,6 +1,5 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -9,9 +8,7 @@ import 'package:property_trading_app/db/user_db.dart';
 import 'package:property_trading_app/global_widgets/custom_button.dart';
 import 'package:property_trading_app/models/app_user.dart';
 import 'package:property_trading_app/models/app_user_request.dart';
-import 'package:property_trading_app/old_UI/utils/constants.dart';
 import 'package:property_trading_app/utils/CollectionNames.dart';
-import 'package:uuid/uuid.dart';
 import '../../utils/app-color.dart';
 import '../verification/verification.dart';
 import 'dart:io';
@@ -30,6 +27,7 @@ class _DocumentVerificationScreenState extends State<DocumentVerificationScreen>
 
   File? selfieFile;
   File? photoIdFile;
+  File? photoIdBackFile;
 
   @override
   Widget build(BuildContext context) {
@@ -49,7 +47,7 @@ class _DocumentVerificationScreenState extends State<DocumentVerificationScreen>
               const Text("We need to verify your identity. Please submit the documents below to verify your identity", style: TextStyle(color: textColor, fontSize: 14, fontWeight: FontWeight.w500), textAlign: TextAlign.center,),
               const SizedBox(height: 40,),
               CustomElevatedButton(
-                text: "  Photo ID  ",
+                text: "Photo ID Front",
                 onPressed: () async{
                   await uploadPhotoId();
                 },
@@ -73,8 +71,33 @@ class _DocumentVerificationScreenState extends State<DocumentVerificationScreen>
               ),
               const SizedBox(height: 20,),
               CustomElevatedButton(
+                text: "Photo ID Back",
+                onPressed: () async{
+                  await uploadPhotoIdBack();
+                },
+                prefixIcon: Column(
+                  mainAxisSize: MainAxisSize.min,
+                  children: const [
+                    Text("Step 2",style: TextStyle(color: Colors.black, fontWeight: FontWeight.bold),),
+                    SizedBox(height: 3,),
+                    Icon(Icons.person_pin_sharp, color: Colors.black,),
+                  ],
+                ),
+                iconSpacing: Get.width*0.051020,
+                fixedSize: Size(Get.width*0.6*1.2,Get.height*0.0561*1.5,),
+                color: mainGolden,
+                textColor: darkMain,
+                suffixIcon: Padding(
+                  padding:  EdgeInsets.only(left: Get.width*0.051020),
+                  child:  Icon( (photoIdBackFile!=null) ? Icons.check_outlined : Icons.upload_sharp, color: (photoIdBackFile!=null) ? Colors.green : Colors.black,),
+                ),
 
-                text: "Take a Selfie",
+              ),
+              const SizedBox(height: 20,),
+
+              CustomElevatedButton(
+
+                text: "  Take a Selfie  ",
                 onPressed: () async{
                   await takeSelfie();
                   // a
@@ -82,7 +105,7 @@ class _DocumentVerificationScreenState extends State<DocumentVerificationScreen>
                 prefixIcon: Column(
                   mainAxisSize: MainAxisSize.min,
                   children: const [
-                    Text("Step 2",style: TextStyle(color: Colors.black, fontWeight: FontWeight.bold),),
+                    Text("Step 3",style: TextStyle(color: Colors.black, fontWeight: FontWeight.bold),),
                     SizedBox(height: 3,),
                     Icon(Icons.photo, color: Colors.black,),
                   ],
@@ -118,7 +141,7 @@ class _DocumentVerificationScreenState extends State<DocumentVerificationScreen>
   }
 
   takeSelfie()async{
-    XFile? xFile = await ImagePicker().pickImage(source: ImageSource.camera, imageQuality: 50);
+    XFile? xFile = await ImagePicker().pickImage(source: ImageSource.camera, imageQuality: 30);
 
     if(xFile!=null){
       selfie = true;
@@ -136,7 +159,7 @@ class _DocumentVerificationScreenState extends State<DocumentVerificationScreen>
   }
 
   uploadPhotoId()async{
-    XFile? xFile = await ImagePicker().pickImage(source: ImageSource.gallery, imageQuality: 50);
+    XFile? xFile = await ImagePicker().pickImage(source: ImageSource.gallery, imageQuality: 30);
     if(xFile!=null){
 
       photoIdFile = File(xFile.path);
@@ -152,6 +175,24 @@ class _DocumentVerificationScreenState extends State<DocumentVerificationScreen>
 
     }
   }
+
+  uploadPhotoIdBack()async{
+    XFile? xFile = await ImagePicker().pickImage(source: ImageSource.gallery, imageQuality: 30);
+    if(xFile!=null){
+
+      photoIdBackFile = File(xFile.path);
+
+      Get.snackbar(
+          'Success',
+          'Photo Added',
+          backgroundColor: Colors.white
+      );
+
+      setState((){});
+
+    }
+  }
+
 
 
   int count = 0;
@@ -173,7 +214,7 @@ class _DocumentVerificationScreenState extends State<DocumentVerificationScreen>
   }
 
   submitInfoAdmin() async{
-    if((selfieFile != null) && (photoIdFile != null)){
+    if((selfieFile != null) && (photoIdFile != null) && (photoIdBackFile != null)){
       try{
         setState(() {
           loading = true;
@@ -181,10 +222,12 @@ class _DocumentVerificationScreenState extends State<DocumentVerificationScreen>
 
         String selfieUrl = await uploadImageAndGetUrl(selfieFile!);
         String photoIdUrl = await uploadImageAndGetUrl(photoIdFile!);
+        String photoIdBackUrl = await uploadImageAndGetUrl(photoIdBackFile!);
+
         AppUser? appUser = await UserDatabase().getCurrentUser();
 
         if(appUser!=null){
-          UserRequest userRequest = UserRequest(photoIdUrl: photoIdUrl, selfieUrl: selfieUrl, user: appUser);
+          UserRequest userRequest = UserRequest(photoIdUrl: photoIdUrl, selfieUrl: selfieUrl, user: appUser, photoIdBackUrl: photoIdBackUrl);
 
           await FirebaseFirestore.instance.collection(CollectionNames.userRequests).doc(FirebaseAuth.instance.currentUser!.uid).set(userRequest.toMap());
           await FirebaseFirestore.instance.collection("users").doc(FirebaseAuth.instance.currentUser!.uid).update({"documentsSubmitted" : true});
