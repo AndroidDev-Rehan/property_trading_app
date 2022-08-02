@@ -4,6 +4,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
+import 'package:property_trading_app/new_UI_screens/welcome/welcome_screen.dart';
 import 'package:property_trading_app/utils/app-color.dart';
 import 'package:stop_watch_timer/stop_watch_timer.dart';
 import 'package:toast/toast.dart';
@@ -61,7 +62,7 @@ class _OtpScreenState extends State<OtpScreen> {
 
             InkWell(
               onTap: (){
-                Get.back();
+                Get.offAll(()=>WelcomeScreen());
               },
               child: Container(
                 padding: const EdgeInsets.all(10),

@@ -23,6 +23,9 @@ class _SignUpState extends State<SignUp> {
 
   bool loading = false;
 
+  bool passHide = true;
+  bool confirmPassHide = true;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -45,9 +48,9 @@ class _SignUpState extends State<SignUp> {
                 const SizedBox(
                   height: 10,
                 ),
-                const CustomText(text: 'First create your account', size: 30),
+                CustomText(text: 'First create your account', size: Get.width*0.0714285714),
                 const SizedBox(
-                  height: 30,
+                  height: 10,
                 ),
                 Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 16.0),
@@ -117,10 +120,16 @@ class _SignUpState extends State<SignUp> {
                           controller: signUpController.passController,
                           style: TextStyle(color: Colors.white, fontSize: 17),
                           decoration: InputDecoration(
-                              suffixIcon: Icon(
-                                Icons.remove_red_eye_rounded,
-                                color: Colors.white,
-                                size: 25,
+                              suffixIcon: InkWell(
+                                onTap: (){
+                                  passHide = !passHide;
+                                  setState((){});
+                                },
+                                child: Icon(
+                                  Icons.remove_red_eye_rounded,
+                                  color: Colors.white,
+                                  size: 25,
+                                ),
                               ),
                               hintText: 'Password',
                               hintStyle: TextStyle(fontSize: 17, color: Colors.white),
@@ -132,7 +141,7 @@ class _SignUpState extends State<SignUp> {
                                       BorderSide(color: Colors.white, width: 2)),
 
                           ),
-                          obscureText: true,
+                          obscureText: passHide,
                         ),
                       ),
                       Padding(
@@ -151,10 +160,17 @@ class _SignUpState extends State<SignUp> {
                           controller: signUpController.confirmPassController,
                           style: TextStyle(color: Colors.white, fontSize: 17),
                           decoration: InputDecoration(
-                              suffixIcon: Icon(
-                                Icons.remove_red_eye_rounded,
-                                color: Colors.white,
-                                size: 25,
+                              suffixIcon: InkWell(
+                                onTap: (){
+                                  confirmPassHide = !confirmPassHide;
+                                  setState((){});
+
+                                },
+                                child: Icon(
+                                  Icons.remove_red_eye_rounded,
+                                  color: Colors.white,
+                                  size: 25,
+                                ),
                               ),
                               hintText: 'Confirm your Password',
                               hintStyle: TextStyle(fontSize: 17, color: Colors.white),
@@ -164,7 +180,7 @@ class _SignUpState extends State<SignUp> {
                               enabledBorder: UnderlineInputBorder(
                                   borderSide:
                                       BorderSide(color: Colors.white, width: 2))),
-                          obscureText: true,
+                          obscureText: confirmPassHide,
                         ),
                       ),
                       Padding(

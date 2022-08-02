@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:property_trading_app/controllers/google_signin_controller.dart';
-import 'package:property_trading_app/new_UI_screens/doc_verification/document_verification.dart';
 import 'package:property_trading_app/utils/app-color.dart';
 
 import '../../global_widgets/custom_button.dart';
@@ -81,8 +80,8 @@ class _CollectUserInfoState extends State<CollectUserInfo> {
                             return null;
                           },
                           controller: googleSignInController.phoneNoController,
-                          style: TextStyle(color: Colors.white, fontSize: 17),
-                          decoration: InputDecoration(
+                          style: const TextStyle(color: Colors.white, fontSize: 17),
+                          decoration: const InputDecoration(
                               hintText: 'Phone Number',
                               hintStyle: TextStyle(fontSize: 17, color: Colors.white),
                               focusedBorder: UnderlineInputBorder(
@@ -96,10 +95,10 @@ class _CollectUserInfoState extends State<CollectUserInfo> {
                     ],
                   ),
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 40,
                 ),
-                loading ? SizedBox(
+                loading ? const SizedBox(
                   height: 40,
                   child: Center(
                     child: CircularProgressIndicator(),
@@ -122,6 +121,15 @@ class _CollectUserInfoState extends State<CollectUserInfo> {
                       if(success){
                         Get.snackbar("Success", "Info Submitted",        backgroundColor: Colors.white
                         );
+
+                        // try{
+                        //   await GoogleSignInController.signOut();
+                        // }
+                        // catch(e){
+                        //   print(e);
+                        // }
+
+
                         Get.to(OtpScreen(phoneno: '+92${googleSignInController.phoneNoController.text.substring(1)}',));
                       }
 
@@ -135,7 +143,7 @@ class _CollectUserInfoState extends State<CollectUserInfo> {
                   textColor: darkMain,
                   // suffixIcon: const Icon(Icons.arrow_forward),
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 20,
                 )
               ],
@@ -146,4 +154,3 @@ class _CollectUserInfoState extends State<CollectUserInfo> {
     );
   }
 }
-

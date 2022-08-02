@@ -141,7 +141,7 @@ class _DocumentVerificationScreenState extends State<DocumentVerificationScreen>
   }
 
   takeSelfie()async{
-    XFile? xFile = await ImagePicker().pickImage(source: ImageSource.camera, imageQuality: 30);
+    XFile? xFile = await ImagePicker().pickImage(source: ImageSource.camera, imageQuality: 10);
 
     if(xFile!=null){
       selfie = true;
@@ -159,7 +159,7 @@ class _DocumentVerificationScreenState extends State<DocumentVerificationScreen>
   }
 
   uploadPhotoId()async{
-    XFile? xFile = await ImagePicker().pickImage(source: ImageSource.gallery, imageQuality: 30);
+    XFile? xFile = await ImagePicker().pickImage(source: ImageSource.gallery, imageQuality: 10);
     if(xFile!=null){
 
       photoIdFile = File(xFile.path);
@@ -177,7 +177,7 @@ class _DocumentVerificationScreenState extends State<DocumentVerificationScreen>
   }
 
   uploadPhotoIdBack()async{
-    XFile? xFile = await ImagePicker().pickImage(source: ImageSource.gallery, imageQuality: 30);
+    XFile? xFile = await ImagePicker().pickImage(source: ImageSource.gallery, imageQuality: 10);
     if(xFile!=null){
 
       photoIdBackFile = File(xFile.path);

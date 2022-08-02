@@ -27,6 +27,14 @@ class SignUpController extends GetxController {
 
   Future<bool> signUp() async {
     try {
+      
+      QuerySnapshot<Map> x = await FirebaseFirestore.instance.collection("users").where("phone",isEqualTo: phoneNoController.text).get();
+      if(x.docs.isNotEmpty){
+        Get.snackbar("Error", "Number already registered with other account.", backgroundColor: Colors.white);
+        return false;
+      }
+
+
       UserCredential userCredential = await FirebaseAuth.instance
           .createUserWithEmailAndPassword(
           email: emailController.text, password: passController.text);

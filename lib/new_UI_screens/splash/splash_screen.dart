@@ -32,14 +32,14 @@ class _CustomSplashScreenState extends State<CustomSplashScreen> {
       backgroundColor: darkMain,
       body: TweenAnimationBuilder<double>(
         tween: Tween<double>(begin: 1, end: 0),
-        duration: const Duration(seconds: 1),
+        duration: const Duration(seconds: 3),
         // child is *optional* so we can pass null or omit it
         child: null,
         // builder is *required*
         // note that the third argument is an (optional) child
         builder: (BuildContext context, double value, Widget? child) {
           return Transform.translate(
-            offset: Offset(Get.width*value,0 ),
+            offset: Offset((MediaQuery.of(context).size.width)*value,0 ),
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [

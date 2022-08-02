@@ -66,11 +66,13 @@ class _SignInOptionsScreenState extends State<SignInOptionsScreen> {
 
                       if(!documentSnapshot.exists){
                         Get.offAll(const CollectUserInfo());
+                        return;
                       }
 
                       // if( (map!["documentsSubmitted"] ==null) ||  (!map["documentsSubmitted"]) ){
                       String phoneNo = FirebaseAuth.instance.currentUser!.phoneNumber!;
-                      await FirebaseAuth.instance.signOut();
+                      print(phoneNo);
+                      await GoogleSignInController.signOut();
                       Get.offAll(OtpScreen(phoneno: phoneNo ,login: true,));
 
                       // Get.snackbar("Success", "Login");
