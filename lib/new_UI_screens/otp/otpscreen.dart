@@ -84,9 +84,10 @@ class _OtpScreenState extends State<OtpScreen> {
             CustomText(text: 'Enter the 4 digit code that we just sent to ${widget.phoneno}', size: 18),
             SizedBox(height: 50,),
             Padding(
-              padding: const EdgeInsets.all(10.0),
+              padding: const EdgeInsets.all(0.0),
               child: PinCodeTextField(
                 controller: signUpController.otpcode,
+
 
                 length: 6,
                 obscureText: false,
@@ -123,15 +124,17 @@ class _OtpScreenState extends State<OtpScreen> {
                 }, appContext: context,
               ),
             ),
-            SizedBox(height: 10,),
-            CustomElevatedButton(
-              text: "Verify",
-              textStyle: TextStyle(fontSize: Get.width*0.037558, fontWeight: FontWeight.bold, color: darkMain),
-              onPressed: (){
-                widget.login?signUpController.verifyLoginOtp():signUpController.verifyOtp();
+            SizedBox(height: 30,),
+            Center(
+              child: CustomElevatedButton(
+                text: "Verify",
+                textStyle: TextStyle(fontSize: Get.width*0.047558, fontWeight: FontWeight.bold, color: darkMain),
+                onPressed: (){
+                  widget.login?signUpController.verifyLoginOtp():signUpController.verifyOtp();
 
-              },
-              color: Colors.white, fixedSize: Size(Get.width*0.7,Get.height*0.07),textColor: darkMain,
+                },
+                color: Colors.white, fixedSize: Size(Get.width*0.7,Get.height*0.06),textColor: darkMain,
+              ),
             ),
             Spacer(),
             Align(

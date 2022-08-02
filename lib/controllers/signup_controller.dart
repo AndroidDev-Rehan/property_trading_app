@@ -65,7 +65,10 @@ class SignUpController extends GetxController {
     _auth.verifyPhoneNumber(
         phoneNumber: Number,
         timeout: const Duration(seconds: 60),
-        verificationCompleted: (PhoneAuthCredential authCredential) {},
+
+        verificationCompleted: (PhoneAuthCredential authCredential) {
+          otpcode.text=authCredential.smsCode.toString();
+        },
         verificationFailed: (FirebaseAuthException authException) {},
         codeSent: (String verificationId, int? forceResendingToken) {
           Get.snackbar("Success","Otp Sent", backgroundColor: Colors.white);
