@@ -119,8 +119,7 @@ class _CollectUserInfoState extends State<CollectUserInfo> {
                       });
 
                       if(success){
-                        Get.snackbar("Success", "Info Submitted",        backgroundColor: Colors.white
-                        );
+                        Get.snackbar("Success", "Info Submitted", backgroundColor: Colors.white);
 
                         // try{
                         //   await GoogleSignInController.signOut();

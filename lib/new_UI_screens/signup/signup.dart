@@ -39,8 +39,12 @@ class _SignUpState extends State<SignUp> {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
+                const SizedBox(
+                  height: 30,
+                ),
+
                 Image.asset(
-                  'assets/images/logo.png',
+                  'assets/images/glogo1.png',
                   // height: Get.height * 0.4,
                   // width: Get.width ,
                   // fit: BoxFit.fill,
@@ -50,7 +54,7 @@ class _SignUpState extends State<SignUp> {
                 ),
                 CustomText(text: 'First create your account', size: Get.width*0.0714285714),
                 const SizedBox(
-                  height: 10,
+                  height: 20,
                 ),
                 Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 16.0),

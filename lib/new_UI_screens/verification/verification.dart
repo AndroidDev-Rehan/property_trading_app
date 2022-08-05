@@ -6,9 +6,7 @@ import 'package:google_mobile_ads/google_mobile_ads.dart';
 import 'package:property_trading_app/global_widgets/custom_button.dart';
 
 import '../../controllers/google_signin_controller.dart';
-import '../../global_widgets/custom_app_bar.dart';
 import '../../utils/app-color.dart';
-import '../dashboard/dashboard.dart';
 import '../welcome/welcome_screen.dart';
 const String testDevice = 'YOUR_DEVICE_ID';
 const int maxFailedLoadAttempts = 3;
@@ -76,6 +74,7 @@ class _VerificationScreenState extends State<VerificationScreen> {
           print(e);
         }
         Get.offAll(const WelcomeScreen());
+        // Get.offAll(const WelcomeScreen());
         print(FirebaseAuth.instance.currentUser?.uid);
 
       },
@@ -121,7 +120,7 @@ class _VerificationScreenState extends State<VerificationScreen> {
           child: Column(
             mainAxisSize: MainAxisSize.min,
             children: [
-              Image.asset("assets/images/verify_latest.png"),
+              Image.asset("assets/images/yellow_tick.png"),
               const SizedBox(height: 0,),
               Text("Congrats !!", style: TextStyle(color: textColor, fontSize: Get.width * 0.0636574, fontWeight: FontWeight.bold),),
               const SizedBox(height: 20,),

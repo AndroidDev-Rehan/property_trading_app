@@ -18,6 +18,14 @@ class GoogleSignInController extends GetxController{
 
   Future<bool> uploadInfo() async{
     try{
+
+      QuerySnapshot<Map> x = await FirebaseFirestore.instance.collection("users").where("phone",isEqualTo: phoneNoController.text).get();
+      if(x.docs.isNotEmpty){
+        Get.snackbar("Error", "Number already registered with other account.", backgroundColor: Colors.white);
+        return false;
+      }
+
+
       AppUser appUser = AppUser(
         username: userNameController.text,
         password: "",
