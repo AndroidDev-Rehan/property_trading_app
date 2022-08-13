@@ -18,7 +18,7 @@ class VerificationScreen extends StatefulWidget {
 }
 
 class _VerificationScreenState extends State<VerificationScreen> {
-  static final AdRequest request = AdRequest(
+  static const AdRequest request =  AdRequest(
     keywords: <String>['foo', 'bar'],
     contentUrl: 'http://foo.com/bar.html',
     nonPersonalizedAds: true,
@@ -35,8 +35,8 @@ class _VerificationScreenState extends State<VerificationScreen> {
 
   }
 
-  void _createInterstitialAd() {
-    InterstitialAd.load(
+  Future<void> _createInterstitialAd() async{
+    await InterstitialAd.load(
         adUnitId:'ca-app-pub-2025219748618763/2651559702',
         request: request,
         adLoadCallback: InterstitialAdLoadCallback(
@@ -57,7 +57,7 @@ class _VerificationScreenState extends State<VerificationScreen> {
         ));
   }
 
-  void _showInterstitialAd() {
+  Future<void> _showInterstitialAd() async{
     if (_interstitialAd == null) {
       print('Warning: attempt to show interstitial before loaded.');
       return;

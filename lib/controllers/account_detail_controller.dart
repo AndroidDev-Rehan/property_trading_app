@@ -1,6 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:property_trading_app/new_UI_screens/admin/account_approval_requests.dart';
 import 'package:property_trading_app/utils/CollectionNames.dart';
 
 class AccountDetailController extends GetxController{
@@ -21,7 +22,7 @@ class AccountDetailController extends GetxController{
           .doc(id)
           .delete();
 
-      Get.back();
+      Get.off(AccountApprovalRequests());
       Get.snackbar("Success", "Accepted",        backgroundColor: Colors.white
       );
 
@@ -45,7 +46,7 @@ class AccountDetailController extends GetxController{
           .doc(id)
           .delete();
 
-      Get.back();
+      Get.off(AccountApprovalRequests());
       Get.snackbar("Success", "Rejected",        backgroundColor: Colors.white
       );
 

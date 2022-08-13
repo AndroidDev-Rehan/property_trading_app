@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:property_trading_app/new_UI_screens/verification/verification.dart';
 import '../../../utils/app-color.dart';
+import '../../controllers/google_signin_controller.dart';
 import '../welcome/welcome_screen.dart';
 import 'package:property_trading_app/collect_user_info/collect_user_info.dart';
 import 'package:property_trading_app/new_UI_screens/dashboard/dashboard.dart';
@@ -68,12 +69,29 @@ class _CustomSplashScreenState extends State<CustomSplashScreen> {
       return const WelcomeScreen();
     }
 
+    if(FirebaseAuth.instance.currentUser!.phoneNumber == null){
+
+      try{
+        await FirebaseFirestore.instance
+            .collection('users')
+            .doc(FirebaseAuth.instance.currentUser!.uid)
+            .delete();
+      }
+      catch(e){
+        print(e);
+      }
+
+      FirebaseAuth.instance.currentUser!.delete();
+      await GoogleSignInController.signOut();
+      return const WelcomeScreen();
+    }
+
     DocumentSnapshot<Map<String,dynamic>> documentSnapshot = await FirebaseFirestore.instance.collection("users").doc(FirebaseAuth.instance.currentUser!.uid).get();
     Map? map = documentSnapshot.data() ;
 
-    if(!documentSnapshot.exists){
-      return const CollectUserInfo();
-    }
+    // if(!documentSnapshot.exists){
+    //   return CollectUserInfo(user: FirebaseAuth.instance.currentUser!,);
+    // }
 
     // if( (map!["documentsSubmitted"] ==null) ||  (!map["documentsSubmitted"]) ){
     if( !(map!["documentsSubmitted"] ?? false)  ){

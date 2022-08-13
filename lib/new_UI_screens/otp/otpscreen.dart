@@ -1,5 +1,6 @@
 import 'dart:developer';
 
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -15,9 +16,12 @@ import '../../global_widgets/custom_button.dart';
 import '../../global_widgets/custom_text.dart';
 
 class OtpScreen extends StatefulWidget {
-  OtpScreen({Key? key,required this.phoneno,this.login=false}) : super(key: key);
+  OtpScreen({Key? key,required this.phoneno,this.login=false, required this.user, this.back = false, this.id}) : super(key: key);
   String phoneno;
   bool login;
+  final User user;
+  bool back;
+  String? id;
 
 
   @override
@@ -45,6 +49,8 @@ class _OtpScreenState extends State<OtpScreen> {
     super.initState();
   }
 
+  bool loading = false;
+
   @override
   Widget build(BuildContext context) {
     ToastContext().init(context);
@@ -54,15 +60,42 @@ class _OtpScreenState extends State<OtpScreen> {
         height: Get.height,
         width: Get.width,
         padding: EdgeInsets.all(15),
-        child: Column(
+        child: loading ? Center(child: CircularProgressIndicator()) : Column(
 
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             const SizedBox(height: 40,),
 
             InkWell(
-              onTap: (){
-                Get.offAll(()=>WelcomeScreen());
+              onTap: () async{
+
+                if(widget.back){
+
+                  setState((){
+                    loading = true;
+                  });
+
+                  if(FirebaseAuth.instance.currentUser!=null){
+                    await FirebaseAuth.instance.currentUser!.delete();
+                  }
+
+                  try{
+                    await FirebaseFirestore.instance.collection('users').doc(widget.id!).delete();
+                  }
+                  catch(e){
+                    print(e);
+                  }
+
+
+                  Get.back();
+                }
+                else if(widget.login){
+                  Get.offAll(()=>WelcomeScreen());
+                }
+                else{
+                  Get.back();
+                }
+
               },
               child: Container(
                 padding: const EdgeInsets.all(10),
@@ -75,8 +108,8 @@ class _OtpScreenState extends State<OtpScreen> {
                 ),
               ),
             ),
-            SizedBox(height: 100,),
-            Text(
+            const SizedBox(height: 100,),
+            const Text(
               'Enter the code',
               style: TextStyle(
                   color: mainGolden, fontSize: 25, fontWeight: FontWeight.bold),

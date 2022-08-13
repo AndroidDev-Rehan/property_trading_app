@@ -7,7 +7,6 @@ import 'package:property_trading_app/new_UI_screens/otp/otpscreen.dart';
 import '../../global_widgets/custom_button.dart';
 import '../../old_UI/view/auth/widget/CustomTextField.dart';
 import '../../utils/app-color.dart';
-import '../doc_verification/document_verification.dart';
 
 class EmailSignInScreen extends StatefulWidget {
   const EmailSignInScreen({Key? key}) : super(key: key);
@@ -116,7 +115,7 @@ class _EmailSignInScreenState extends State<EmailSignInScreen> {
               email: emailController.text, password: passController.text);
       String phoneNo = FirebaseAuth.instance.currentUser!.phoneNumber!;
       await FirebaseAuth.instance.signOut();
-      Get.offAll(OtpScreen(phoneno: phoneNo ,login: true,));
+      Get.offAll(OtpScreen(phoneno: phoneNo ,login: true, user: userCredential.user!,));
     }
     catch(e){
       showAlert(context,e.toString());
@@ -206,5 +205,7 @@ class _EmailSignInScreenState extends State<EmailSignInScreen> {
   }
 
 }
+
+
 
 

@@ -7,11 +7,12 @@ import 'package:flutter/material.dart';
 import 'package:property_trading_app/models/app_user.dart';
 import 'package:property_trading_app/new_UI_screens/doc_verification/document_verification.dart';
 import 'package:property_trading_app/new_UI_screens/verification/verification.dart';
+import 'package:property_trading_app/utils/constants.dart';
 import 'package:stop_watch_timer/stop_watch_timer.dart';
-import 'package:toast/toast.dart';
 
 import '../collect_user_info/collect_user_info.dart';
 import '../new_UI_screens/dashboard/dashboard.dart';
+import '../new_UI_screens/otp/otpscreen.dart';
 
 class SignUpController extends GetxController {
   final TextEditingController userNameController = TextEditingController();
@@ -25,42 +26,48 @@ class SignUpController extends GetxController {
   var secTimer=00.obs;
   StopWatchTimer? stopWatchTimer ;
 
-  Future<bool> signUp() async {
+  Future<bool> signUp(String phone) async {
     try {
-      
+
+
       QuerySnapshot<Map> x = await FirebaseFirestore.instance.collection("users").where("phone",isEqualTo: phoneNoController.text).get();
       if(x.docs.isNotEmpty){
-        Get.snackbar("Error", "Number already registered with other account.", backgroundColor: Colors.white);
+        await showAlert("Number already registered with other account.");
+        // Get.snackbar("Error", "Number already registered with other account.", backgroundColor: Colors.white);
         return false;
       }
 
 
-      UserCredential userCredential = await FirebaseAuth.instance
-          .createUserWithEmailAndPassword(
-          email: emailController.text, password: passController.text);
+     if(FirebaseAuth.instance.currentUser == null) {
+        UserCredential userCredential = await FirebaseAuth.instance
+            .createUserWithEmailAndPassword(
+                email: emailController.text, password: passController.text);
 
-      if(userCredential.user!=null) {
+     }
 
-        AppUser appUser = AppUser(
-          username: userNameController.text,
-          password: passController.text,
-          email: emailController.text,
-          phone: phoneNoController.text,
-          id: userCredential.user!.uid,
-        );
+      AppUser appUser = AppUser(
+        username: userNameController.text,
+        password: passController.text,
+        email: emailController.text,
+        phone: phoneNoController.text,
+        id: FirebaseAuth.instance.currentUser!.uid,
+      );
 
 
-        await FirebaseFirestore.instance
-            .collection("users")
-            .doc(FirebaseAuth.instance.currentUser!.uid)
-            .set(appUser.toMap());
-        print(
-            "current user after signing up: ${FirebaseAuth.instance.currentUser}");
-        return true;
-      }
+      await FirebaseFirestore.instance
+          .collection("users")
+          .doc(FirebaseAuth.instance.currentUser!.uid)
+          .set(appUser.toMap());
+      print("current user after signing up: ${FirebaseAuth.instance.currentUser}");
+
+      Get.to(OtpScreen(phoneno: phone, user: FirebaseAuth.instance.currentUser!,back: true, id: FirebaseAuth.instance.currentUser!.uid,));
+
+      return true;
+
       return false;
     } catch (e) {
-      Get.snackbar("Failed", e.toString());
+      await showAlert("Request Failed, ${e.toString()}");
+      // Get.snackbar("Failed", e.toString());
       print(e);
       return false;
     }
@@ -86,20 +93,22 @@ class SignUpController extends GetxController {
           smscode.value = verificationId;
           token.value = forceResendingToken;
         },
-        codeAutoRetrievalTimeout: (String verificationId) {});
+        codeAutoRetrievalTimeout: (String verificationId) {
+        });
   }
 
   void verifyOtp() {
     FirebaseAuth auth = FirebaseAuth.instance;
-    auth
-        .currentUser!.linkWithCredential(PhoneAuthProvider.credential(
+    auth.currentUser!.linkWithCredential(
+        PhoneAuthProvider.credential(
         verificationId: smscode.value, smsCode: otpcode.text))
         .then((result) async {
-      Get.to(()=>DocumentVerificationScreen());
+      Get.to(()=>const DocumentVerificationScreen());
     }).catchError((e) {
       Get.snackbar('Invalid Otp', e.toString(),        backgroundColor: Colors.white
       );
     });
+
   }
 
   bool isValidEmail(String email) {
@@ -108,37 +117,52 @@ class SignUpController extends GetxController {
         .hasMatch(email);
   }
 
-  void verifyLoginOtp() {
-    FirebaseAuth auth = FirebaseAuth.instance;
-    auth
-        .signInWithCredential(PhoneAuthProvider.credential(
-        verificationId: smscode.value, smsCode: otpcode.text))
-        .then((result) async {
-      DocumentSnapshot<Map> documentSnapshot = await FirebaseFirestore.instance.collection("users").doc(FirebaseAuth.instance.currentUser!.uid).get();
-      Map? map = documentSnapshot.data();
+  Future<void> verifyLoginOtp() async{
+    try{
+      FirebaseAuth auth = FirebaseAuth.instance;
+      await auth
+          .signInWithCredential(PhoneAuthProvider.credential(
+              verificationId: smscode.value, smsCode: otpcode.text))
+          .then((result) async {
+        DocumentSnapshot<Map> documentSnapshot = await FirebaseFirestore
+            .instance
+            .collection("users")
+            .doc(FirebaseAuth.instance.currentUser!.uid)
+            .get();
+        Map? map = documentSnapshot.data();
 
-      if(!documentSnapshot.exists){
-        Get.offAll(const CollectUserInfo());
-      }
+        if (!documentSnapshot.exists) {
+          Get.offAll(CollectUserInfo(
+            user: FirebaseAuth.instance.currentUser!,
+          ));
+        }
 
-      // if( (map!["documentsSubmitted"] ==null) ||  (!map["documentsSubmitted"]) ){
-      else if( !(map!["documentsSubmitted"] ?? false)  ){
-        Get.offAll(DocumentVerificationScreen());
+        // if( (map!["documentsSubmitted"] ==null) ||  (!map["documentsSubmitted"]) ){
+        else if (!(map!["documentsSubmitted"] ?? false)) {
+          Get.offAll(DocumentVerificationScreen());
+        } else if (!map["activated"]) {
+          Get.offAll(VerificationScreen());
+        } else {
+          Get.offAll(const RootScreen());
+        }
+        // Get.snackbar("Success", "Login");
+        // print(user);
+      });
+    }
+    on FirebaseAuthException catch (e) {
+      Get.snackbar("OTP ISSUE ",e.message.toString());
+      print(e.message);
+    }
+    catch(e){
+      {
+        print(e.runtimeType);
+        // if(e.toString().contains(RegExp('expire'))){
+        //   return;
+        // }
+        Get.snackbar('Some Error Occured', e.toString(),        backgroundColor: Colors.white
+        );
       }
-
-      else if(! map["activated"] ){
-        Get.offAll(VerificationScreen());
-      }
-
-      else{
-        Get.offAll(const RootScreen());
-      }
-      // Get.snackbar("Success", "Login");
-      // print(user);
-    }).catchError((e) {
-      Get.snackbar('Invalid Otp', e.toString(),        backgroundColor: Colors.white
-      );
-    });
+    }
   }
 
 

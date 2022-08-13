@@ -229,14 +229,14 @@ class _SignUpState extends State<SignUp> {
                         loading = true;
                       });
 
-                      final bool success = await signUpController.signUp();
+                      final bool success = await signUpController.signUp('+92${signUpController.phoneNoController.text.substring(1)}');
 
                       setState((){
                         loading = false;
                       });
 
                       if(success){
-                        Get.to(OtpScreen(phoneno: '+92${signUpController.phoneNoController.text.substring(1)}',));
+                        // Get.to(OtpScreen(phoneno: '+92${signUpController.phoneNoController.text.substring(1)}',));
                       }
                       else{
                         print("sign up failed");

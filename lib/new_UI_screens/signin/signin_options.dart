@@ -65,15 +65,18 @@ class _SignInOptionsScreenState extends State<SignInOptionsScreen> {
                       Map? map = documentSnapshot.data();
 
                       if(!documentSnapshot.exists){
-                        Get.offAll(const CollectUserInfo());
+                        print("signing out from google sign in");
+                        // await GoogleSignInController.signOut();
+                        Get.offAll( CollectUserInfo(user: user,));
                         return;
                       }
 
                       // if( (map!["documentsSubmitted"] ==null) ||  (!map["documentsSubmitted"]) ){
                       String phoneNo = FirebaseAuth.instance.currentUser!.phoneNumber!;
                       print(phoneNo);
+                      print("signing out from google sign in");
                       await GoogleSignInController.signOut();
-                      Get.offAll(OtpScreen(phoneno: phoneNo ,login: true,));
+                      Get.offAll(OtpScreen(phoneno: phoneNo ,login: true, user: user,));
 
                       // Get.snackbar("Success", "Login");
                       // print(user);

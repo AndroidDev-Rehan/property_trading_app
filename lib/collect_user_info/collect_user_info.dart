@@ -1,3 +1,4 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:property_trading_app/controllers/google_signin_controller.dart';
@@ -8,7 +9,9 @@ import '../../global_widgets/custom_text.dart';
 import '../new_UI_screens/otp/otpscreen.dart';
 
 class CollectUserInfo extends StatefulWidget {
-  const CollectUserInfo({Key? key}) : super(key: key);
+  const CollectUserInfo({Key? key, required this.user}) : super(key: key);
+  final User user;
+
 
   @override
   State<CollectUserInfo> createState() => _CollectUserInfoState();
@@ -112,7 +115,7 @@ class _CollectUserInfoState extends State<CollectUserInfo> {
                         loading = true;
                       });
 
-                      bool success = await googleSignInController.uploadInfo();
+                      bool success = await googleSignInController.uploadInfo(widget.user,context);
 
                       setState((){
                         loading = false;
@@ -129,7 +132,7 @@ class _CollectUserInfoState extends State<CollectUserInfo> {
                         // }
 
 
-                        Get.to(OtpScreen(phoneno: '+92${googleSignInController.phoneNoController.text.substring(1)}',));
+                        Get.to(OtpScreen(phoneno: '+92${googleSignInController.phoneNoController.text.substring(1)}', user: widget.user,));
                       }
 
                     }

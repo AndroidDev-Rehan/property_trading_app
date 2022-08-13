@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:property_trading_app/db/user_db.dart';
+import 'package:property_trading_app/global_widgets/custom_app_bar.dart';
 import 'package:property_trading_app/global_widgets/custom_button.dart';
 import 'package:property_trading_app/models/app_user.dart';
 import 'package:property_trading_app/models/app_user_request.dart';
@@ -14,7 +15,7 @@ import '../verification/verification.dart';
 import 'dart:io';
 
 class DocumentVerificationScreen extends StatefulWidget {
-  DocumentVerificationScreen({Key? key}) : super(key: key);
+  const DocumentVerificationScreen({Key? key}) : super(key: key);
 
   @override
   State<DocumentVerificationScreen> createState() => _DocumentVerificationScreenState();
@@ -32,6 +33,7 @@ class _DocumentVerificationScreenState extends State<DocumentVerificationScreen>
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: buildCustomAppBar(),
       backgroundColor: darkMain,
       // appBar: buildCustomAppBar(),
       body: loading ? Center(
