@@ -117,6 +117,9 @@ class _EmailSignInScreenState extends State<EmailSignInScreen> {
       await FirebaseAuth.instance.signOut();
       Get.offAll(OtpScreen(phoneno: phoneNo ,login: true, user: userCredential.user!,));
     }
+    on FirebaseAuthException catch(error){
+      showAlert(context,error.code);
+    }
     catch(e){
       showAlert(context,e.toString());
     }

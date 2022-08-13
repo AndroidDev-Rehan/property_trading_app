@@ -65,7 +65,12 @@ class SignUpController extends GetxController {
       return true;
 
       return false;
-    } catch (e) {
+    }
+    on FirebaseAuthException catch(error){
+      await showAlert("Request Failed, ${error.code}");
+      return false;
+    }
+    catch (e) {
       await showAlert("Request Failed, ${e.toString()}");
       // Get.snackbar("Failed", e.toString());
       print(e);
@@ -86,7 +91,7 @@ class SignUpController extends GetxController {
         },
         verificationFailed: (FirebaseAuthException authException) {},
         codeSent: (String verificationId, int? forceResendingToken) {
-          Get.snackbar("Success","Otp Sent", backgroundColor: Colors.white);
+          Get.snackbar("Success","OTP Sent", backgroundColor: Colors.white);
           // Toast.show("Otp Sent",backgroundColor: Colors.white, duration: Toast.lengthShort, gravity:  Toast.lengthLong);
           stopWatchTimer!.setPresetSecondTime(60);
           stopWatchTimer!.onExecute.add(StopWatchExecute.start);
